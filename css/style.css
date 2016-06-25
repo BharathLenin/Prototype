@@ -1,0 +1,30 @@
+.NEPHRITIS {
+    color: #27AE60
+}
+
+#container {
+    padding: 10px
+}
+
+.row {
+    margin-bottom: 10px
+}
+
+.todo li.todo-done:after,
+.todo li:after {
+    display: none
+}
+
+.pallete-item {
+    width: 90% !important;
+}
+
+.todo ul {
+    height: 700px
+}
+
+/*Overwriting font awesome css */
+
+.fa-2x {
+    font-size: 1.5em !important;
+}
