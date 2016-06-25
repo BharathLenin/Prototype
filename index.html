@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html>
+<script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
+<script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+<script type="text/javascript">
+google.charts.load("current", {
+    packages: ["corechart"]
+});
+google.charts.setOnLoadCallback(drawChart);
+
+
+function drawChart() {
+    //Sterling
+    var data = google.visualization.arrayToDataTable([
+        ['', ''],
+        ['Up', 11],
+
+        ['Down', 7]
+    ]);
+
+    var options = {
+        title: '',
+        pieHole: 0.6,
+        pieSliceTextStyle: {
+            color: 'black',
+        },
+        'backgroundColor': 'transparent',
+
+        slices: {
+            0: {
+                color: '#58d68d'
+            },
+            1: {
+                color: '#e74c3c'
+            }
+        },
+        fill: 'transparent',
+        legend: 'none'
+    };
+
+
+    var chart = new google.visualization.PieChart(document.getElementById('donutchart'));
+    chart.draw(data, options);
+
+
+    //COM
+    var data1 = google.visualization.arrayToDataTable([
+        ['', ''],
+        ['Up', 11],
+
+        ['Down', 0]
+    ]);
+
+    var options1 = {
+        title: '',
+        pieHole: 0.5,
+        pieSliceTextStyle: {
+            color: 'black',
+        },
+        'backgroundColor': 'transparent',
+
+        slices: {
+            0: {
+                color: '#e74c3c'
+            },
+            1: {
+                color: '#e74c3c'
+            }
+        },
+        fill: 'transparent',
+        legend: 'none'
+    };
+
+    var chart1 = new google.visualization.PieChart(document.getElementById('donutchart1'));
+    chart1.draw(data1, options1);
+
+
+
+    //COM
+    var data2 = google.visualization.arrayToDataTable([
+        ['', ''],
+        ['Up', 11],
+
+        ['Down', 0]
+    ]);
+
+    var options2 = {
+        title: '',
+        pieHole: 0.5,
+        pieSliceTextStyle: {
+            color: 'black',
+        },
+        'backgroundColor': 'transparent',
+
+        slices: {
+            0: {
+                color: 'green'
+            },
+            1: {
+                color: '#e74c3c'
+            }
+        },
+        fill: 'transparent',
+        legend: 'none'
+    };
+
+    var chart1 = new google.visualization.PieChart(document.getElementById('donutchart2'));
+    chart1.draw(data2, options2);
+
+
+
+
+}
+</script>
+<!-- Loading Bootstrap -->
+<link href="css/bootstrap.min.css" rel="stylesheet">
+<!-- Loading Flat UI -->
+<link href="css/flat-ui.css" rel="stylesheet">
+<style type="text/css">
+.NEPHRITIS {
+    color: #27AE60
+}
+
+#container {
+    padding: 10px
+}
+
+.row {
+    margin-bottom: 10px
+}
+
+.todo li.todo-done:after,
+.todo li:after {
+    display: none
+}
+    .pallete-item{width:90% !important;}
+    .todo ul{height:700px}
+</style>
+
+<body>
+    <div id="container">
+        <div class="row">
+            <div class="col-xs-1">
+                <img src="images/thd-logo.png" style="width:100px" />
+            </div>
+            <div class="col-xs-11">
+                <h1>COM Infrastructure Health</h1></div>
+        </div>
+        <div class="row">
+            <div class="col-xs-3">
+                <div class="todo">
+                    <ul>
+                        <li class="todo-done">
+                            <div class="todo-icon">
+                                <i class="fa fa-shopping-cart" aria-hidden="true"></i>
+                            </div>
+                            <div class="todo-content">
+                                <h4 class="todo-name">
+                    Sterling
+                  </h4> Description
+                            </div>
+                        </li>
+                        <li>
+                            <div class="todo-icon">
+                                <i class="fa fa-database" aria-hidden="true"></i>
+                            </div>
+                            <div class="todo-content">
+                                <h4 class="todo-name">
+                    COM
+                  </h4> Description
+                            </div>
+                        </li>
+                        <li>
+                            <div class="todo-icon">
+                                <i class="fa fa-database" aria-hidden="true"></i>
+                            </div>
+                            <div class="todo-content">
+                                <h4 class="todo-name">
+                    DB
+                  </h4> Description
+                            </div>
+                        </li>
+                        <li>
+                            <div class="todo-icon">
+                                <i class="fa fa-shopping-cart" aria-hidden="true"></i>
+                            </div>
+                            <div class="todo-content">
+                                <h4 class="todo-name">
+                    Stores
+                  </h4> Description
+                            </div>
+                        </li>
+                        <li>
+                            <div class="todo-icon">
+                                <i class="fa fa-exchange" aria-hidden="true"></i>
+                            </div>
+                            <div class="todo-content">
+                                <h4 class="todo-name">
+                    MQ
+                  </h4> Description
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+                <!-- /.todo -->
+            </div>
+            <!-- /.col-xs-4 -->
+            <div class="col-xs-9">
+                <div class="row">
+
+                    <div class="col-xs-12">
+
+                        <div class="row">
+                            <div class="tile col-xs-12" style="height:160px; ">
+
+                                <h4 class="demo-panel-title">Sterling</h4>
+                                <div class="col-xs-3">
+
+                                    <div class="pallete-item">
+                                        <dl class="palette palette-alizarin">
+                                            <dt>#e74c3c</dt>
+                                            <dd>Alizarin</dd>
+                                        </dl>
+
+                                    </div>
+                                </div>
+
+                                <div class="col-xs-3">
+
+
+                                    <div class="pallete-item">
+                                        <dl class="palette palette-alizarin">
+                                            <dt>#e74c3c</dt>
+                                            <dd>Alizarin</dd>
+                                        </dl>
+
+                                    </div>
+
+                                </div>
+
+                                <div class="col-xs-3">
+
+
+                                    <div class="pallete-item">
+                                        <dl class="palette palette-carrot">
+                                            <dt>#e74c3c</dt>
+                                            <dd>Alizarin</dd>
+                                        </dl>
+
+                                    </div>
+
+                                </div>
+
+                                <div class="col-xs-3">
+
+
+                                    <div class="pallete-item">
+                                        <dl class="palette palette-emerald">
+                                            <dt>#e74c3c</dt>
+                                            <dd>Alizarin</dd>
+                                        </dl>
+
+                                    </div>
+
+                                </div>
+
+                            </div>
+
+
+
+                        </div>
+                    </div>
+
+                    <div class="col-xs-6">
+                        <div class="tile">
+                            <h4 class="demo-panel-title">Store</h4>
+                            <div id="donutchart" style="width: 100%; height: 200px;"></div>
+                        </div>
+                    </div>
+                    <div class="col-xs-6">
+                        <div class="tile">
+                            <h4 class="demo-panel-title">COM</h4>
+                            <div id="donutchart1" style="width: 100%; height: 200px;"></div>
+                        </div>
+                    </div>
+
+
+                    <div class="col-xs-6">
+                        <div class="tile">
+                            <h4 class="demo-panel-title">Database</h4>
+                            <div id="donutchart2" style="width: 100%; height: 200px;"></div>
+                        </div>
+                    </div>
+                    <div class="col-xs-6">
+                        <div class="tile">
+                            <h4 class="demo-panel-title">MQ</h4>
+                            <div id="donutchart3" style="width: 100%; height: 200px;"></div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="https://use.fontawesome.com/a75f07affe.js"></script>
+    <script>
+    var app = angular.module('myApp', []);
+    app.controller('validateCtrl', function($scope) {
+
+    });
+    </script>
+</body>
+
+</html>
