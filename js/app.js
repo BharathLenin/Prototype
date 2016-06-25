@@ -3,3 +3,4 @@
 angular.module('myApp', [
     'HomeControl'
 ])
+
