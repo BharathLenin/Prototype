@@ -32,3 +32,11 @@
 .inline {
 	display: inline-block;
 }
+
+
+.c3-arc-March {
+   fill: red !important;
+}
+.c3-legend-item-March .c3-legend-item-tile {
+    fill: red !important;
+}

@@ -15,6 +15,9 @@
     "tests"
   ],
   "devDependencies": {
-    "font-awesome-animation": "^0.0.9"
+    "font-awesome-animation": "^0.0.9",
+    "c3": "^0.4.11",
+    "underscore": "^1.8.3",
+    "c3-angularjs": "^1.0.0"
   }
 }
