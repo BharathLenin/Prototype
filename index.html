@@ -132,7 +132,7 @@ function drawChart() {
             <div class="col-xs-3">
                 <div class="todo">
                     <ul>
-                        <li class="todo-done" ng-click="setSelected('sterling')" >
+                        <li class="todo-done" ng-click="setSelected('Sterling')">
                             <div class="todo-icon">
                                 <i class="fa fa-2x fa-shopping-cart" aria-hidden="true"></i>
                             </div>
@@ -142,7 +142,7 @@ function drawChart() {
                   </h4> Description
                             </div>
                         </li>
-                        <li>
+                        <li ng-click="setSelected('Com')">
                             <div class="todo-icon">
                                 <i class="fa fa-2x fa-database" aria-hidden="true"></i>
                             </div>
@@ -152,7 +152,7 @@ function drawChart() {
                   </h4> Description
                             </div>
                         </li>
-                        <li>
+                        <li ng-click="setSelected('db')">
                             <div class="todo-icon">
                                 <i class="fa fa-2x fa-database" aria-hidden="true"></i>
                             </div>
@@ -162,7 +162,7 @@ function drawChart() {
                   </h4> Description
                             </div>
                         </li>
-                        <li>
+                        <li ng-click="setSelected('Stores')">
                             <div class="todo-icon">
                                 <i class="fa fa-2x fa-shopping-cart" aria-hidden="true"></i>
                             </div>
@@ -172,7 +172,7 @@ function drawChart() {
                   </h4> Description
                             </div>
                         </li>
-                        <li>
+                        <li ng-click="setSelected('Messaging')">>
                             <div class="todo-icon">
                                 <i class="fa fa-2x fa-exchange" aria-hidden="true"></i>
                             </div>
@@ -188,9 +188,11 @@ function drawChart() {
             </div>
             <!-- /.col-xs-4 -->
             <div class="col-xs-9">
-                <div class="row">
+
+                <!-- Main dashboard -->
+                <div class="row mainContents" ng-show="showItem =='Main'">
                     <div class="col-xs-12">
-                        <div class="row">
+                        <div class="row" ng-click=openComponent('Sterling')>
                             <div class="tile col-xs-12" style="height:160px; ">
                                 <h4 class="demo-panel-title">Sterling</h4>
                                 <div class="col-xs-3">
@@ -229,30 +231,35 @@ function drawChart() {
                         </div>
                     </div>
                     <div class="col-xs-6">
-                        <div class="tile">
+                        <div class="tile" ng-click="setSelected('Store')">
                             <h4 class="demo-panel-title">Store</h4>
                             <div id="donutchart" style="width: 100%; height: 200px;"></div>
                         </div>
                     </div>
                     <div class="col-xs-6">
-                        <div class="tile">
+                        <div class="tile" ng-click="setSelected('Com')">
                             <h4 class="demo-panel-title">COM</h4>
                             <div id="donutchart1" style="width: 100%; height: 200px;"></div>
                         </div>
                     </div>
                     <div class="col-xs-6">
-                        <div class="tile">
+                        <div class="tile" ng-click="setSelected('db')">
                             <h4 class="demo-panel-title">Database</h4>
                             <div id="donutchart2" style="width: 100%; height: 200px;"></div>
                         </div>
                     </div>
                     <div class="col-xs-6">
-                        <div class="tile">
+                        <div class="tile" ng-click="setSelected('Messaging')">
                             <h4 class="demo-panel-title">MQ</h4>
                             <div id="donutchart3" style="width: 100%; height: 200px;"></div>
                         </div>
                     </div>
                 </div>
+
+                <div class="row sterlingContents" ng-show="showItem == 'Sterling'">                    
+                </div>
+
+
             </div>
         </div>
     </div>
