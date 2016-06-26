@@ -12,7 +12,7 @@ angular.module('myApp.controllers', [])
                 ['amber', 20],
                 ['red', 10]
             ],
-            type: 'donut',
+            type: 'donut', //pie
             colors: {
                 green: '#009900',
                 amber: '#FFC200',
