@@ -34,9 +34,19 @@
 }
 
 
-.c3-arc-March {
-   fill: red !important;
+
+
+.todo li:after {
+    display: none !important;
 }
-.c3-legend-item-March .c3-legend-item-tile {
-    fill: red !important;
+
+
+.sterlingMainDash .col-xs-12 {
+    width: 99.5%;
+}
+
+.demo-logo {
+    font: 900 80px/100px "Helvetica Neue", Helvetica, Arial, sans-serif;
+    letter-spacing: -2px;
+    margin: 10px 0;
 }

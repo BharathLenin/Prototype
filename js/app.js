@@ -1,6 +1,7 @@
 'use strict';
 
 angular.module('myApp', [
-	'c3-angularjs',
+	'gridshore.c3js.chart',
+	'chart.js',
     'myApp.controllers'
 ])

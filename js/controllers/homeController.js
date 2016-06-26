@@ -2,29 +2,19 @@ angular.module('myApp.controllers', [])
     .controller('homeController', function($scope, $rootScope) {
 
         $scope.showItem = 'Main';
+        $scope.tabItem = 'Sterling';
 
-
-
-
-        $scope.data = {
-            columns: [
-                ['green', 32],
-                ['amber', 20],
-                ['red', 10]
-            ],
-            type: 'donut', //pie
-            colors: {
-                green: '#009900',
-                amber: '#FFC200',
-                red: '#ff0000'
-            },
-            labels: true
-        };
+        $scope.labels = ["Download Sales", "In-Store Sales", "Mail-Order Sales"];
+        $scope.data = [300, 500, 100];
 
         $scope.openComponent = function(item) {
             $scope.showItem = item;
+            if (item == 'Main') {
+                $scope.tabItem = 'Sterling';
+            } else {
+                $scope.tabItem = item;
+            }
 
 
         }
-
     });
