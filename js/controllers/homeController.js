@@ -6,7 +6,7 @@ angular.module('myApp.controllers', [])
 
         $scope.localChart = {
             columns: [
-                ['green', 32],
+                ['green', 321],
                 ['amber', 20],
                 ['red', 10]
             ],
@@ -16,14 +16,26 @@ angular.module('myApp.controllers', [])
                 amber: '#FFC200',
                 red: '#ff0000'
             },
-            labels: true,
-            bindto: "#chart1"
+            labels: true
         };
+
+        $scope.deltaChart = {
+            columns: [
+                ['green', 32],
+                ['amber', 201],
+                ['red', 10]
+            ],
+            type: 'pie',
+            colors: {
+                green: '#009900',
+                amber: '#FFC200',
+                red: '#ff0000'
+            },
+            labels: true
+        };        
 
         $scope.openComponent = function(item) {
             $scope.showItem = item;
-
-
         }
 
     });
