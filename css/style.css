@@ -28,3 +28,7 @@
 .fa-2x {
     font-size: 1.5em !important;
 }
+
+.inline {
+	display: inline-block;
+}

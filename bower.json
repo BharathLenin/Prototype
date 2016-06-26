@@ -1,0 +1,20 @@
+{
+  "name": "Prototype",
+  "homepage": "https://github.com/BharathLenin/Prototype",
+  "authors": [
+    "BXK8340 <Bharath_Kasinathan1@homedepot.com>"
+  ],
+  "description": "",
+  "main": "",
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "devDependencies": {
+    "font-awesome-animation": "^0.0.9"
+  }
+}

@@ -3,10 +3,10 @@ angular.module('myApp.controllers', [])
 
     	$scope.showItem = 'Main';
 
-        $scope.setSelected = function(item) {
-            console.log(item);
-            console.log($scope.showItem);
-        };
+        // $scope.setSelected = function(item) {
+        //     console.log(item);
+        //     console.log($scope.showItem);
+        // };
 
         $scope.openComponent= function(item) {
         	alert(item);
