@@ -44,6 +44,16 @@
                   </h4> Description
                             </div>
                         </li>
+                        <li ng-click="openComponent('Stores')" ng-class="(tabItem == 'Stores') ? 'todo-done':''">
+                            <div class="todo-icon">
+                                <i class="fa fa-2x fa-shopping-cart" aria-hidden="true"></i>
+                            </div>
+                            <div class="todo-content">
+                                <h4 class="todo-name">
+                    Stores
+                  </h4> Description
+                            </div>
+                        </li>                        
                         <li ng-click="openComponent('Com')" ng-class="(tabItem == 'Com') ? 'todo-done':''">
                             <div class="todo-icon">
                                 <i class="fa fa-2x fa-laptop " aria-hidden="true"></i>
@@ -64,16 +74,7 @@
                   </h4> Description
                             </div>
                         </li>
-                        <li ng-click="openComponent('Stores')" ng-class="(tabItem == 'Stores') ? 'todo-done':''">
-                            <div class="todo-icon">
-                                <i class="fa fa-2x fa-shopping-cart" aria-hidden="true"></i>
-                            </div>
-                            <div class="todo-content">
-                                <h4 class="todo-name">
-                    Stores
-                  </h4> Description
-                            </div>
-                        </li>
+
                         <li ng-click="openComponent('Messaging')" ng-class="(tabItem == 'Messaging') ? 'todo-done':''">
                             <div class="todo-icon">
                                 <i class="fa fa-2x fa-envelope" aria-hidden="true"></i>
@@ -93,7 +94,7 @@
                 <!-- Main dashboard -->
                 <div class="row mainContents" ng-show="showItem =='Main'">
                     <div class="col-xs-12">
-                        <div class="row sterlingMainDash" ng-click=openComponent( 'Sterling')>
+                        <div class="row sterlingMainDash" ng-click= openComponent('Sterling')>
                             <div class="tile col-xs-12" style="height:160px; ">
                                 <h4 class="demo-panel-title">Sterling</h4>
                                 <div class="col-xs-3">
@@ -143,7 +144,7 @@
                     </div>
                     <div class="col-xs-6">
                         <div class="tile" ng-click="openComponent('Stores')">
-                            <h4 class="demo-panel-title">Store</h4>
+                            <h4 class="demo-panel-title">Stores</h4>
                             <div id="donutchartForStoreMainDash" style="width: 100%; height: 200px;"></div>
                         </div>
                     </div>
@@ -167,7 +168,34 @@
                     </div>
                 </div>
                 <div class="row sterlingContents" ng-show="showItem == 'Sterling'">
+<!--                 <div class="col-xs-6">
+                    <h4 class="demo-panel-title">Connection counts</h4>                    
+                </div>
+                <div class="col-xs-6">
                     <h4 class="demo-panel-title">Connection counts</h4>
+                </div> -->
+                <h4>
+                    <div class="floatLeft inline">Connection counts</div>
+                    <div class="floatRight inline">Probe failure</div>
+                </h4>
+                    <div class="pure-g">
+                        <div class="l-box-lrg pure-u-1 pure-u-md-1-2 chartcontainer">
+                            <c3chart bindto-id="connectionCount-chart">
+                                <chart-column column-id="Red" column-values="70" column-type="donut" column-color="red" />
+                                <chart-column column-id="Amber" column-values="35" column-type="donut" column-color="orange" />
+                                <chart-column column-id="Green" column-values="60" column-type="donut" column-color="green" />
+                                <chart-donut title="" width="60" />
+                            </c3chart>
+                        </div>
+                        <div class="l-box-lrg pure-u-1 pure-u-md-1-2 chartcontainer">
+                            <c3chart bindto-id="probeFailure-chart">
+                                    <chart-column column-id="Red" column-values="70" column-type="pie" column-color="red" />
+                                    <chart-column column-id="Amber" column-values="35" column-type="pie" column-color="orange" />
+                                    <chart-column column-id="Green" column-values="60" column-type="pie" column-color="green" />
+                                    <chart-pie expand="true" />
+                                </c3chart>
+                        </div>
+                    </div>                    
                     <!-- c3js chart -->
                     <!-- <canvas id="doughnut" class="chart chart-doughnut" chart-data="data" chart-labels="labels" style="width: 569px !important;height: 305px !important; display: block;">
                     </canvas> -->
@@ -189,7 +217,7 @@
                     <!--                     <div style="width: 100%; height: 400px;">
                         <div class="tile"> -->
                     <div class="pure-g">
-                        <div class="l-box-lrg pure-u-1 pure-u-md-1-2">
+                        <div class="l-box-lrg pure-u-1 pure-u-md-1-2 chartcontainer">
                             <c3chart bindto-id="pie-plot1-chart">
                                 <chart-column column-id="Red" column-values="70" column-type="donut" column-color="red" />
                                 <chart-column column-id="Amber" column-values="35" column-type="donut" column-color="orange" />
@@ -197,7 +225,7 @@
                                 <chart-donut title="Local Stores" width="60" />
                             </c3chart>
                         </div>
-                        <div class="l-box-lrg pure-u-1 pure-u-md-1-2">
+                        <div class="l-box-lrg pure-u-1 pure-u-md-1-2 chartcontainer">
                             <c3chart bindto-id="pie-plot1-chart1">
                                     <chart-column column-id="Red" column-values="70" column-type="pie" column-color="red" />
                                     <chart-column column-id="Amber" column-values="35" column-type="pie" column-color="orange" />

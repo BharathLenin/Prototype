@@ -132,3 +132,12 @@
     padding-top: 12px !important;
     overflow: hidden;
 }
+
+.floatRight {
+    float: right;
+    margin-right: 16%;
+}
+
+.floatLeft {
+    margin-left: 13%;
+}

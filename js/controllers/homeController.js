@@ -154,18 +154,17 @@ angular.module('myApp.controllers', [])
         $scope.initializeChartForMainDashboard();
         $scope.initializeSterlingMainDash();
 
+        angular.element(window).on('resize', function() {
+            angular.element(document.querySelectorAll(".chartcontainer")).css('display', 'block');
+        });
         $scope.openComponent = function(item) {
             $scope.showItem = item;
             $scope.tabItem = item;
-            // if (item == 'Main') {
-            //     $scope.tabItem = 'Sterling';
-            // } else {
-            //     $scope.tabItem = item;
-            // }
-
-            var el = angular.element(document.querySelector('#doughnut'));
-            // el.attr('width', '597px');
-            // el.attr('height', '305px');
+            angular.element(document.querySelectorAll(".chartcontainer")).css('display', 'none');
+            // var el = angular.element(document.querySelector('#doughnut'));
+            setTimeout(function() {
+                window.dispatchEvent(new Event('resize'));
+            }, 100);
         };
 
         $scope.choseHealthColor = function(tabStatus) {
