@@ -2,7 +2,7 @@ angular.module('myApp.controllers', [])
     .controller('homeController', function($scope, $rootScope) {
 
         $scope.showItem = 'Main';
-        $scope.tabItem = 'Sterling';
+        // $scope.tabItem = 'Sterling';
 
         //c3js chart
         $scope.labels = ["Download Sales", "In-Store Sales", "Mail-Order Sales"];
@@ -29,7 +29,7 @@ angular.module('myApp.controllers', [])
 
             var storeOptions = {
                 title: '',
-                pieHole: 0.6,
+                pieHole: 0.5,
                 pieSliceTextStyle: {
                     color: 'black',
                 },
@@ -37,14 +37,17 @@ angular.module('myApp.controllers', [])
 
                 slices: {
                     0: {
-                        color: '#58d68d'
+                        color: '#58d68d' //green
                     },
                     1: {
                         color: '#e74c3c'
                     }
                 },
                 fill: 'transparent',
-                legend: 'none'
+                legend: 'none',
+                is3D: false,
+                // width: 600,
+                // height: 300,
             };
 
 
@@ -70,7 +73,7 @@ angular.module('myApp.controllers', [])
 
                 slices: {
                     0: {
-                        color: '#e74c3c'
+                        color: '#58d68d'
                     },
                     1: {
                         color: '#e74c3c'
@@ -82,8 +85,6 @@ angular.module('myApp.controllers', [])
 
             var comChart = new google.visualization.PieChart(document.getElementById('donutchartForComMainDash'));
             comChart.draw(comData, comOptions);
-
-
 
             //DB
             var dbData = google.visualization.arrayToDataTable([
@@ -103,7 +104,7 @@ angular.module('myApp.controllers', [])
 
                 slices: {
                     0: {
-                        color: 'green'
+                        color: '#58d68d'
                     },
                     1: {
                         color: '#e74c3c'
@@ -116,6 +117,38 @@ angular.module('myApp.controllers', [])
             var dbChart = new google.visualization.PieChart(document.getElementById('donutchartForDBMainDash'));
             dbChart.draw(dbData, dbOptions);
             //DB
+
+            //MQ
+            var mqData = google.visualization.arrayToDataTable([
+                ['', ''],
+                ['Up', 0],
+
+                ['Down', 2]
+            ]);
+
+            var mqOptions = {
+                title: '',
+                pieHole: 0.5,
+                pieSliceTextStyle: {
+                    color: 'black',
+                },
+                'backgroundColor': 'transparent',
+
+                slices: {
+                    0: {
+                        color: '#58d68d'
+                    },
+                    1: {
+                        color: '#e74c3c'
+                    }
+                },
+                fill: 'transparent',
+                legend: 'none'
+            };
+
+            var mqChart = new google.visualization.PieChart(document.getElementById('donutchartForMQMainDash'));
+            mqChart.draw(mqData, mqOptions);
+            //MQ            
         };
 
         $scope.initializeChartForMainDashboard();
@@ -123,11 +156,16 @@ angular.module('myApp.controllers', [])
 
         $scope.openComponent = function(item) {
             $scope.showItem = item;
-            if (item == 'Main') {
-                $scope.tabItem = 'Sterling';
-            } else {
-                $scope.tabItem = item;
-            }
+            $scope.tabItem = item;
+            // if (item == 'Main') {
+            //     $scope.tabItem = 'Sterling';
+            // } else {
+            //     $scope.tabItem = item;
+            // }
+
+            var el = angular.element(document.querySelector('#doughnut'));
+            // el.attr('width', '597px');
+            // el.attr('height', '305px');
         };
 
         $scope.choseHealthColor = function(tabStatus) {

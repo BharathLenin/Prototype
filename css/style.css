@@ -6,9 +6,9 @@
     padding: 10px
 }
 
-.row {
+/*.row {
     margin-bottom: 10px
-}
+}*/
 
 .todo li.todo-done:after,
 .todo li:after {
@@ -121,4 +121,9 @@
         -webkit-transform: translateX(0);
         transform: translateX(0);
     }
+}
+
+@media screen and (min-width: 48em)
+.pure-u-md-1-2, .pure-u-md-12-24 {
+    width: 30%;
 }
