@@ -25,6 +25,22 @@
 .tile{border: solid 1px #dedede;}
 .fix
 {margin-left: -15px !important; width: 102% !important}
+.green
+{
+    color:#2ecc71 !important;
+}
+.ro {
+    position: absolute;
+
+    -webkit-animation:spin 4s linear infinite;
+    -moz-animation:spin 4s linear infinite;
+    animation:spin 4s linear infinite;
+}
+@-moz-keyframes spin { 100% { -moz-transform: rotate(360deg); } }
+@-webkit-keyframes spin { 100% { -webkit-transform: rotate(360deg); } }
+@keyframes spin { 100% { -webkit-transform: rotate(360deg); transform:rotate(360deg); } }
+
+
 /*.row {
     margin-bottom: 10px
 }*/
@@ -34,6 +50,7 @@
     display: none
 }
 .centerText{text-align: center;}
+#refresh{margin-top: 30px}
 .pallete-item {
     width: 90% !important;
 }
