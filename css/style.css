@@ -127,3 +127,8 @@
 .pure-u-md-1-2, .pure-u-md-12-24 {
     width: 30%;
 }
+
+.todo-content {
+    padding-top: 12px !important;
+    overflow: hidden;
+}
