@@ -10,6 +10,7 @@
         background-color: #eff0f2;
     padding: 10px;
     margin-top: -10px;
+    border-bottom: 1px solid #dedede;
 }
 .palette{
     border-radius: 5px;
@@ -21,6 +22,7 @@
 .todo ul{
     border-radius:6px 6px 6px 6px !important;
 }
+.tile{border: solid 1px #dedede;}
 .fix
 {margin-left: -15px !important; width: 102% !important}
 /*.row {
@@ -37,9 +39,10 @@
 }
 
 .todo ul {
-    height: 770px
+    height: 780px
 }
-#footer{text-align: center;margin:10px 0px 10px 0px;}
+#footer{text-align: center;margin:10px -10px -10px -10px !important; padding:20px 0px 20px 0px; border-top: solid 1px #dedede; 
+    background-color:#eff0f2 ;   }
 
 
 /*Overwriting font awesome css */

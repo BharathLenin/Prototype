@@ -25,7 +25,9 @@
     <div id="container" ng-controller="homeController">
         <div class="row topHeader" ng-click="openComponent('Main')">
             <div class="col-xs-1">
+               <a href="index.html"> 
                 <img src="images/thd-logo.png" style="width:100px" />
+            </a>
             </div>
             <div class="col-xs-11">
                 <h1 >COM Infrastructure Health</h1></div>
@@ -36,7 +38,8 @@
                     <ul>
                         <li ng-click="openComponent('Sterling')" ng-class="(tabItem == 'Sterling') ? 'todo-done':''">
                             <div class="todo-icon">
-                                <i class="fa fa-2x fa-tachometer" aria-hidden="true"></i>
+                                <i class="fa fa-2x fa-server" aria-hidden="true"></i>
+                                
                             </div>
                             <div class="todo-content">
                                 <h4 class="todo-name">
@@ -56,7 +59,7 @@
                         </li>                        
                         <li ng-click="openComponent('Com')" ng-class="(tabItem == 'Com') ? 'todo-done':''">
                             <div class="todo-icon">
-                                <i class="fa fa-2x fa-laptop " aria-hidden="true"></i>
+                                <i class="fa fa-2x fa-cogs " aria-hidden="true"></i>
                             </div>
                             <div class="todo-content">
                                 <h4 class="todo-name">
