@@ -218,6 +218,47 @@
                     </c3chart>
                 </div>
                 <div class="row comContents" ng-show="showItem == 'Com'">
+                                <h4>
+                    <div class="floatLeft inline">COM Order JVM</div>
+                    <div class="floatRight inline">COM Inventory JVM</div>
+                </h4>
+                    <div class="pure-g">
+                        <div class="l-box-lrg pure-u-1 pure-u-md-1-2 chartcontainer">
+                            <c3chart bindto-id="comOrder-chart">
+                                <chart-column column-id="Red" column-values="70" column-type="donut" column-color="#e74c3c" />
+                                <chart-column column-id="Amber" column-values="35" column-type="donut" column-color="#e67e22" />
+                                <chart-column column-id="Green" column-values="60" column-type="donut" column-color="#2ecc71" />
+                                <chart-donut title="" width="60" />
+                            </c3chart>
+                        </div>
+                        <div class="l-box-lrg pure-u-1 pure-u-md-1-2 chartcontainer">
+                            <c3chart bindto-id="comInventory-chart">
+                                    <chart-column column-id="Red" column-values="70" column-type="donut" column-color="#e74c3c" />
+                                    <chart-column column-id="Amber" column-values="35" column-type="donut" column-color="#e67e22" />
+                                    <chart-column column-id="Green" column-values="60" column-type="donut" column-color="#2ecc71" />
+                                    <chart-donut title="" width="60"  />
+                                </c3chart>
+                        </div>
+                    </div>
+
+<div class="row"></div>
+<div class="row"></div>
+<div class="row"></div>
+
+                    <div class="batchSessionChart">
+                        <h4 class="centerText">Batch Session</h4>
+
+                        <c3chart bindto-id="batchSession-gauge-chart">
+                            <chart-column column-id="Data 1"
+                        column-values="5000"
+                        column-type="gauge"/>
+                            <chart-gauge min="0"
+                        max="15000"
+                        units=" count"
+                        width="39"/>
+                        </c3chart>
+                    </div>
+
                 </div>
                 <div class="row dbContents" ng-show="showItem == 'db'">
                 </div>
