@@ -1,0 +1,49 @@
+[
+  {
+    "messagingQueue": {
+      "components": [
+        {
+          "comDepthQueue": {
+            "messageQueueCount": 100,
+            "messageQueuePercent": 1,
+            "status": "red"
+          }
+        },
+        {
+          "sterlingDepthQueue": {
+            "messageQueueCount": 100,
+            "messageQueuePercent": 0,
+            "status": "red"
+          }
+        },
+        {
+          "transmitQueue": {
+            "messageQueueCount": 100,
+            "messageQueuePercent": 9,
+            "status": "red"
+          }
+        }
+      ],
+      "overallStatus": "green"
+    }
+  },
+  {
+    "stores": {
+      "components": [
+        {
+          "unSyncDeltas": {
+            "messageQueueCount": 2987,
+            "status": "green"
+          }
+        },
+        {
+          "localStores": {
+            "storeCount": 7,
+            "status": "amber"
+          }
+        }
+      ],
+      "overallStatus": "amber"
+    }
+  }
+]

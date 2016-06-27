@@ -101,7 +101,7 @@
 
                         <li ng-click="openComponent('Messaging')" ng-class="(tabItem == 'Messaging') ? 'todo-done':''">
                             <div class="todo-icon">
-                                <i class="fa fa-2x fa-envelope" aria-hidden="true"></i>
+                                <i class="fa fa-2x fa-hdd-o" aria-hidden="true"></i>
                             </div>
                             <div class="todo-content">
                                 <h4 class="todo-name">
@@ -275,6 +275,42 @@
 
                 </div>
                 <div class="row dbContents" ng-show="showItem == 'db'">
+                                <h4>
+                    <div class="floatLeft inline">Sterling DB</div>
+                    <div class="floatRight inline">ODS DB</div>
+                </h4>
+                    <div class="pure-g">
+                        <div class="l-box-lrg pure-u-1 pure-u-md-1-2 chartcontainer">
+                            <c3chart bindto-id="sterlingDB-chart">
+                                <chart-column column-id="Red" column-values="70" column-type="donut" column-color="#e74c3c" />
+                                <chart-column column-id="Amber" column-values="35" column-type="donut" column-color="#e67e22" />
+                                <chart-column column-id="Green" column-values="60" column-type="donut" column-color="#2ecc71" />
+                                <chart-donut title="" width="60" />
+                            </c3chart>
+                        </div>
+                        <div class="l-box-lrg pure-u-1 pure-u-md-1-2 chartcontainer">
+                            <c3chart bindto-id="odsDB-chart">
+                                    <chart-column column-id="Red" column-values="70" column-type="donut" column-color="#e74c3c" />
+                                    <chart-column column-id="Amber" column-values="35" column-type="donut" column-color="#e67e22" />
+                                    <chart-column column-id="Green" column-values="60" column-type="donut" column-color="#2ecc71" />
+                                    <chart-donut title="" width="60"  />
+                                </c3chart>
+                        </div>
+                    </div>
+                                        <div class="ggReplicationChart">
+                        <h4 class="centerText">GG Replication</h4>
+
+                        <c3chart bindto-id="ggReplication-gauge-chart">
+                            <chart-column column-id="Data 1"
+                        column-values="5000"
+                        column-type="gauge"/>
+                            <chart-gauge min="0"
+                        max="15000"
+                        units=" count"
+                        width="39"/>
+                        </c3chart>
+                    </div>
+
                 </div>
                 <div class="row storesContents" ng-show="showItem == 'Stores'">
                     <!-- <div class="col-xs-6">

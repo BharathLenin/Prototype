@@ -4,13 +4,22 @@ angular.module('myApp.controllers', [])
         $scope.showItem = 'Main';
         $scope.tabItem = 'Main';
 
+        $scope.mqUpStatus = 0;
+        $scope.mqDownStatus = 0;
+
         fetch().then(function(data) {
             $scope.serviceDetails = data;
             console.log($scope.serviceDetails);
+            formatDetails(data);
         }, function(error) {
             $scope.errorDetails = error;
             console.log($scope.errorDetails);
         });
+
+      $http.get('mock/services.json').success(function(data) {
+          console.log(data);
+          formatDetails(data);
+      });
 
         console.log($scope.serviceDetails);
 
@@ -32,9 +41,9 @@ angular.module('myApp.controllers', [])
             //Sterling - MainDashboard
             var storeData = google.visualization.arrayToDataTable([
                 ['', ''], //required
-                ['Up', 121],
+                ['Up', 850],
 
-                ['Down', 37]
+                ['Down', 130]
             ]);
 
             var storeOptions = {
@@ -58,6 +67,7 @@ angular.module('myApp.controllers', [])
                 is3D: false,
                 // width: 600,
                 // height: 300,
+                pieSliceText: 'value'
             };
 
 
@@ -131,9 +141,9 @@ angular.module('myApp.controllers', [])
             //MQ
             var mqData = google.visualization.arrayToDataTable([
                 ['', ''],
-                ['Up', 0],
+                ['Up', $scope.mqUpStatus],
 
-                ['Down', 2]
+                ['Down',$scope.mqDownStatus]
             ]);
 
             var mqOptions = {
@@ -188,7 +198,7 @@ angular.module('myApp.controllers', [])
         element.fireEvent("onresize",event);
     }
 
-            }, 100);
+            }, 50);
         };
 
         $scope.choseHealthColor = function(tabStatus) {
@@ -213,15 +223,26 @@ angular.module('myApp.controllers', [])
 
         function fetch(){
             var deferred = $q.defer();
-
-            $http.get("http://localhost:12030/dashboard-rest/rest/data/getData", {timeout: 240000})
+            $http.get("http://localhost:12030/dashboard-rest/rest/data/getData?callback=121212", {timeout: 240000})
             .then(function successCallback(response){
               deferred.resolve(response);
            }, function errorCallback(response){
               deferred.reject(response);
            });
-
           return deferred.promise;
+        }
+
+        function formatDetails(restApiData){
+
+          console.log(restApiData);
+          if(restApiData[0].messagingQueue){
+              if (restApiData[0].messagingQueue.overallStatus == "red") {
+                  $scope.mqDownStatus = 1;
+              } else {
+                  $scope.mqUpStatus = 1;
+              }              
+                
+          }
 
         }
 
