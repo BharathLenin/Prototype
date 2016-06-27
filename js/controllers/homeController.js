@@ -44,7 +44,7 @@ angular.module('myApp.controllers', [])
                     }
                 },
                 fill: 'transparent',
-                //legend: 'none',
+                legend: 'none',
                 is3D: false,
                 // width: 600,
                 // height: 300,
@@ -80,7 +80,7 @@ angular.module('myApp.controllers', [])
                     }
                 },
                 fill: 'transparent',
-               // legend: 'none'
+               legend: 'none'
             };
 
             var comChart = new google.visualization.PieChart(document.getElementById('donutchartForComMainDash'));
@@ -111,7 +111,7 @@ angular.module('myApp.controllers', [])
                     }
                 },
                 fill: 'transparent',
-                //legend: 'none'
+                legend: 'none'
             };
 
             var dbChart = new google.visualization.PieChart(document.getElementById('donutchartForDBMainDash'));
@@ -143,7 +143,7 @@ angular.module('myApp.controllers', [])
                     }
                 },
                 fill: 'transparent',
-                //legend: 'none'
+                legend: 'none'
             };
 
             var mqChart = new google.visualization.PieChart(document.getElementById('donutchartForMQMainDash'));
