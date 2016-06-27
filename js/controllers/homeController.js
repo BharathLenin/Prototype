@@ -1,8 +1,18 @@
 angular.module('myApp.controllers', [])
-    .controller('homeController', function($scope, $rootScope) {
+    .controller('homeController', function($scope, $rootScope, $http, $q) {
 
         $scope.showItem = 'Main';
         $scope.tabItem = 'Main';
+
+        fetch().then(function(data) {
+            $scope.serviceDetails = data;
+            console.log($scope.serviceDetails);
+        }, function(error) {
+            $scope.errorDetails = error;
+            console.log($scope.errorDetails);
+        });
+
+        console.log($scope.serviceDetails);
 
         //c3js chart
         $scope.labels = ["Download Sales", "In-Store Sales", "Mail-Order Sales"];
@@ -200,5 +210,19 @@ angular.module('myApp.controllers', [])
                 return 'fa-times-circle faa-flash animated';
             }
         };
+
+        function fetch(){
+            var deferred = $q.defer();
+
+            $http.get("http://localhost:12030/dashboard-rest/rest/data/getData", {timeout: 240000})
+            .then(function successCallback(response){
+              deferred.resolve(response);
+           }, function errorCallback(response){
+              deferred.reject(response);
+           });
+
+          return deferred.promise;
+
+        }
 
     });
