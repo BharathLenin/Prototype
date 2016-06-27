@@ -33,7 +33,7 @@
 .todo li:after {
     display: none
 }
-
+.centerText{text-align: center;}
 .pallete-item {
     width: 90% !important;
 }
