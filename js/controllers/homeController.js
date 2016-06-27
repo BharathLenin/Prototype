@@ -2,7 +2,7 @@ angular.module('myApp.controllers', [])
     .controller('homeController', function($scope, $rootScope) {
 
         $scope.showItem = 'Main';
-        // $scope.tabItem = 'Sterling';
+        $scope.tabItem = 'Main';
 
         //c3js chart
         $scope.labels = ["Download Sales", "In-Store Sales", "Mail-Order Sales"];
