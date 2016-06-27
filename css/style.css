@@ -29,6 +29,10 @@
 {
     color:#2ecc71 !important;
 }
+.todo-name
+{
+    margin-top:10px !important;
+}
 .ro {
     position: absolute;
 
