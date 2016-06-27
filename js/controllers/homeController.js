@@ -157,13 +157,27 @@ angular.module('myApp.controllers', [])
         angular.element(window).on('resize', function() {
             angular.element(document.querySelectorAll(".chartcontainer")).css('display', 'block');
         });
+
         $scope.openComponent = function(item) {
             $scope.showItem = item;
             $scope.tabItem = item;
-            angular.element(document.querySelectorAll(".chartcontainer")).css('display', 'none');
+           // angular.element(document.querySelectorAll(".chartcontainer")).css('display', 'none');
             // var el = angular.element(document.querySelector('#doughnut'));
             setTimeout(function() {
-                window.dispatchEvent(new Event('resize'));
+                //window.dispatchEvent(new Event('resize'));
+
+
+                if (document.createEvent) { // W3C
+        var ev = document.createEvent('Event');
+        ev.initEvent('resize', true, true);
+        window.dispatchEvent(ev);
+    }
+    else { // IE
+        element=document.documentElement;
+        var event=document.createEventObject();
+        element.fireEvent("onresize",event);
+    }
+
             }, 100);
         };
 
