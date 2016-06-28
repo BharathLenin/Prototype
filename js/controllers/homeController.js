@@ -1,32 +1,35 @@
 angular.module('myApp.controllers', [])
     .controller('homeController', function($scope, $rootScope, $http, $q) {
 
+        //Constants
+        const RED = "red";
+        const AMBER = "amber";
+        const GREEN = "green";
+
+        const RED_COLOR = '#e74c3c';
+        const GREEN_COLOR = '#58d68d';
+        const CARROT_COLOR = '#e67e22';
+        const BLACK_COLOR = '#000';
+
         $scope.showItem = 'Main';
         $scope.tabItem = 'Main';
 
+
         $scope.mqUpStatus = 0;
         $scope.mqDownStatus = 0;
+        $scope.mqWarnStatus = 0;
 
-        fetch().then(function(data) {
-            $scope.serviceDetails = data;
-            console.log($scope.serviceDetails);
-            formatDetails(data);
-        }, function(error) {
-            $scope.errorDetails = error;
-            console.log($scope.errorDetails);
-        });
+        $scope.storeDownStatus = 0;
+        $scope.storeUpStatus = 0;
+        $scope.storeWarnStatus = 0;
 
-      $http.get('mock/services.json').success(function(data) {
-          console.log(data);
-          formatDetails(data);
-      });
+        $scope.comDownStatus = 0;
+        $scope.comUpStatus = 0;
+        $scope.comWarnStatus = 0;
 
-        console.log($scope.serviceDetails);
-
-        //c3js chart
-        $scope.labels = ["Download Sales", "In-Store Sales", "Mail-Order Sales"];
-        $scope.data = [300, 500, 100];
-
+        $scope.dbDownStatus = 0;
+        $scope.dbUpStatus = 0;
+        $scope.dbWarnStatus = 0;
 
         $scope.initializeSterlingMainDash = function() {
             $scope.sterlingConnectionCountHealthStatus = 'Warning'; //green
@@ -41,25 +44,28 @@ angular.module('myApp.controllers', [])
             //Sterling - MainDashboard
             var storeData = google.visualization.arrayToDataTable([
                 ['', ''], //required
-                ['Up', 850],
-
-                ['Down', 130]
+                ['Up', $scope.storeUpStatus],
+                ['Warning', $scope.storeWarnStatus],
+                ['Down', $scope.storeDownStatus]
             ]);
 
             var storeOptions = {
                 title: '',
                 pieHole: 0.5,
                 pieSliceTextStyle: {
-                    color: 'black',
+                    color: BLACK_COLOR,
                 },
                 'backgroundColor': 'transparent',
 
                 slices: {
                     0: {
-                        color: '#58d68d' //green
+                        color: GREEN_COLOR
                     },
                     1: {
-                        color: '#e74c3c'
+                        color: CARROT_COLOR
+                    },
+                    2: {
+                        color: RED_COLOR
                     }
                 },
                 fill: 'transparent',
@@ -78,29 +84,32 @@ angular.module('myApp.controllers', [])
             //COM
             var comData = google.visualization.arrayToDataTable([
                 ['', ''],
-                ['Up', 11],
-
-                ['Down', 0]
+                ['Up', $scope.comUpStatus],
+                ['Warning', $scope.comWarnStatus],
+                ['Down', $scope.comDownStatus]
             ]);
 
             var comOptions = {
                 title: '',
                 pieHole: 0.5,
                 pieSliceTextStyle: {
-                    color: 'black',
+                    color: BLACK_COLOR,
                 },
                 'backgroundColor': 'transparent',
 
                 slices: {
                     0: {
-                        color: '#58d68d'
+                        color: GREEN_COLOR
                     },
                     1: {
-                        color: '#e74c3c'
+                        color: CARROT_COLOR
+                    },
+                    2: {
+                        color: RED_COLOR
                     }
                 },
                 fill: 'transparent',
-               legend: 'none'
+                legend: 'none'
             };
 
             var comChart = new google.visualization.PieChart(document.getElementById('donutchartForComMainDash'));
@@ -109,25 +118,28 @@ angular.module('myApp.controllers', [])
             //DB
             var dbData = google.visualization.arrayToDataTable([
                 ['', ''],
-                ['Up', 11],
-
-                ['Down', 0]
+                ['Up', $scope.dbUpStatus],
+                ['Warning', $scope.dbWarnStatus],
+                ['Down', $scope.dbDownStatus]
             ]);
 
             var dbOptions = {
                 title: '',
                 pieHole: 0.5,
                 pieSliceTextStyle: {
-                    color: 'black',
+                    color: BLACK_COLOR,
                 },
                 'backgroundColor': 'transparent',
 
                 slices: {
                     0: {
-                        color: '#58d68d'
+                        color: GREEN_COLOR
                     },
                     1: {
-                        color: '#e74c3c'
+                        color: CARROT_COLOR
+                    },
+                    2: {
+                        color: RED_COLOR
                     }
                 },
                 fill: 'transparent',
@@ -142,24 +154,27 @@ angular.module('myApp.controllers', [])
             var mqData = google.visualization.arrayToDataTable([
                 ['', ''],
                 ['Up', $scope.mqUpStatus],
-
-                ['Down',$scope.mqDownStatus]
+                ['Warning', $scope.mqDownStatus],
+                ['Down', $scope.mqWarnStatus]
             ]);
 
             var mqOptions = {
                 title: '',
                 pieHole: 0.5,
                 pieSliceTextStyle: {
-                    color: 'black',
+                    color: BLACK_COLOR,
                 },
                 'backgroundColor': 'transparent',
 
                 slices: {
                     0: {
-                        color: '#58d68d'
+                        color: GREEN_COLOR
                     },
                     1: {
-                        color: '#e74c3c'
+                        color: CARROT_COLOR
+                    },
+                    2: {
+                        color: RED_COLOR
                     }
                 },
                 fill: 'transparent',
@@ -171,33 +186,41 @@ angular.module('myApp.controllers', [])
             //MQ            
         };
 
-        $scope.initializeChartForMainDashboard();
-        $scope.initializeSterlingMainDash();
+
 
         angular.element(window).on('resize', function() {
             angular.element(document.querySelectorAll(".chartcontainer")).css('display', 'block');
         });
 
+        // fetch().then(function(data) {
+        //     $scope.serviceDetails = data;
+        //     console.log($scope.serviceDetails);
+        //     formatDetails(data);
+        // }, function(error) {
+        //     $scope.errorDetails = error;
+        //     console.log($scope.errorDetails);
+        // });
+
+        $http.get('mock/services.json').success(function(data) {
+            console.log(data);
+            formatDetails(data);
+            $scope.initializeChartForMainDashboard();
+            $scope.initializeSterlingMainDash();
+        });
+
         $scope.openComponent = function(item) {
             $scope.showItem = item;
             $scope.tabItem = item;
-           // angular.element(document.querySelectorAll(".chartcontainer")).css('display', 'none');
-            // var el = angular.element(document.querySelector('#doughnut'));
             setTimeout(function() {
-                //window.dispatchEvent(new Event('resize'));
-
-
                 if (document.createEvent) { // W3C
-        var ev = document.createEvent('Event');
-        ev.initEvent('resize', true, true);
-        window.dispatchEvent(ev);
-    }
-    else { // IE
-        element=document.documentElement;
-        var event=document.createEventObject();
-        element.fireEvent("onresize",event);
-    }
-
+                    var ev = document.createEvent('Event');
+                    ev.initEvent('resize', true, true);
+                    window.dispatchEvent(ev);
+                } else { // IE
+                    element = document.documentElement;
+                    var event = document.createEventObject();
+                    element.fireEvent("onresize", event);
+                }
             }, 50);
         };
 
@@ -221,28 +244,69 @@ angular.module('myApp.controllers', [])
             }
         };
 
-        function fetch(){
+        function fetch() {
             var deferred = $q.defer();
-            $http.get("http://localhost:12030/dashboard-rest/rest/data/getData?callback=121212", {timeout: 240000})
-            .then(function successCallback(response){
-              deferred.resolve(response);
-           }, function errorCallback(response){
-              deferred.reject(response);
-           });
-          return deferred.promise;
+            $http.get("http://localhost:12030/dashboard-rest/rest/data/getData?callback=121212", { timeout: 240000 })
+                .then(function successCallback(response) {
+                    deferred.resolve(response);
+                }, function errorCallback(response) {
+                    deferred.reject(response);
+                });
+            return deferred.promise;
         }
 
-        function formatDetails(restApiData){
+        function formatDetails(restApiData) {
+            if (!restApiData.data) {
+                return null;
+            }
+            var messagingInfo = restApiData.data[0];
+            var storesInfo = restApiData.data[1];
+            var comInfo = restApiData.data[2];
+            var dbInfo = restApiData.data[3];
 
-          console.log(restApiData);
-          if(restApiData[0].messagingQueue){
-              if (restApiData[0].messagingQueue.overallStatus == "red") {
-                  $scope.mqDownStatus = 1;
-              } else {
-                  $scope.mqUpStatus = 1;
-              }              
-                
-          }
+            if (messagingInfo.messagingQueue) {
+                if (messagingInfo.messagingQueue.overallStatus == RED) {
+                    $scope.mqDownStatus = 1;
+                } else if (messagingInfo.messagingQueue.overallStatus == AMBER) {
+                    $scope.mqWarnStatus = 1;
+                } else {
+                    $scope.mqUpStatus = 1;
+                }
+            }
+
+            if (storesInfo.stores) {
+                if (storesInfo.stores.overallStatus == RED) {
+                    $scope.storeDownStatus = 1;
+                } else if (storesInfo.stores.overallStatus == AMBER) {
+                    $scope.storeWarnStatus = 1;
+                } else {
+                    $scope.storeUpStatus = 1;
+                }
+            }
+
+            if (comInfo.COM) {
+                if (comInfo.COM.overallStatus == RED) {
+                    $scope.comDownStatus = 1;
+                } else if (comInfo.COM.overallStatus == AMBER) {
+                    $scope.comWarnStatus = 1;
+                } else {
+                    $scope.comUpStatus = 1;
+                }
+            }
+
+            if (dbInfo.DB) {
+                if (dbInfo.DB.overallStatus == RED) {
+                    $scope.dbDownStatus = 1;
+                } else if (dbInfo.DB.overallStatus == AMBER) {
+                    $scope.dbWarnStatus = 1;
+                } else {
+                    $scope.dbUpStatus = 1;
+                }
+            }
+
+
+
+
 
         }
 
