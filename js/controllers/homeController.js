@@ -38,6 +38,33 @@ angular.module('myApp.controllers', [])
             $scope.sterlingAgentHealthStatus = 'Critical'; //Red
         }
 
+        function initValues() {
+            $scope.localStoreGreen = 0;
+            $scope.localStoreAmber = 0;
+            $scope.localStoreRed = 0;
+        }
+
+
+        $scope.donutColumns = [{ "id": "Red", "type": "donut", "color": RED_COLOR },
+            { "id": "Amber", "type": "donut", "color": CARROT_COLOR }, {
+                "id": "Green",
+                "type": "donut",
+                "color": GREEN_COLOR
+            }
+        ];
+
+        $scope.pieColumns = [{ "id": "Red", "type": "pie", "color": RED_COLOR },
+            { "id": "Amber", "type": "pie", "color": CARROT_COLOR }, {
+                "id": "Green",
+                "type": "pie",
+                "color": GREEN_COLOR
+            }
+        ];
+
+        $scope.formatDonut = function(value, ratio, id) {
+            return d3.format()(value);
+        };
+
 
         $scope.initializeChartForMainDashboard = function() {
 
@@ -142,7 +169,7 @@ angular.module('myApp.controllers', [])
                         color: RED_COLOR
                     }
                 },
-                fill: 'transparent',
+                // fill: 'transparent',
                 legend: 'none'
             };
 
@@ -203,9 +230,12 @@ angular.module('myApp.controllers', [])
 
         $http.get('mock/services.json').success(function(data) {
             console.log(data);
-            formatDetails(data);
-            $scope.initializeChartForMainDashboard();
             $scope.initializeSterlingMainDash();
+            initValues();
+
+            formatDetails(data);
+            //call this after getting the service response
+            $scope.initializeChartForMainDashboard();
         });
 
         $scope.openComponent = function(item) {
@@ -282,6 +312,32 @@ angular.module('myApp.controllers', [])
                 } else {
                     $scope.storeUpStatus = 1;
                 }
+
+                /* Local Store calculation */
+                var localStrCount = storesInfo.stores.components[1].localStores.storeCount;
+                var localStrColor = storesInfo.stores.components[1].localStores.status;
+                var localStoreGreen, localStoreAmber, localStoreRed = 0;
+                if (localStrColor == GREEN) {
+                    localStoreGreen = localStrCount;
+                } else if (localStrColor == AMBER) {
+                    localStoreAmber = localStrCount;
+                } else {
+                    localStoreRed = localStrCount;
+                }
+                $scope.localStoreDonutsPts = [{ "Green": localStoreGreen, "Amber": localStoreAmber, "Red": localStoreRed }];
+
+                /* Unsynced delta's*/
+                var unSyncDeltaCount = storesInfo.stores.components[0].unSyncDeltas.messageQueueCount;
+                var unSyncDeltaColor = storesInfo.stores.components[0].unSyncDeltas.status;
+                var unSyncDeltaGreen, unSyncDeltaAmber, unSyncDeltaRed = 0;
+                if (unSyncDeltaColor == GREEN) {
+                    unSyncDeltaGreen = unSyncDeltaCount;
+                } else if (unSyncDeltaColor == AMBER) {
+                    unSyncDeltaAmber = unSyncDeltaCount;
+                } else {
+                    unSyncDeltaRed = unSyncDeltaCount;
+                }
+                $scope.unSyncDeltaDonutsPts = [{ "Green": unSyncDeltaGreen, "Amber": unSyncDeltaAmber, "Red": unSyncDeltaRed }];
             }
 
             if (comInfo.COM) {
