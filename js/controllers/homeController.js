@@ -1,5 +1,5 @@
 angular.module('myApp.controllers', [])
-    .controller('homeController', function($scope, $rootScope, $http, $q) {
+    .controller('homeController', function($scope, $rootScope, $http, $q, $timeout) {
 
         //Constants
         const RED = "red";
@@ -64,6 +64,29 @@ angular.module('myApp.controllers', [])
         $scope.formatDonut = function(value, ratio, id) {
             return d3.format()(value);
         };
+
+      
+
+        var countDowner, countDown = 300;
+          countDowner = function() {
+        if (countDown < 0) {
+          $("#warning").fadeOut(2000);
+          countDown = 0;
+          return; // quit
+        } else {
+          $scope.countDown_text = countDown; // update scope
+          countDown--; // -1
+          $timeout(countDowner, 1000); // loop it again
+        }
+      };
+
+
+$scope.countDown_text = countDown;
+      countDowner()
+       
+        
+        
+      
 
 
         $scope.initializeChartForMainDashboard = function() {
@@ -284,6 +307,8 @@ angular.module('myApp.controllers', [])
                 });
             return deferred.promise;
         }
+
+
 
         function formatDetails(restApiData) {
             if (!restApiData.data) {
