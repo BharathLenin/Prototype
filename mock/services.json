@@ -4,13 +4,17 @@
       "components": [
         {
           "comDepthQueue": {
+            "QDepth": 15166,
+            "MaxDepth": 100,
             "messageQueueCount": 100,
-            "messageQueuePercent": 3,
+            "messageQueuePercent": 1,
             "status": "red"
           }
         },
         {
           "sterlingDepthQueue": {
+            "QDepth": 0,
+            "MaxDepth": 100,
             "messageQueueCount": 100,
             "messageQueuePercent": 0,
             "status": "green"
@@ -18,8 +22,10 @@
         },
         {
           "transmitQueue": {
+            "QDepth": 106966,
+            "MaxDepth": 100,
             "messageQueueCount": 100,
-            "messageQueuePercent": 8,
+            "messageQueuePercent": 10,
             "status": "red"
           }
         }
@@ -32,18 +38,18 @@
       "components": [
         {
           "unSyncDeltas": {
-            "messageQueueCount": 2824,
+            "messageQueueCount": 2835,
             "status": "green"
           }
         },
         {
           "localStores": {
-            "storeCount": 16,
-            "status": "amber"
+            "storeCount": 0,
+            "status": "green"
           }
         }
       ],
-      "overallStatus": "amber"
+      "overallStatus": "green"
     }
   },
   {
@@ -76,7 +82,7 @@
       "components": [
         {
           "odsDatabase": {
-            "serverCount": 19,
+            "serverCount": 36,
             "status": "red"
           }
         },
@@ -88,12 +94,530 @@
         },
         {
           "ggReplication": {
-            "replicaTime": 9223372036854775807,
-            "status": "amber"
+            "replicaTime": 0,
+            "status": "green"
           }
         }
       ],
       "overallStatus": "red"
+    }
+  },
+  {
+    "sterling": {
+      "components": [
+        {
+          "connectionCount": [
+            {
+              "serverCount": 12,
+              "servers": [
+                "cclidis0.homedepot.com",
+                "cclidis1.homedepot.com",
+                "cclidis2.homedepot.com",
+                "cclidis3.homedepot.com",
+                "cclidis4.homedepot.com",
+                "cclidis5.homedepot.com",
+                "cclidis6.homedepot.com",
+                "cclidis7.homedepot.com",
+                "cclidis8.homedepot.com",
+                "cclidisa.homedepot.com",
+                "cclidisb.homedepot.com",
+                "cclidisc.homedepot.com"
+              ],
+              "status": "green"
+            },
+            {
+              "serverCount": 0,
+              "servers": [],
+              "status": "amber"
+            },
+            {
+              "serverCount": 0,
+              "servers": [],
+              "status": "red"
+            }
+          ]
+        },
+        {
+          "probefailure": [
+            {
+              "serverCount": 12,
+              "servers": [
+                "cclidis0.homedepot.com",
+                "cclidis1.homedepot.com",
+                "cclidis2.homedepot.com",
+                "cclidis3.homedepot.com",
+                "cclidis4.homedepot.com",
+                "cclidis5.homedepot.com",
+                "cclidis6.homedepot.com",
+                "cclidis7.homedepot.com",
+                "cclidis8.homedepot.com",
+                "cclidisA.homedepot.com",
+                "cclidisB.homedepot.com",
+                "cclidisC.homedepot.com"
+              ],
+              "status": "green"
+            },
+            {
+              "serverCount": 0,
+              "servers": [],
+              "status": "red"
+            }
+          ]
+        },
+        {
+          "agentStatus": {
+            "cclidisj.homedepot.com": {
+              "upStatusAgent": [
+                "HDAutoReprocessErrorAgent",
+                "HDInventorySyncServer",
+                "HDProcessOrderUpdatesServer",
+                "HDPOTransmitAgent"
+              ],
+              "downStatusProgram": [],
+              "upStatusAgentCount": 4,
+              "downStatusAgentCount": 0,
+              "upStatusProgram": [
+                "SterlingServerHealth",
+                "SterlingServerHealth",
+                "SterlingServerHealth",
+                "SterlingServerHealth"
+              ],
+              "downStatusAgent": [],
+              "status": "green"
+            },
+            "cclidisd.homedepot.com": {
+              "upStatusAgent": [
+                "HDSentToNodeAgent"
+              ],
+              "downStatusProgram": [
+                "SterlingServerHealth",
+                "SterlingServerHealth",
+                "SterlingServerHealth"
+              ],
+              "upStatusAgentCount": 1,
+              "downStatusAgentCount": 3,
+              "upStatusProgram": [
+                "SterlingServerHealth"
+              ],
+              "downStatusAgent": [
+                "HDCustomROMonitorAgent",
+                "HDMiscPurgeAgent",
+                "HDConsolidateInvAgent"
+              ],
+              "status": "red"
+            },
+            "cclidis1.homedepot.com": {
+              "upStatusAgent": [
+                "HDVendorInvFeedServer",
+                "HDFIOverrideServer",
+                "HDWorkOrderAsyncUpdateServer",
+                "HDScheduleAgent",
+                "HDOptimisticReservationServer"
+              ],
+              "downStatusProgram": [
+                "SterlingServerHealth",
+                "SterlingServerHealth"
+              ],
+              "upStatusAgentCount": 5,
+              "downStatusAgentCount": 2,
+              "upStatusProgram": [
+                "SterlingServerHealth",
+                "SterlingServerHealth",
+                "SterlingServerHealth",
+                "SterlingServerHealth",
+                "SterlingServerHealth"
+              ],
+              "downStatusAgent": [
+                "HDFIUpdateServer",
+                "HDCloseReceiptAgent"
+              ],
+              "status": "red"
+            },
+            "cclidise.homedepot.com": {
+              "upStatusAgent": [
+                "HDProcessFIUpdateServer",
+                "HDSentToNodeAgent",
+                "HDUpdateNMStatusServer"
+              ],
+              "downStatusProgram": [
+                "SterlingServerHealth",
+                "SterlingServerHealth"
+              ],
+              "upStatusAgentCount": 3,
+              "downStatusAgentCount": 2,
+              "upStatusProgram": [
+                "SterlingServerHealth",
+                "SterlingServerHealth",
+                "SterlingServerHealth"
+              ],
+              "downStatusAgent": [
+                "HDConsolidateInvAgent",
+                "HDProcessBackOrderServer"
+              ],
+              "status": "red"
+            },
+            "cclidis0.homedepot.com": {
+              "upStatusAgent": [],
+              "downStatusProgram": [
+                "SterlingServerHealth",
+                "SterlingServerHealth",
+                "SterlingServerHealth"
+              ],
+              "upStatusAgentCount": 0,
+              "downStatusAgentCount": 3,
+              "upStatusProgram": [],
+              "downStatusAgent": [
+                "HDRTVCreateIntegServer",
+                "HDDelWLAgent",
+                "HDOptimisticReservationServer"
+              ],
+              "status": "red"
+            },
+            "cclidisf.homedepot.com": {
+              "upStatusAgent": [
+                "HDRTAMAgent",
+                "HDPOProcessServer",
+                "HDUpdateNMStatusServer"
+              ],
+              "downStatusProgram": [
+                "SterlingServerHealth"
+              ],
+              "upStatusAgentCount": 3,
+              "downStatusAgentCount": 1,
+              "upStatusProgram": [
+                "SterlingServerHealth",
+                "SterlingServerHealth",
+                "SterlingServerHealth"
+              ],
+              "downStatusAgent": [
+                "HDCustomROMonitorAgent"
+              ],
+              "status": "red"
+            },
+            "cclidisi.homedepot.com": {
+              "upStatusAgent": [
+                "HDPOReprocessServer",
+                "HDOverlayServer",
+                "HDScheduleAgent"
+              ],
+              "downStatusProgram": [
+                "SterlingServerHealth",
+                "SterlingServerHealth"
+              ],
+              "upStatusAgentCount": 3,
+              "downStatusAgentCount": 2,
+              "upStatusProgram": [
+                "SterlingServerHealth",
+                "SterlingServerHealth",
+                "SterlingServerHealth"
+              ],
+              "downStatusAgent": [
+                "HDPOMonitorAgent",
+                "HDPOReprocessAgent"
+              ],
+              "status": "red"
+            },
+            "cclidis3.homedepot.com": {
+              "upStatusAgent": [
+                "HDCapResvnPurgeAgentServer",
+                "HDWOProcessServer",
+                "HDProcessOrderUpdatesServer",
+                "HDOverlayServer",
+                "HDPOReprocessServer",
+                "HDWOUpdateRetryCountServer",
+                "HDWorkOrderAsyncUpdateServer",
+                "HDAutoReprocessErrorAgent",
+                "HDScheduleAgent"
+              ],
+              "downStatusProgram": [],
+              "upStatusAgentCount": 9,
+              "downStatusAgentCount": 0,
+              "upStatusProgram": [
+                "SterlingServerHealth",
+                "SterlingServerHealth",
+                "SterlingServerHealth",
+                "SterlingServerHealth",
+                "SterlingServerHealth",
+                "SterlingServerHealth",
+                "SterlingServerHealth",
+                "SterlingServerHealth",
+                "SterlingServerHealth"
+              ],
+              "downStatusAgent": [],
+              "status": "green"
+            },
+            "cclidish.homedepot.com": {
+              "upStatusAgent": [
+                "HDVendorInvFeedServer",
+                "HDProcessOrderUpdatesServer",
+                "HDMasterDataLoadServer",
+                "HDOverlayServer"
+              ],
+              "downStatusProgram": [
+                "SterlingServerHealth"
+              ],
+              "upStatusAgentCount": 4,
+              "downStatusAgentCount": 1,
+              "upStatusProgram": [
+                "SterlingServerHealth",
+                "SterlingServerHealth",
+                "SterlingServerHealth",
+                "SterlingServerHealth"
+              ],
+              "downStatusAgent": [
+                "HDAdjustInventoryServer"
+              ],
+              "status": "red"
+            },
+            "cclidis2.homedepot.com": {
+              "upStatusAgent": [
+                "HDAutoReprocessErrorAgent",
+                "HDFIOverrideServer"
+              ],
+              "downStatusProgram": [
+                "SterlingServerHealth",
+                "SterlingServerHealth"
+              ],
+              "upStatusAgentCount": 2,
+              "downStatusAgentCount": 2,
+              "upStatusProgram": [
+                "SterlingServerHealth",
+                "SterlingServerHealth"
+              ],
+              "downStatusAgent": [
+                "HDCloseVariousAgentServer",
+                "HDAdjustInventoryServer"
+              ],
+              "status": "red"
+            },
+            "cclidisg.homedepot.com": {
+              "upStatusAgent": [
+                "HDFIOverrideServer",
+                "HDOptimisticReservationServer",
+                "HDWorkOrderAsyncUpdateServer",
+                "HDProcessReceiptServer"
+              ],
+              "downStatusProgram": [
+                "SterlingServerHealth",
+                "SterlingServerHealth"
+              ],
+              "upStatusAgentCount": 4,
+              "downStatusAgentCount": 2,
+              "upStatusProgram": [
+                "SterlingServerHealth",
+                "SterlingServerHealth",
+                "SterlingServerHealth",
+                "SterlingServerHealth"
+              ],
+              "downStatusAgent": [
+                "HDAuditPurgeAgent",
+                "HDFIUpdateServer"
+              ],
+              "status": "red"
+            },
+            "cclidisb.homedepot.com": {
+              "upStatusAgent": [
+                "HDProcessSVSTransactionServer",
+                "HDSentToNodeAgent",
+                "HDPOCreateIntegServer",
+                "HDInternalNotificationReadServer",
+                "HDRTAMAgent"
+              ],
+              "downStatusProgram": [
+                "SterlingServerHealth"
+              ],
+              "upStatusAgentCount": 5,
+              "downStatusAgentCount": 1,
+              "upStatusProgram": [
+                "SterlingServerHealth",
+                "SterlingServerHealth",
+                "SterlingServerHealth",
+                "SterlingServerHealth",
+                "SterlingServerHealth"
+              ],
+              "downStatusAgent": [
+                "cclidisb.homedepot.com"
+              ],
+              "status": "red"
+            },
+            "cclidis9.homedepot.com": {
+              "upStatusAgent": [
+                "HDInternalDeferalReadServer",
+                "HDOrderAsyncServer",
+                "HDPOProcessServer"
+              ],
+              "downStatusProgram": [],
+              "upStatusAgentCount": 3,
+              "downStatusAgentCount": 0,
+              "upStatusProgram": [
+                "SterlingServerHealth",
+                "SterlingServerHealth",
+                "SterlingServerHealth"
+              ],
+              "downStatusAgent": [],
+              "status": "green"
+            },
+            "cclidis4.homedepot.com": {
+              "upStatusAgent": [
+                "HDECCAdhocUpdateServer",
+                "HDWOProcessServer",
+                "HDThresholdReservationServer",
+                "HDWorkOrderAsyncUpdateServer",
+                "HDOptimisticReservationServer"
+              ],
+              "downStatusProgram": [
+                "SterlingServerHealth",
+                "SterlingServerHealth"
+              ],
+              "upStatusAgentCount": 5,
+              "downStatusAgentCount": 2,
+              "upStatusProgram": [
+                "SterlingServerHealth",
+                "SterlingServerHealth",
+                "SterlingServerHealth",
+                "SterlingServerHealth",
+                "SterlingServerHealth"
+              ],
+              "downStatusAgent": [
+                "cclidis4.homedepot.com",
+                "HDPOReprocessAgent"
+              ],
+              "status": "red"
+            },
+            "cclidisa.homedepot.com": {
+              "upStatusAgent": [
+                "HDRetryTracsAgent",
+                "HDOrderAsyncServer",
+                "HDInternalDeferalReadServer",
+                "HDProcessSplitBatchServer",
+                "HDUpdateNMStatusServer"
+              ],
+              "downStatusProgram": [
+                "SterlingServerHealth",
+                "SterlingServerHealth"
+              ],
+              "upStatusAgentCount": 5,
+              "downStatusAgentCount": 2,
+              "upStatusProgram": [
+                "SterlingServerHealth",
+                "SterlingServerHealth",
+                "SterlingServerHealth",
+                "SterlingServerHealth",
+                "SterlingServerHealth"
+              ],
+              "downStatusAgent": [
+                "HDAuditPurgeAgent",
+                "HDCustomROMonitorAgent"
+              ],
+              "status": "red"
+            },
+            "cclidisc.homedepot.com": {
+              "upStatusAgent": [
+                "HDInternalDeferalReadServer",
+                "HDProcessSplitBatchServer",
+                "HDSentToNodeAgent"
+              ],
+              "downStatusProgram": [
+                "SterlingServerHealth",
+                "SterlingServerHealth"
+              ],
+              "upStatusAgentCount": 3,
+              "downStatusAgentCount": 2,
+              "upStatusProgram": [
+                "SterlingServerHealth",
+                "SterlingServerHealth",
+                "SterlingServerHealth"
+              ],
+              "downStatusAgent": [
+                "HDProcessBackOrderServer",
+                "HDCustomROMonitorAgent"
+              ],
+              "status": "red"
+            },
+            "cclidis5.homedepot.com": {
+              "upStatusAgent": [
+                "HDProcessReceiptServer",
+                "HDWOProcessServer",
+                "HDProcessOrderUpdatesServer",
+                "HDAutoReprocessErrorAgent"
+              ],
+              "downStatusProgram": [
+                "SterlingServerHealth"
+              ],
+              "upStatusAgentCount": 4,
+              "downStatusAgentCount": 1,
+              "upStatusProgram": [
+                "SterlingServerHealth",
+                "SterlingServerHealth",
+                "SterlingServerHealth",
+                "SterlingServerHealth"
+              ],
+              "downStatusAgent": [
+                "HDPOMonitorAgent"
+              ],
+              "status": "red"
+            },
+            "cclidis8.homedepot.com": {
+              "upStatusAgent": [
+                "HDProcessSVSTransactionServer",
+                "HDResolveScheduleHoldAgent",
+                "HDCreatePOServer",
+                "HDProcessFIUpdateServer"
+              ],
+              "downStatusProgram": [
+                "SterlingServerHealth"
+              ],
+              "upStatusAgentCount": 4,
+              "downStatusAgentCount": 1,
+              "upStatusProgram": [
+                "SterlingServerHealth",
+                "SterlingServerHealth",
+                "SterlingServerHealth",
+                "SterlingServerHealth"
+              ],
+              "downStatusAgent": [
+                "HDProcessMiscEOCUpdates"
+              ],
+              "status": "red"
+            },
+            "cclidis7.homedepot.com": {
+              "upStatusAgent": [
+                "HDPrepareNotificationServer",
+                "HDProcessSplitBatchServer",
+                "HDSOMonitorAgent"
+              ],
+              "downStatusProgram": [],
+              "upStatusAgentCount": 3,
+              "downStatusAgentCount": 0,
+              "upStatusProgram": [
+                "SterlingServerHealth",
+                "SterlingServerHealth",
+                "SterlingServerHealth"
+              ],
+              "downStatusAgent": [],
+              "status": "green"
+            },
+            "cclidis6.homedepot.com": {
+              "upStatusAgent": [
+                "HDReservationPurgeAgent",
+                "HDPrepareNotificationServer",
+                "HDConsolidatetoShipServer"
+              ],
+              "downStatusProgram": [],
+              "upStatusAgentCount": 3,
+              "downStatusAgentCount": 0,
+              "upStatusProgram": [
+                "SterlingServerHealth",
+                "SterlingServerHealth",
+                "SterlingServerHealth"
+              ],
+              "downStatusAgent": [],
+              "status": "green"
+            }
+          }
+        }
+      ],
+      "status": ""
     }
   }
 ]

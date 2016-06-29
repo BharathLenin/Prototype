@@ -65,29 +65,23 @@ angular.module('myApp.controllers', [])
             return d3.format()(value);
         };
 
-      
 
+        /* TIMER FUNCTION */
         var countDowner, countDown = 300;
-          countDowner = function() {
-        if (countDown < 0) {
-          $("#warning").fadeOut(2000);
-          countDown = 0;
-          return; // quit
-        } else {
-          $scope.countDown_text = countDown; // update scope
-          countDown--; // -1
-          $timeout(countDowner, 1000); // loop it again
-        }
-      };
+        countDowner = function() {
+            if (countDown < 0) {
+                $("#warning").fadeOut(2000);
+                countDown = 0;
+                return; // quit
+            } else {
+                $scope.countDown_text = countDown; // update scope
+                countDown--; // -1
+                $timeout(countDowner, 1000); // loop it again
+            }
+        };
 
-
-$scope.countDown_text = countDown;
-      countDowner()
-       
-        
-        
-      
-
+        $scope.countDown_text = countDown;
+        countDowner()
 
         $scope.initializeChartForMainDashboard = function() {
 
@@ -337,7 +331,9 @@ $scope.countDown_text = countDown;
                 var sterlingQueuePercent = messagingInfo.messagingQueue.components[1].sterlingDepthQueue.messageQueuePercent;
                 var sterlingQueueColor = messagingInfo.messagingQueue.components[1].sterlingDepthQueue.status;
 
-                var sterlingQueueGreen = 0, sterlingQueueAmber= 0, sterlingQueueRed = 0;
+                var sterlingQueueGreen = 0,
+                    sterlingQueueAmber = 0,
+                    sterlingQueueRed = 0;
                 if (sterlingQueueColor == GREEN) {
                     sterlingQueueGreen = sterlingQueuePercent;
                 } else if (sterlingQueueColor == AMBER) {
@@ -352,7 +348,9 @@ $scope.countDown_text = countDown;
                 var comQueuePercent = messagingInfo.messagingQueue.components[0].comDepthQueue.messageQueuePercent;
                 var comQueueColor = messagingInfo.messagingQueue.components[0].comDepthQueue.status;
 
-                var comQueueGreen = 0, comQueueAmber= 0, comQueueRed = 0;
+                var comQueueGreen = 0,
+                    comQueueAmber = 0,
+                    comQueueRed = 0;
                 if (comQueueColor == GREEN) {
                     comQueueGreen = comQueuePercent;
                 } else if (comQueueColor == AMBER) {
@@ -360,7 +358,25 @@ $scope.countDown_text = countDown;
                 } else {
                     comQueueRed = comQueuePercent;
                 }
-                $scope.comQueueDonutsPts = [{ "Green": comQueueGreen, "Amber": comQueueAmber, "Red": comQueueRed }];                
+                $scope.comQueueDonutsPts = [{ "Green": comQueueGreen, "Amber": comQueueAmber, "Red": comQueueRed }];
+
+
+                /* Transmit Queue */
+                var transmitQueueCount = messagingInfo.messagingQueue.components[2].transmitQueue.messageQueueCount;
+                var transmitQueuePercent = messagingInfo.messagingQueue.components[2].transmitQueue.messageQueuePercent;
+                var transmitQueueColor = messagingInfo.messagingQueue.components[2].transmitQueue.status;
+                var transmitQueue_GuageColor = GREEN_COLOR;
+
+                if (transmitQueueColor == GREEN) {
+                    transmitQueue_GuageColor = GREEN_COLOR;
+                } else if (transmitQueueColor == AMBER) {
+                    transmitQueue_GuageColor = CARROT_COLOR;
+                } else {
+                    transmitQueue_GuageColor = RED_COLOR;
+                }
+
+                $scope.transmitGaugeColumn = [{ "id": "Transmit Queue", "type": "gauge", "color": transmitQueue_GuageColor }];
+                $scope.transmitGaugePts = [{ "Transmit Queue": transmitQueueCount }];               
             }
 
 
@@ -415,7 +431,9 @@ $scope.countDown_text = countDown;
                 /* COM ORDER JVM */
                 var comOrderCount = comInfo.COM.components[0].comOrder.serverCount;
                 var comOrderColor = comInfo.COM.components[0].comOrder.status;
-                var comOrderGreen = 0, comOrderAmber= 0, comOrderRed = 0;
+                var comOrderGreen = 0,
+                    comOrderAmber = 0,
+                    comOrderRed = 0;
                 if (comOrderColor == GREEN) {
                     comOrderGreen = comOrderCount;
                 } else if (comOrderColor == AMBER) {
@@ -428,7 +446,9 @@ $scope.countDown_text = countDown;
                 /* COM INVENTORY JVM */
                 var comInventoryCount = comInfo.COM.components[1].comInventory.serverCount;
                 var comInventoryColor = comInfo.COM.components[1].comInventory.status;
-                var comInventoryGreen = 0, comInventoryAmber= 0, comInventoryRed = 0;
+                var comInventoryGreen = 0,
+                    comInventoryAmber = 0,
+                    comInventoryRed = 0;
                 if (comInventoryColor == GREEN) {
                     comInventoryGreen = comInventoryCount;
                 } else if (comOrderColor == AMBER) {
@@ -436,7 +456,7 @@ $scope.countDown_text = countDown;
                 } else {
                     comInventoryRed = comInventoryCount;
                 }
-                $scope.comInventoryDonutsPts = [{ "Green": comInventoryGreen, "Amber": comInventoryAmber, "Red": comInventoryRed }];                
+                $scope.comInventoryDonutsPts = [{ "Green": comInventoryGreen, "Amber": comInventoryAmber, "Red": comInventoryRed }];
 
             }
 
@@ -452,7 +472,9 @@ $scope.countDown_text = countDown;
                 /* Sterling DB */
                 var sterlingDbCount = dbInfo.DB.components[1].sterlingDatabase.serverCount;
                 var sterlingDbColor = dbInfo.DB.components[1].sterlingDatabase.status;
-                var sterlingDbGreen = 0, sterlingDbAmber= 0, sterlingDbRed = 0;
+                var sterlingDbGreen = 0,
+                    sterlingDbAmber = 0,
+                    sterlingDbRed = 0;
                 if (sterlingDbColor == GREEN) {
                     sterlingDbGreen = sterlingDbCount;
                 } else if (comOrderColor == AMBER) {
@@ -465,7 +487,9 @@ $scope.countDown_text = countDown;
                 /* ODS DB */
                 var odsDbCount = dbInfo.DB.components[0].odsDatabase.serverCount;
                 var odsDbColor = dbInfo.DB.components[0].odsDatabase.status;
-                var odsDbGreen = 0, odsDbAmber= 0, odsDbRed = 0;
+                var odsDbGreen = 0,
+                    odsDbAmber = 0,
+                    odsDbRed = 0;
                 if (odsDbColor == GREEN) {
                     odsDbGreen = odsDbCount;
                 } else if (odsDbColor == AMBER) {

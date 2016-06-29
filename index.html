@@ -287,6 +287,11 @@
                             <chart-column column-id="Data 1" column-values="5000" column-type="gauge" />
                             <chart-gauge min="0" max="15000" units=" count" width="39" />
                         </c3chart>
+
+                        <c3chart bindto-id="ggReplication-gauge-chart" chart-data="ggReplicationGaugePts" chart-columns="ggReplicationColumn">
+                            <chart-gauge min="0" max="180" units=" mins" width="40" label-format-function="formatDonut"/>
+                        </c3chart>
+
                     </div>
                 </div>
                 <div class="row storesContents" ng-show="showItem == 'Stores'">
@@ -330,10 +335,10 @@
                     </div>
                     <div class="transmitQueueChart">
                         <h4 class="centerText">Transmit Queues</h4>
-                        <c3chart bindto-id="transmitQueue-gauge-chart">
-                            <chart-column column-id="Data 1" column-values="5000" column-type="gauge" />
-                            <chart-gauge min="0" max="15000" units=" count" width="39" />
+                        <c3chart bindto-id="transmitQueue-gauge-chart" chart-data="transmitGaugePts" chart-columns="transmitGaugeColumn">
+                            <chart-gauge min="0" max="10000" units=" count" width="40" label-format-function="formatDonut"/>
                         </c3chart>
+
                     </div>                
                 </div>
             </div>
