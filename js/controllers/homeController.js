@@ -113,7 +113,8 @@ angular.module('myApp.controllers', [])
                     }
                 },
                 fill: 'transparent',
-                // legend: 'none',
+                legend: {position: 'bottom'},
+                
                 is3D: false,
                 // width: 600,
                 // height: 300,
@@ -153,7 +154,7 @@ angular.module('myApp.controllers', [])
                     }
                 },
                 fill: 'transparent',
-                // legend: 'none'
+                legend: {position: 'bottom'}
             };
 
             var comChart = new google.visualization.PieChart(document.getElementById('donutchartForComMainDash'));
@@ -187,7 +188,7 @@ angular.module('myApp.controllers', [])
                     }
                 },
                 // fill: 'transparent',
-                // legend: 'none'
+                legend: {position: 'bottom'}
             };
 
             var dbChart = new google.visualization.PieChart(document.getElementById('donutchartForDBMainDash'));
@@ -222,7 +223,7 @@ angular.module('myApp.controllers', [])
                     }
                 },
                 fill: 'transparent',
-                // legend: 'none'
+                legend: {position: 'bottom'}
             };
 
             var mqChart = new google.visualization.PieChart(document.getElementById('donutchartForMQMainDash'));
@@ -236,27 +237,44 @@ angular.module('myApp.controllers', [])
             angular.element(document.querySelectorAll(".chartcontainer")).css('display', 'block');
         });
 
-        // fetch().then(function(data) {
+        $scope.mockDB = 1;
+
+        if($scope.mockDB) {
+
+            $http.get('mock/services.json').success(function(data) {
+                console.log(data);
+                $scope.initializeSterlingMainDash();
+                initValues();
+
+                formatDetails(data);
+                //call this after getting the service response
+                $scope.initializeChartForMainDashboard();
+            });
+        } else {
+                fetch().then(function(data) {
+                console.log(data);
+                $scope.initializeSterlingMainDash();
+                initValues();
+                formatDetails(data);
+                //call this after getting the service response
+                $scope.initializeChartForMainDashboard();
+                }, function(error) {
+                $scope.errorDetails = error;
+                console.log($scope.errorDetails);
+                });
+        }
+
+
+
+        // $http.get('mock/services.json').success(function(data) {
         //     console.log(data);
         //     $scope.initializeSterlingMainDash();
         //     initValues();
+
         //     formatDetails(data);
         //     //call this after getting the service response
         //     $scope.initializeChartForMainDashboard();
-        // }, function(error) {
-        //     $scope.errorDetails = error;
-        //     console.log($scope.errorDetails);
         // });
-
-        $http.get('mock/services.json').success(function(data) {
-            console.log(data);
-            $scope.initializeSterlingMainDash();
-            initValues();
-
-            formatDetails(data);
-            //call this after getting the service response
-            $scope.initializeChartForMainDashboard();
-        });
 
         $scope.openComponent = function(item) {
             $scope.showItem = item;
@@ -308,6 +326,24 @@ angular.module('myApp.controllers', [])
 
 
         function formatDetails(restApiData) {
+            if($scope.mockDB) {
+                if (!restApiData) {
+                    return null;
+                }
+                var messagingInfo = restApiData[0];
+                var storesInfo = restApiData[1];
+                var comInfo = restApiData[2];
+                var dbInfo = restApiData[3];
+            }else {
+                if (!restApiData.data) {
+                    return null;
+                }
+                var messagingInfo = restApiData.data[0];
+                var storesInfo = restApiData.data[1];
+                var comInfo = restApiData.data[2];
+                var dbInfo = restApiData.data[3];               
+            }
+
             if (!restApiData) {
                 return null;
             }
@@ -394,6 +430,9 @@ angular.module('myApp.controllers', [])
                 var localStrCount = storesInfo.stores.components[1].localStores.storeCount;
                 var localStrColor = storesInfo.stores.components[1].localStores.status;
                 var localStoreGreen, localStoreAmber, localStoreRed = 0;
+                if(localStrCount ==  0) {
+                    localStrCount  = 1;
+                }
                 if (localStrColor == GREEN) {
                     localStoreGreen = localStrCount;
                 } else if (localStrColor == AMBER) {
@@ -498,6 +537,23 @@ angular.module('myApp.controllers', [])
                     odsDbRed = odsDbCount;
                 }
                 $scope.odsDbDonutsPts = [{ "Green": odsDbGreen, "Amber": odsDbAmber, "Red": odsDbRed }];
+
+
+                /* GG REPLICATION */
+                var ggReplicaCount = dbInfo.DB.components[2].ggReplication.replicaTime;
+                var ggReplicaColor = dbInfo.DB.components[2].ggReplication.status;
+                var ggReplica_GuageColor = GREEN_COLOR;
+
+                if (ggReplicaColor == GREEN) {
+                    ggReplica_GuageColor = GREEN_COLOR;
+                } else if (ggReplicaColor == AMBER) {
+                    ggReplica_GuageColor = CARROT_COLOR;
+                } else {
+                    ggReplica_GuageColor = RED_COLOR;
+                }
+
+                $scope.ggReplicaGaugeColumn = [{ "id": "GG Replication", "type": "gauge", "color": ggReplica_GuageColor }];
+                $scope.ggReplicaGaugePts = [{ "GG Replication": ggReplicaCount }];                
             }
         }
 
