@@ -34,10 +34,7 @@
             <div class="col-xs-1">
                 <div id="refresh">
                     <i class="fa fa-2x fa-refresh ro green" aria-hidden="true"></i>
-
-<div ng-show="countDown_text > 0" style="text-align:right"> {{countDown_text}}</div>
-
-
+                    <div ng-show="countDown_text > 0" style="text-align:right"> {{countDown_text}}</div>
                 </div>
             </div>
         </div>
@@ -188,63 +185,49 @@
                     </div>
                 </div>
                 <div class="row sterlingContents" ng-show="showItem == 'Sterling'">
-                  
-
-
-
-                <div >
-                    <div class="col-xs-4" style="text-align:center !important">
-                        <h4 class="">Connection Counts</h4>
-                          <div class="">
-                            <c3chart bindto-id="connectionCount-chart">
-                                <chart-column column-id="Red" column-values="70" column-type="donut" column-color="#e74c3c" />
-                                <chart-column column-id="Amber" column-values="35" column-type="donut" column-color="#e67e22" />
-                                <chart-column column-id="Green" column-values="60" column-type="donut" column-color="#2ecc71" />
-                                <chart-donut title="" width="60" />
-                            </c3chart>
+                    <div>
+                        <div class="col-xs-4" style="text-align:center !important">
+                            <h4 class="">Connection Counts</h4>
+                            <div class="">
+                                <c3chart bindto-id="connectionCount-chart">
+                                    <chart-column column-id="Red" column-values="70" column-type="donut" column-color="#e74c3c" />
+                                    <chart-column column-id="Amber" column-values="35" column-type="donut" column-color="#e67e22" />
+                                    <chart-column column-id="Green" column-values="60" column-type="donut" column-color="#2ecc71" />
+                                    <chart-donut title="" width="60" />
+                                </c3chart>
+                            </div>
+                        </div>
+                        <div class="col-xs-4 centerText">
+                            <h4 class="">Probe Failure</h4>
+                            <div class="">
+                                <c3chart bindto-id="probeFailure-chart">
+                                    <chart-column column-id="Red" column-values="70" column-type="pie" column-color="#e74c3c" />
+                                    <chart-column column-id="Amber" column-values="35" column-type="pie" column-color="#e67e22" />
+                                    <chart-column column-id="Green" column-values="60" column-type="pie" column-color="#2ecc71" />
+                                    <chart-pie expand="true" />
+                                </c3chart>
+                            </div>
+                        </div>
+                        <div class="col-xs-4 centerText">
+                            <h4>Space availability</h4>
+                            <div class="">
+                                <c3chart bindto-id="spaceAvailabiityCount-chart">
+                                    <chart-column column-id="Red" column-values="70" column-type="pie" column-color="#e74c3c" />
+                                    <chart-column column-id="Amber" column-values="35" column-type="pie" column-color="#e67e22" />
+                                    <chart-column column-id="Green" column-values="60" column-type="pie" column-color="#2ecc71" />
+                                    <chart-pie expand="true" />
+                                </c3chart>
+                            </div>
                         </div>
                     </div>
-                    <div class="col-xs-4 centerText">
-                        <h4 class="">Probe Failure</h4>
-                         <div class="">
-                            <c3chart bindto-id="probeFailure-chart">
-                                <chart-column column-id="Red" column-values="70" column-type="pie" column-color="#e74c3c" />
-                                <chart-column column-id="Amber" column-values="35" column-type="pie" column-color="#e67e22" />
-                                <chart-column column-id="Green" column-values="60" column-type="pie" column-color="#2ecc71" />
-                                <chart-pie expand="true" />
-                            </c3chart>
-                        </div>
-
-
-                    </div>
-                    <div class="col-xs-4 centerText">
-                        <h4>Space availability</h4>
-
-                         <div class="">
-                            <c3chart bindto-id="spaceAvailabiityCount-chart">
-                                <chart-column column-id="Red" column-values="70" column-type="pie" column-color="#e74c3c" />
-                                <chart-column column-id="Amber" column-values="35" column-type="pie" column-color="#e67e22" />
-                                <chart-column column-id="Green" column-values="60" column-type="pie" column-color="#2ecc71" />
-                                <chart-pie expand="true" />
-                            </c3chart>
-                        </div>
-
-                    </div>
-                </div>
-                    
-
-
-                    
-                   
-             
                     <div class="col-xs-12" style="margin-top:15px">
-                    <h4 class="demo-panel-title">Agents</h4>
-                    <c3chart bindto-id="stacked-bar-plot1-chart" style="width: 100%; height: 200px;">
-                        <chart-column column-id="data 1" column-name="Agent Down" column-color="#e74c3c" column-values="30,200,100,400,150,250,12,12,324" column-type="bar" />
-                        <chart-column column-id="data 2" column-name="Agent Up" column-color="#2ecc71" column-values="50,20,10,40,15,25,122,122,12" column-type="bar" />
-                        <chart-group group-values="data 1,data 2" />
-                    </c3chart>
-                </div>
+                        <h4 class="demo-panel-title">Agents</h4>
+                        <c3chart bindto-id="stacked-bar-plot1-chart" style="width: 100%; height: 200px;">
+                            <chart-column column-id="data 1" column-name="Agent Down" column-color="#e74c3c" column-values="30,200,100,400,150,250,12,12,324" column-type="bar" />
+                            <chart-column column-id="data 2" column-name="Agent Up" column-color="#2ecc71" column-values="50,20,10,40,15,25,122,122,12" column-type="bar" />
+                            <chart-group group-values="data 1,data 2" />
+                        </c3chart>
+                    </div>
                 </div>
                 <div class="row comContents" ng-show="showItem == 'Com'">
                     <h4>
@@ -253,17 +236,16 @@
                 </h4>
                     <div class="pure-g">
                         <div class="l-box-lrg pure-u-1 pure-u-md-1-2 chartcontainer">
-                            <c3chart bindto-id="comOrder-chart" chart-data="comOrderDonutsPts" chart-columns="donutColumns" sort-data="null" >
-                                <chart-legend show-legend="true"/>
-                                <chart-donut expand="true" width="60" show-label="true" title="COM Order JVM" label-format-function="formatDonut"/>
+                            <c3chart bindto-id="comOrder-chart" chart-data="comOrderDonutsPts" chart-columns="donutColumns" sort-data="null">
+                                <chart-legend show-legend="true" />
+                                <chart-donut expand="true" width="60" show-label="true" title="COM Order JVM" label-format-function="formatDonut" />
                             </c3chart>
-
                         </div>
                         <div class="l-box-lrg pure-u-1 pure-u-md-1-2 chartcontainer">
-                            <c3chart bindto-id="comInventory-chart" chart-data="comInventoryDonutsPts" chart-columns="donutColumns" sort-data="null" >
-                                <chart-legend show-legend="true"/>
-                                <chart-donut expand="true" width="60" show-label="true" title="COM Inventory JVM" label-format-function="formatDonut"/>
-                            </c3chart>                            
+                            <c3chart bindto-id="comInventory-chart" chart-data="comInventoryDonutsPts" chart-columns="donutColumns" sort-data="null">
+                                <chart-legend show-legend="true" />
+                                <chart-donut expand="true" width="60" show-label="true" title="COM Inventory JVM" label-format-function="formatDonut" />
+                            </c3chart>
                         </div>
                     </div>
                     <div class="row"></div>
@@ -278,107 +260,86 @@
                     </div>
                 </div>
                 <div class="row dbContents" ng-show="showItem == 'db'">
-
                     <div class="col-xs-6 centerText">
-                <h4>Sterling DB</h4>
-                  <div >
-                             <c3chart bindto-id="sterlingDB-chart" chart-data="sterlingDbDonutsPts" chart-columns="pieColumns" sort-data="null" >
-                                <chart-legend show-legend="true"/>
-                                <chart-pie expand="true" width="60" show-label="true" title="delta" label-format-function="formatDonut"/>
-                            </c3chart>                           
-                        </div>
-            </div>
-
-              <div class="col-xs-6 centerText">
-                <h4>ODS DB</h4>
-
-                   <div >
-                            <c3chart bindto-id="odsDB-chart" chart-data="odsDbDonutsPts" chart-columns="pieColumns" sort-data="null" >
-                                <chart-legend show-legend="true"/>
-                                <chart-pie expand="true" width="60" show-label="true" title="delta" label-format-function="formatDonut"/>
+                        <h4>Sterling DB</h4>
+                        <div>
+                            <c3chart bindto-id="sterlingDB-chart" chart-data="sterlingDbDonutsPts" chart-columns="pieColumns" sort-data="null">
+                                <chart-legend show-legend="true" />
+                                <chart-pie expand="true" width="60" show-label="true" title="delta" label-format-function="formatDonut" />
                             </c3chart>
                         </div>
-            </div>
-
-
-                  
-                    
+                    </div>
+                    <div class="col-xs-6 centerText">
+                        <h4>ODS DB</h4>
+                        <div>
+                            <c3chart bindto-id="odsDB-chart" chart-data="odsDbDonutsPts" chart-columns="pieColumns" sort-data="null">
+                                <chart-legend show-legend="true" />
+                                <chart-pie expand="true" width="60" show-label="true" title="delta" label-format-function="formatDonut" />
+                            </c3chart>
+                        </div>
+                    </div>
                     <div class="ggReplicationChart col-xs-12">
                         <h4 class="centerText">GG Replication</h4>
                         <c3chart bindto-id="ggReplication-gauge-chart">
                             <chart-column column-id="Data 1" column-values="5000" column-type="gauge" />
                             <chart-gauge min="0" max="15000" units=" count" width="39" />
                         </c3chart>
-
                         <c3chart bindto-id="ggReplication-gauge-chart" chart-data="ggReplicationGaugePts" chart-columns="ggReplicationColumn">
-                            <chart-gauge min="0" max="180" units=" mins" width="40" label-format-function="formatDonut"/>
+                            <chart-gauge min="0" max="180" units=" mins" width="40" label-format-function="formatDonut" />
                         </c3chart>
-
                     </div>
                 </div>
                 <div class="row storesContents" ng-show="showItem == 'Stores'">
-
-                <div class="col-xs-6 centerText">
-                <h4>Local Store</h4>
-                  <div >
-                            <c3chart bindto-id="localStore-pie-chart" chart-data="localStoreDonutsPts" chart-columns="donutColumns" sort-data="null" >
-                                <chart-legend show-legend="true"/>
-                                <chart-donut expand="true" width="60" show-label="true" title="Local Charts"/>
-                            </c3chart>                            
-                        </div>
-
-                </div>
-
-                <div class="col-xs-6 centerText">
-                    <h4>Un synched Deltas</h4>
-                      <div >                        
-                            <c3chart bindto-id="unSyncDelta-pie-chart" chart-data="unSyncDeltaDonutsPts" chart-columns="pieColumns" sort-data="null" >
-                                <chart-legend show-legend="true"/>
-                                <chart-pie expand="true" width="60" show-label="true" title="delta" label-format-function="formatDonut"/>
+                    <div class="col-xs-6 centerText">
+                        <h4>Local Store</h4>
+                        <div>
+                            <c3chart bindto-id="localStore-pie-chart" chart-data="localStoreDonutsPts" chart-columns="donutColumns" sort-data="null">
+                                <chart-legend show-legend="true" />
+                                <chart-donut expand="true" width="60" show-label="true" title="Local Charts" />
                             </c3chart>
                         </div>
-
-                </div>
-
+                    </div>
+                    <div class="col-xs-6 centerText">
+                        <h4>Un synched Deltas</h4>
+                        <div>
+                            <c3chart bindto-id="unSyncDelta-pie-chart" chart-data="unSyncDeltaDonutsPts" chart-columns="pieColumns" sort-data="null">
+                                <chart-legend show-legend="true" />
+                                <chart-pie expand="true" width="60" show-label="true" title="delta" label-format-function="formatDonut" />
+                            </c3chart>
+                        </div>
+                    </div>
                 </div>
                 <div class="row messagingContents" ng-show="showItem == 'Messaging'">
-                
-                <div class="col-xs-6 centerText">
-                <h4>COM Queue Depth</h4>
-                      <div >
-                            <c3chart bindto-id="comQueue-chart" chart-data="comQueueDonutsPts" chart-columns="pieColumns" sort-data="null" >
-                                <chart-legend show-legend="true"/>
-                                <chart-pie expand="true" width="60" show-label="true" title="delta"/>
+                    <div class="col-xs-6 centerText">
+                        <h4>COM Queue Depth</h4>
+                        <div>
+                            <c3chart bindto-id="comQueue-chart" chart-data="comQueueDonutsPts" chart-columns="pieColumns" sort-data="null">
+                                <chart-legend show-legend="true" />
+                                <chart-pie expand="true" width="60" show-label="true" title="delta" />
                             </c3chart>
                         </div>
-                </div>
-
-                <div class="col-xs-6 centerText">
-                <h4>Sterling Queue Depth</h4>
-
-                   <div >
-                            <c3chart bindto-id="sterlingQueue-chart" chart-data="sterlingQueueDonutsPts" chart-columns="pieColumns" sort-data="null" >
-                                <chart-legend show-legend="true"/>
-                                <chart-pie expand="true" width="60" show-label="true" title="delta"/>
+                    </div>
+                    <div class="col-xs-6 centerText">
+                        <h4>Sterling Queue Depth</h4>
+                        <div>
+                            <c3chart bindto-id="sterlingQueue-chart" chart-data="sterlingQueueDonutsPts" chart-columns="pieColumns" sort-data="null">
+                                <chart-legend show-legend="true" />
+                                <chart-pie expand="true" width="60" show-label="true" title="delta" />
                             </c3chart>
                         </div>
-                </div>
-
-
-                   
-              
+                    </div>
                     <div class="transmitQueueChart">
                         <h4 class="centerText">Transmit Queues</h4>
                         <c3chart bindto-id="transmitQueue-gauge-chart" chart-data="transmitGaugePts" chart-columns="transmitGaugeColumn">
-                            <chart-gauge min="0" max="10000" units=" count" width="40" label-format-function="formatDonut"/>
+                            <chart-gauge min="0" max="10000" units=" count" width="40" label-format-function="formatDonut" />
                         </c3chart>
-
-                    </div>                
+                    </div>
                 </div>
             </div>
         </div>
         <div class="row" id="footer">
-            <small>(C) The Home Depot</small> <br>
+            <small>(C) The Home Depot</small>
+            <br>
             <small>More saving. More doing.&#174;</small>
         </div>
     </div>
