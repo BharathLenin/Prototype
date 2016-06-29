@@ -508,6 +508,21 @@ angular.module('myApp.controllers', [])
                 }
                 $scope.comInventoryDonutsPts = [{ "Green": comInventoryGreen, "Amber": comInventoryAmber, "Red": comInventoryRed }];
 
+                /* BATCH SESSION */
+                var batchSessionCount = comInfo.COM.components[2].batchSession.count;
+                var batchSessionColor = comInfo.COM.components[2].batchSession.status;
+                var batchSession_GuageColor = GREEN_COLOR;
+
+                if (batchSessionColor == GREEN) {
+                    batchSession_GuageColor = GREEN_COLOR;
+                } else if (batchSessionColor == AMBER) {
+                    batchSession_GuageColor = CARROT_COLOR;
+                } else {
+                    batchSession_GuageColor = RED_COLOR;
+                }
+
+                $scope.batchSessionGaugeColumn = [{ "id": "Batch Session", "type": "gauge", "color": batchSession_GuageColor }];
+                $scope.batchSessionGaugePts = [{ "Batch Session": batchSessionCount }];
             }
 
             if (dbInfo.DB) {
