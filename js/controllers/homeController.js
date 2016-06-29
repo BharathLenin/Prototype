@@ -367,6 +367,10 @@ angular.module('myApp.controllers', [])
                 var sterlingQueuePercent = messagingInfo.messagingQueue.components[1].sterlingDepthQueue.messageQueuePercent;
                 var sterlingQueueColor = messagingInfo.messagingQueue.components[1].sterlingDepthQueue.status;
 
+                if (sterlingQueuePercent == 0) {
+                    sterlingQueuePercent  = 1; //100
+                }
+
                 var sterlingQueueGreen = 0,
                     sterlingQueueAmber = 0,
                     sterlingQueueRed = 0;
@@ -431,8 +435,15 @@ angular.module('myApp.controllers', [])
                 var localStrColor = storesInfo.stores.components[1].localStores.status;
                 var localStoreGreen, localStoreAmber, localStoreRed = 0;
                 if(localStrCount ==  0) {
+                    $scope.formatLocalStore = function(value, ratio, id) {
+                        return d3.format()(value);
+                    };                  
                     localStrCount  = 1;
                 }
+                $scope.formatLocalStore = function(value, ratio, id) {
+                    return null;
+                };               
+
                 if (localStrColor == GREEN) {
                     localStoreGreen = localStrCount;
                 } else if (localStrColor == AMBER) {
@@ -543,6 +554,9 @@ angular.module('myApp.controllers', [])
                 var ggReplicaCount = dbInfo.DB.components[2].ggReplication.replicaTime;
                 var ggReplicaColor = dbInfo.DB.components[2].ggReplication.status;
                 var ggReplica_GuageColor = GREEN_COLOR;
+                if(ggReplicaCount == 0) {
+                    ggReplicaCount =1 ;
+                }
 
                 if (ggReplicaColor == GREEN) {
                     ggReplica_GuageColor = GREEN_COLOR;
