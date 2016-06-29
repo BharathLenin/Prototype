@@ -188,12 +188,14 @@
                     </div>
                 </div>
                 <div class="row sterlingContents" ng-show="showItem == 'Sterling'">
-                    <h4>
-                    <div class="floatLeft inline">Connection Counts</div>
-                    <div class="floatRight inline">Probe Failure</div>
-                </h4>
-                    <div class="pure-g">
-                        <div class="l-box-lrg pure-u-1 pure-u-md-1-2 chartcontainer">
+                  
+
+
+
+                <div >
+                    <div class="col-xs-4" style="text-align:center !important">
+                        <h4 class="">Connection Counts</h4>
+                          <div class="">
                             <c3chart bindto-id="connectionCount-chart">
                                 <chart-column column-id="Red" column-values="70" column-type="donut" column-color="#e74c3c" />
                                 <chart-column column-id="Amber" column-values="35" column-type="donut" column-color="#e67e22" />
@@ -201,7 +203,10 @@
                                 <chart-donut title="" width="60" />
                             </c3chart>
                         </div>
-                        <div class="l-box-lrg pure-u-1 pure-u-md-1-2 chartcontainer">
+                    </div>
+                    <div class="col-xs-4 centerText">
+                        <h4 class="">Probe Failure</h4>
+                         <div class="">
                             <c3chart bindto-id="probeFailure-chart">
                                 <chart-column column-id="Red" column-values="70" column-type="pie" column-color="#e74c3c" />
                                 <chart-column column-id="Amber" column-values="35" column-type="pie" column-color="#e67e22" />
@@ -209,10 +214,13 @@
                                 <chart-pie expand="true" />
                             </c3chart>
                         </div>
+
+
                     </div>
-                    <h4 class="">Space availability</h4>
-                    <div class="pure-g">
-                        <div class="l-box-lrg pure-u-1 pure-u-md-1-2 chartcontainer">
+                    <div class="col-xs-4 centerText">
+                        <h4>Space availability</h4>
+
+                         <div class="">
                             <c3chart bindto-id="spaceAvailabiityCount-chart">
                                 <chart-column column-id="Red" column-values="70" column-type="pie" column-color="#e74c3c" />
                                 <chart-column column-id="Amber" column-values="35" column-type="pie" column-color="#e67e22" />
@@ -220,7 +228,14 @@
                                 <chart-pie expand="true" />
                             </c3chart>
                         </div>
+
                     </div>
+                </div>
+                    
+
+
+                    
+                   
                     <!-- c3js chart -->
                     <!-- <canvas id="doughnut" class="chart chart-doughnut" chart-data="data" chart-labels="labels" style="width: 569px !important;height: 305px !important; display: block;">
                     </canvas> -->
