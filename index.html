@@ -234,20 +234,17 @@
                 </h4>
                     <div class="pure-g">
                         <div class="l-box-lrg pure-u-1 pure-u-md-1-2 chartcontainer">
-                            <c3chart bindto-id="comOrder-chart">
-                                <chart-column column-id="Red" column-values="70" column-type="donut" column-color="#e74c3c" />
-                                <chart-column column-id="Amber" column-values="35" column-type="donut" column-color="#e67e22" />
-                                <chart-column column-id="Green" column-values="60" column-type="donut" column-color="#2ecc71" />
-                                <chart-donut title="" width="60" />
+                            <c3chart bindto-id="comOrder-chart" chart-data="comOrderDonutsPts" chart-columns="donutColumns" sort-data="null" >
+                                <chart-legend show-legend="true"/>
+                                <chart-donut expand="true" width="60" show-label="true" title="COM Order JVM" label-format-function="formatDonut"/>
                             </c3chart>
+
                         </div>
                         <div class="l-box-lrg pure-u-1 pure-u-md-1-2 chartcontainer">
-                            <c3chart bindto-id="comInventory-chart">
-                                <chart-column column-id="Red" column-values="70" column-type="donut" column-color="#e74c3c" />
-                                <chart-column column-id="Amber" column-values="35" column-type="donut" column-color="#e67e22" />
-                                <chart-column column-id="Green" column-values="60" column-type="donut" column-color="#2ecc71" />
-                                <chart-donut title="" width="60" />
-                            </c3chart>
+                            <c3chart bindto-id="comInventory-chart" chart-data="comInventoryDonutsPts" chart-columns="donutColumns" sort-data="null" >
+                                <chart-legend show-legend="true"/>
+                                <chart-donut expand="true" width="60" show-label="true" title="COM Inventory JVM" label-format-function="formatDonut"/>
+                            </c3chart>                            
                         </div>
                     </div>
                     <div class="row"></div>
@@ -268,19 +265,15 @@
                 </h4>
                     <div class="pure-g">
                         <div class="l-box-lrg pure-u-1 pure-u-md-1-2 chartcontainer">
-                            <c3chart bindto-id="sterlingDB-chart">
-                                <chart-column column-id="Red" column-values="70" column-type="donut" column-color="#e74c3c" />
-                                <chart-column column-id="Amber" column-values="35" column-type="donut" column-color="#e67e22" />
-                                <chart-column column-id="Green" column-values="60" column-type="donut" column-color="#2ecc71" />
-                                <chart-donut title="" width="60" />
-                            </c3chart>
+                             <c3chart bindto-id="sterlingDB-chart" chart-data="sterlingDbDonutsPts" chart-columns="pieColumns" sort-data="null" >
+                                <chart-legend show-legend="true"/>
+                                <chart-pie expand="true" width="60" show-label="true" title="delta" label-format-function="formatDonut"/>
+                            </c3chart>                           
                         </div>
                         <div class="l-box-lrg pure-u-1 pure-u-md-1-2 chartcontainer">
-                            <c3chart bindto-id="odsDB-chart">
-                                <chart-column column-id="Red" column-values="70" column-type="donut" column-color="#e74c3c" />
-                                <chart-column column-id="Amber" column-values="35" column-type="donut" column-color="#e67e22" />
-                                <chart-column column-id="Green" column-values="60" column-type="donut" column-color="#2ecc71" />
-                                <chart-donut title="" width="60" />
+                            <c3chart bindto-id="odsDB-chart" chart-data="odsDbDonutsPts" chart-columns="pieColumns" sort-data="null" >
+                                <chart-legend show-legend="true"/>
+                                <chart-pie expand="true" width="60" show-label="true" title="delta" label-format-function="formatDonut"/>
                             </c3chart>
                         </div>
                     </div>
@@ -309,13 +302,6 @@
                                 <chart-legend show-legend="true"/>
                                 <chart-pie expand="true" width="60" show-label="true" title="delta" label-format-function="formatDonut"/>
                             </c3chart>
-
-                            <!-- <c3chart bindto-id="pie-plot1-chart1">
-                                <chart-column column-id="Red" column-values="70" column-type="pie" column-color="#e74c3c" />
-                                <chart-column column-id="Amber" column-values="35" column-type="pie" column-color="#e67e22" />
-                                <chart-column column-id="Green" column-values="60" column-type="pie" column-color="#2ecc71" />
-                                <chart-pie expand="true" />
-                            </c3chart> -->
                         </div>
                     </div>
                 </div>
@@ -326,19 +312,15 @@
                 </h4>
                     <div class="pure-g">
                         <div class="l-box-lrg pure-u-1 pure-u-md-1-2 chartcontainer">
-                            <c3chart bindto-id="comQueue-chart">
-                                <chart-column column-id="Red" column-values="70" column-type="donut" column-color="#e74c3c" />
-                                <chart-column column-id="Amber" column-values="35" column-type="donut" column-color="#e67e22" />
-                                <chart-column column-id="Green" column-values="60" column-type="donut" column-color="#2ecc71" />
-                                <chart-donut title="" width="60" />
+                            <c3chart bindto-id="comQueue-chart" chart-data="comQueueDonutsPts" chart-columns="pieColumns" sort-data="null" >
+                                <chart-legend show-legend="true"/>
+                                <chart-pie expand="true" width="60" show-label="true" title="delta"/>
                             </c3chart>
                         </div>
                         <div class="l-box-lrg pure-u-1 pure-u-md-1-2 chartcontainer">
-                            <c3chart bindto-id="sterlingQueue-chart">
-                                <chart-column column-id="Red" column-values="70" column-type="donut" column-color="#e74c3c" />
-                                <chart-column column-id="Amber" column-values="35" column-type="donut" column-color="#e67e22" />
-                                <chart-column column-id="Green" column-values="60" column-type="donut" column-color="#2ecc71" />
-                                <chart-donut title="" width="60" />
+                            <c3chart bindto-id="sterlingQueue-chart" chart-data="sterlingQueueDonutsPts" chart-columns="pieColumns" sort-data="null" >
+                                <chart-legend show-legend="true"/>
+                                <chart-pie expand="true" width="60" show-label="true" title="delta"/>
                             </c3chart>
                         </div>
                     </div>

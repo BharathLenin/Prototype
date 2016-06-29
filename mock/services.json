@@ -1,117 +1,99 @@
-{
-  "data": [
-    {
-      "messagingQueue": {
-        "components": [
-          {
-            "comDepthQueue": {
-              "messageQueueCount": 100,
-              "messageQueuePercent": 1,
-              "status": "red"
-            }
-          },
-          {
-            "sterlingDepthQueue": {
-              "messageQueueCount": 100,
-              "messageQueuePercent": 0,
-              "status": "red"
-            }
-          },
-          {
-            "transmitQueue": {
-              "messageQueueCount": 100,
-              "messageQueuePercent": 12,
-              "status": "red"
-            }
+[
+  {
+    "messagingQueue": {
+      "components": [
+        {
+          "comDepthQueue": {
+            "messageQueueCount": 100,
+            "messageQueuePercent": 3,
+            "status": "red"
           }
-        ],
-        "overallStatus": "red"
-      }
-    },
-    {
-      "stores": {
-        "components": [
-          {
-            "unSyncDeltas": {
-              "messageQueueCount": 3298,
-              "status": "green"
-            }
-          },
-          {
-            "localStores": {
-              "storeCount": 28,
-              "status": "amber"
-            }
+        },
+        {
+          "sterlingDepthQueue": {
+            "messageQueueCount": 100,
+            "messageQueuePercent": 0,
+            "status": "green"
           }
-        ],
-        "overallStatus": "amber"
-      }
-    },
-    {
-      "COM": {
-        "components": [
-          {
-            "comOrder": {
-              "serverCount": 30,
-              "status": "green"
-            }
-          },
-          {
-            "comInventory": {
-              "serverCount": 9,
-              "status": "green"
-            }
-          },
-          {
-            "batchSession": {
-              "count": 1275,
-              "status": "green"
-            }
+        },
+        {
+          "transmitQueue": {
+            "messageQueueCount": 100,
+            "messageQueuePercent": 8,
+            "status": "red"
           }
-        ],
-        "overallStatus": "green"
-      }
-    },
-    {
-      "DB": {
-        "components": [
-          {
-            "odsDatabase": {
-              "serverCount": 15,
-              "status": "red"
-            }
-          },
-          {
-            "sterlingDatabase": {
-              "serverCount": 100,
-              "status": "red"
-            }
-          },
-          {
-            "ggReplication": {
-              "replicaTime": 9223372036854776000,
-              "status": "amber"
-            }
-          }
-        ],
-        "overallStatus": "red"
-      }
-    }
-  ],
-  "status": 200,
-  "config": {
-    "method": "GET",
-    "transformRequest": [
-      null
-    ],
-    "transformResponse": [
-      null
-    ],
-    "timeout": 240000,
-    "url": "http://localhost:12030/dashboard-rest/rest/data/getData?callback=121212",
-    "headers": {
-      "Accept": "application/json, text/plain, */*"
+        }
+      ],
+      "overallStatus": "red"
     }
   },
-  "statusText": "OK"
-}
+  {
+    "stores": {
+      "components": [
+        {
+          "unSyncDeltas": {
+            "messageQueueCount": 2824,
+            "status": "green"
+          }
+        },
+        {
+          "localStores": {
+            "storeCount": 16,
+            "status": "amber"
+          }
+        }
+      ],
+      "overallStatus": "amber"
+    }
+  },
+  {
+    "COM": {
+      "components": [
+        {
+          "comOrder": {
+            "serverCount": 30,
+            "status": "green"
+          }
+        },
+        {
+          "comInventory": {
+            "serverCount": 9,
+            "status": "green"
+          }
+        },
+        {
+          "batchSession": {
+            "count": 1275,
+            "status": "green"
+          }
+        }
+      ],
+      "overallStatus": "green"
+    }
+  },
+  {
+    "DB": {
+      "components": [
+        {
+          "odsDatabase": {
+            "serverCount": 19,
+            "status": "red"
+          }
+        },
+        {
+          "sterlingDatabase": {
+            "serverCount": 100,
+            "status": "red"
+          }
+        },
+        {
+          "ggReplication": {
+            "replicaTime": 9223372036854775807,
+            "status": "amber"
+          }
+        }
+      ],
+      "overallStatus": "red"
+    }
+  }
+]

@@ -96,7 +96,7 @@ angular.module('myApp.controllers', [])
                     }
                 },
                 fill: 'transparent',
-                legend: 'none',
+                // legend: 'none',
                 is3D: false,
                 // width: 600,
                 // height: 300,
@@ -136,7 +136,7 @@ angular.module('myApp.controllers', [])
                     }
                 },
                 fill: 'transparent',
-                legend: 'none'
+                // legend: 'none'
             };
 
             var comChart = new google.visualization.PieChart(document.getElementById('donutchartForComMainDash'));
@@ -170,7 +170,7 @@ angular.module('myApp.controllers', [])
                     }
                 },
                 // fill: 'transparent',
-                legend: 'none'
+                // legend: 'none'
             };
 
             var dbChart = new google.visualization.PieChart(document.getElementById('donutchartForDBMainDash'));
@@ -205,7 +205,7 @@ angular.module('myApp.controllers', [])
                     }
                 },
                 fill: 'transparent',
-                legend: 'none'
+                // legend: 'none'
             };
 
             var mqChart = new google.visualization.PieChart(document.getElementById('donutchartForMQMainDash'));
@@ -220,9 +220,12 @@ angular.module('myApp.controllers', [])
         });
 
         // fetch().then(function(data) {
-        //     $scope.serviceDetails = data;
-        //     console.log($scope.serviceDetails);
+        //     console.log(data);
+        //     $scope.initializeSterlingMainDash();
+        //     initValues();
         //     formatDetails(data);
+        //     //call this after getting the service response
+        //     $scope.initializeChartForMainDashboard();
         // }, function(error) {
         //     $scope.errorDetails = error;
         //     console.log($scope.errorDetails);
@@ -286,13 +289,13 @@ angular.module('myApp.controllers', [])
         }
 
         function formatDetails(restApiData) {
-            if (!restApiData.data) {
+            if (!restApiData) {
                 return null;
             }
-            var messagingInfo = restApiData.data[0];
-            var storesInfo = restApiData.data[1];
-            var comInfo = restApiData.data[2];
-            var dbInfo = restApiData.data[3];
+            var messagingInfo = restApiData[0];
+            var storesInfo = restApiData[1];
+            var comInfo = restApiData[2];
+            var dbInfo = restApiData[3];
 
             if (messagingInfo.messagingQueue) {
                 if (messagingInfo.messagingQueue.overallStatus == RED) {
@@ -302,8 +305,41 @@ angular.module('myApp.controllers', [])
                 } else {
                     $scope.mqUpStatus = 1;
                 }
+
+
+                /* Sterling Queue Depth */
+                var sterlingQueueCount = messagingInfo.messagingQueue.components[1].sterlingDepthQueue.messageQueueCount;
+                var sterlingQueuePercent = messagingInfo.messagingQueue.components[1].sterlingDepthQueue.messageQueuePercent;
+                var sterlingQueueColor = messagingInfo.messagingQueue.components[1].sterlingDepthQueue.status;
+
+                var sterlingQueueGreen = 0, sterlingQueueAmber= 0, sterlingQueueRed = 0;
+                if (sterlingQueueColor == GREEN) {
+                    sterlingQueueGreen = sterlingQueuePercent;
+                } else if (sterlingQueueColor == AMBER) {
+                    sterlingQueueAmber = sterlingQueuePercent;
+                } else {
+                    sterlingQueueRed = sterlingQueuePercent;
+                }
+                $scope.sterlingQueueDonutsPts = [{ "Green": sterlingQueueGreen, "Amber": sterlingQueueAmber, "Red": sterlingQueueRed }];
+
+                /* COM Queue Depth */
+                var comQueueCount = messagingInfo.messagingQueue.components[0].comDepthQueue.messageQueueCount;
+                var comQueuePercent = messagingInfo.messagingQueue.components[0].comDepthQueue.messageQueuePercent;
+                var comQueueColor = messagingInfo.messagingQueue.components[0].comDepthQueue.status;
+
+                var comQueueGreen = 0, comQueueAmber= 0, comQueueRed = 0;
+                if (comQueueColor == GREEN) {
+                    comQueueGreen = comQueuePercent;
+                } else if (comQueueColor == AMBER) {
+                    comQueueAmber = comQueuePercent;
+                } else {
+                    comQueueRed = comQueuePercent;
+                }
+                $scope.comQueueDonutsPts = [{ "Green": comQueueGreen, "Amber": comQueueAmber, "Red": comQueueRed }];                
             }
 
+
+            /* STORES */
             if (storesInfo.stores) {
                 if (storesInfo.stores.overallStatus == RED) {
                     $scope.storeDownStatus = 1;
@@ -340,6 +376,7 @@ angular.module('myApp.controllers', [])
                 $scope.unSyncDeltaDonutsPts = [{ "Green": unSyncDeltaGreen, "Amber": unSyncDeltaAmber, "Red": unSyncDeltaRed }];
             }
 
+            /* COM */
             if (comInfo.COM) {
                 if (comInfo.COM.overallStatus == RED) {
                     $scope.comDownStatus = 1;
@@ -348,6 +385,34 @@ angular.module('myApp.controllers', [])
                 } else {
                     $scope.comUpStatus = 1;
                 }
+
+
+                /* COM ORDER JVM */
+                var comOrderCount = comInfo.COM.components[0].comOrder.serverCount;
+                var comOrderColor = comInfo.COM.components[0].comOrder.status;
+                var comOrderGreen = 0, comOrderAmber= 0, comOrderRed = 0;
+                if (comOrderColor == GREEN) {
+                    comOrderGreen = comOrderCount;
+                } else if (comOrderColor == AMBER) {
+                    comOrderAmber = comOrderCount;
+                } else {
+                    comOrderRed = comOrderCount;
+                }
+                $scope.comOrderDonutsPts = [{ "Green": comOrderGreen, "Amber": comOrderAmber, "Red": comOrderRed }];
+
+                /* COM INVENTORY JVM */
+                var comInventoryCount = comInfo.COM.components[1].comInventory.serverCount;
+                var comInventoryColor = comInfo.COM.components[1].comInventory.status;
+                var comInventoryGreen = 0, comInventoryAmber= 0, comInventoryRed = 0;
+                if (comInventoryColor == GREEN) {
+                    comInventoryGreen = comInventoryCount;
+                } else if (comOrderColor == AMBER) {
+                    comInventoryAmber = comInventoryCount;
+                } else {
+                    comInventoryRed = comInventoryCount;
+                }
+                $scope.comInventoryDonutsPts = [{ "Green": comInventoryGreen, "Amber": comInventoryAmber, "Red": comInventoryRed }];                
+
             }
 
             if (dbInfo.DB) {
@@ -358,12 +423,33 @@ angular.module('myApp.controllers', [])
                 } else {
                     $scope.dbUpStatus = 1;
                 }
+
+                /* Sterling DB */
+                var sterlingDbCount = dbInfo.DB.components[1].sterlingDatabase.serverCount;
+                var sterlingDbColor = dbInfo.DB.components[1].sterlingDatabase.status;
+                var sterlingDbGreen = 0, sterlingDbAmber= 0, sterlingDbRed = 0;
+                if (sterlingDbColor == GREEN) {
+                    sterlingDbGreen = sterlingDbCount;
+                } else if (comOrderColor == AMBER) {
+                    sterlingDbAmber = sterlingDbCount;
+                } else {
+                    sterlingDbRed = sterlingDbCount;
+                }
+                $scope.sterlingDbDonutsPts = [{ "Green": sterlingDbGreen, "Amber": sterlingDbAmber, "Red": sterlingDbRed }];
+
+                /* ODS DB */
+                var odsDbCount = dbInfo.DB.components[0].odsDatabase.serverCount;
+                var odsDbColor = dbInfo.DB.components[0].odsDatabase.status;
+                var odsDbGreen = 0, odsDbAmber= 0, odsDbRed = 0;
+                if (odsDbColor == GREEN) {
+                    odsDbGreen = odsDbCount;
+                } else if (odsDbColor == AMBER) {
+                    odsDbAmber = odsDbCount;
+                } else {
+                    odsDbRed = odsDbCount;
+                }
+                $scope.odsDbDonutsPts = [{ "Green": odsDbGreen, "Amber": odsDbAmber, "Red": odsDbRed }];
             }
-
-
-
-
-
         }
 
     });
