@@ -1,4 +1,27 @@
 angular.module('myApp.controllers', [])
+.directive('loading', function () {
+      return {
+        restrict: 'E',
+        replace:true,
+        template: '<div class="loading"><img src="https://lh3.googleusercontent.com/-qdtiroY0q8I/V3U51GxtFAI/AAAAAAAAOD0/8JYEGCzb3ycPwd-a7jng_9JmY1T5S3sHACCo/s184/ripple%2B%25281%2529.gif" width="120px" height="120px" /></div>',
+        link: function (scope, element, attr) {
+              scope.$watch('loading', function (val) {
+             
+                  if(val)
+                  {
+                      $(element).fadeIn('slow');
+                      
+                  }
+                  else
+                  {
+                    
+                      $(element).fadeOut('slow');
+                      
+                  }
+              });
+        }
+      }
+  })
     .controller('homeController', function($scope, $rootScope, $http, $q, $timeout) {
 
         //Constants
@@ -240,9 +263,11 @@ angular.module('myApp.controllers', [])
         $scope.mockDB = 1;
 
         if ($scope.mockDB) {
+            $scope.loading = true;
 
             $http.get('mock/services.json').success(function(data) {
                 console.log(data);
+                 $scope.loading = false;
                 $scope.initializeSterlingMainDash();
                 initValues();
 
@@ -314,8 +339,10 @@ angular.module('myApp.controllers', [])
 
         function fetch() {
             var deferred = $q.defer();
+            $scope.loading = true;
             $http.get("http://localhost:12030/dashboard-rest/rest/data/getData?callback=121212", { timeout: 240000 })
                 .then(function successCallback(response) {
+                     $scope.loading = false;
                     deferred.resolve(response);
                 }, function errorCallback(response) {
                     deferred.reject(response);
