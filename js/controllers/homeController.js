@@ -3,20 +3,17 @@ angular.module('myApp.controllers', [])
       return {
         restrict: 'E',
         replace:true,
-        template: '<div class="loading"><img src="https://lh3.googleusercontent.com/-qdtiroY0q8I/V3U51GxtFAI/AAAAAAAAOD0/8JYEGCzb3ycPwd-a7jng_9JmY1T5S3sHACCo/s184/ripple%2B%25281%2529.gif" width="120px" height="120px" /></div>',
+        template: '<div class="loading"><img src="https://lh3.googleusercontent.com/-w-BTWObAuOk/V3aCcE7qqYI/AAAAAAAAOEM/w_0xxNvv0BASTvi8aL86hWkvoEpnPxIMACCo/s162/ripple%2B%25282%2529.gif" width="162px" height="162px" /></div>',
         link: function (scope, element, attr) {
               scope.$watch('loading', function (val) {
              
                   if(val)
                   {
                       $(element).fadeIn('slow');
-                      
                   }
                   else
                   {
-                    
                       $(element).fadeOut('slow');
-                      
                   }
               });
         }
@@ -120,7 +117,8 @@ angular.module('myApp.controllers', [])
                 title: '',
                 pieHole: 0.5,
                 pieSliceTextStyle: {
-                    color: BLACK_COLOR,
+                    color: "#ffffff",
+                    fontSize:18
                 },
                 'backgroundColor': 'transparent',
 
@@ -135,13 +133,22 @@ angular.module('myApp.controllers', [])
                         color: RED_COLOR
                     }
                 },
+
+        chartArea: { 
+            left: 5, 
+            top: 5, 
+            width: '130%', 
+            height: '65%'
+        },
                 fill: 'transparent',
-                legend: { position: 'bottom' },
+legend: { position: 'none' },
+                
 
                 is3D: false,
                 // width: 600,
                 // height: 300,
-                pieSliceText: 'value'
+                pieSliceText: 'value',
+                height:350
             };
 
 
@@ -161,7 +168,8 @@ angular.module('myApp.controllers', [])
                 title: '',
                 pieHole: 0.5,
                 pieSliceTextStyle: {
-                    color: BLACK_COLOR,
+                    color: "#ffffff",
+                    fontSize:18
                 },
                 'backgroundColor': 'transparent',
 
@@ -176,8 +184,15 @@ angular.module('myApp.controllers', [])
                         color: RED_COLOR
                     }
                 },
+                 chartArea: { 
+            left: 5, 
+            top: 5, 
+            width: '130%', 
+            height: '65%'
+        },
                 fill: 'transparent',
-                legend: { position: 'bottom' }
+                height:350,
+               legend: { position: 'none' },
             };
 
             var comChart = new google.visualization.PieChart(document.getElementById('donutchartForComMainDash'));
@@ -195,7 +210,8 @@ angular.module('myApp.controllers', [])
                 title: '',
                 pieHole: 0.5,
                 pieSliceTextStyle: {
-                    color: BLACK_COLOR,
+                    color: "#ffffff",
+                    fontSize:18
                 },
                 'backgroundColor': 'transparent',
 
@@ -211,7 +227,14 @@ angular.module('myApp.controllers', [])
                     }
                 },
                 // fill: 'transparent',
-                legend: { position: 'bottom' }
+                 chartArea: { 
+            left: 5, 
+            top: 5, 
+            width: '130%', 
+            height: '65%'
+        },
+                height:350,
+               legend: { position: 'none' },
             };
 
             var dbChart = new google.visualization.PieChart(document.getElementById('donutchartForDBMainDash'));
@@ -230,7 +253,8 @@ angular.module('myApp.controllers', [])
                 title: '',
                 pieHole: 0.5,
                 pieSliceTextStyle: {
-                    color: BLACK_COLOR,
+                    color: "#ffffff",
+                    fontSize:18
                 },
                 'backgroundColor': 'transparent',
 
@@ -245,8 +269,15 @@ angular.module('myApp.controllers', [])
                         color: RED_COLOR
                     }
                 },
+                 chartArea: { 
+            left: 5, 
+            top: 5, 
+            width: '130%', 
+            height: '65%'
+        },
                 fill: 'transparent',
-                legend: { position: 'bottom' }
+                height:350,
+               legend: { position: 'none' },
             };
 
             var mqChart = new google.visualization.PieChart(document.getElementById('donutchartForMQMainDash'));

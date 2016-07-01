@@ -1,7 +1,10 @@
 .NEPHRITIS {
     color: #27AE60
 }
-
+.white{color: #ffffff !important}
+h2{font-size: 42px !important}
+.dark{background: #2c3e50 !important; color: #ffffff !important}
+.lite, .tile{background: #34495e !important; color: #f2f2f2 !important}
 #container {
     padding: 10px
 }
@@ -60,7 +63,7 @@
 }
 
 .todo ul {
-    height: 780px
+    height: 880px
 }
 #footer{text-align: center;margin:10px -10px -10px -10px !important; padding:20px 0px 20px 0px; border-top: solid 1px #dedede; 
     background-color:#eff0f2 ;   }
