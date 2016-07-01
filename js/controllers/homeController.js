@@ -89,6 +89,10 @@ angular.module('myApp.controllers', [])
         /* TIMER FUNCTION */
         var countDowner, countDown = 300;
         countDowner = function() {
+
+
+// $scope.countDown_text=datetime
+            /*
             if (countDown < 0) {
                 $("#warning").fadeOut(2000);
                 countDown = 0;
@@ -98,10 +102,13 @@ angular.module('myApp.controllers', [])
                 countDown--; // -1
                 $timeout(countDowner, 1000); // loop it again
             }
+            */
         };
+         var currentdate = new Date(); 
+var datetime =  currentdate.getHours() + ":"  + currentdate.getMinutes() ;
 
-        $scope.countDown_text = countDown;
-        countDowner()
+        $('.countDown_text').html(datetime) ;
+        //countDowner()
 
         $scope.initializeChartForMainDashboard = function() {
 
