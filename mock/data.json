@@ -1,0 +1,222 @@
+[
+  {
+    "messagingQueue": {
+      "overallStatus": "green",
+      "components": [
+        {
+          "comDepthQueue": {
+            "amberlist": [],
+            "messageQueueCount": 96,
+            "greenlist": [],
+            "status": "green",
+            "redlist": []
+          }
+        },
+        {
+          "sterlingDepthQueue": {
+            "amberlist": [
+              {
+                "queueDepth": "5001",
+                "status": "amber",
+                "queueName": "DI.DL.STERLING.CLOSE.ORDER",
+                "queueDepthMax": "50000"
+              }
+            ],
+            "messageQueueCount": 198,
+            "greenlist": [],
+            "status": "green",
+            "redlist": [
+              {
+                "queueDepth": "4447",
+                "status": "red",
+                "queueName": "DI.DL.STERLING.SHORTAGE.INT",
+                "queueDepthMax": "10000"
+              }
+            ]
+          }
+        },
+        {
+          "transmitQueue": {
+            "amberlist": [],
+            "messageQueueCount": 2,
+            "greenlist": [],
+            "status": "green",
+            "redlist": []
+          }
+        }
+      ]
+    }
+  },
+  {
+    "stores": {
+      "overallStatus": "amber",
+      "components": [
+        {
+          "unSyncDeltas": {
+            "deltaCountPerState": {
+              "E": "2814",
+              "F": "346",
+              "P": "22",
+              "A": "116",
+              "L": "67",
+              "M": "169",
+              "Grand_Total": "13069",
+              "N": "9535"
+            },
+            "status": "amber"
+          }
+        },
+        {
+          "localStores": {
+            "status": "amber",
+            "storeCount": 12
+          }
+        }
+      ]
+    }
+  },
+  {
+    "COM": {
+      "overallStatus": "green",
+      "components": [
+        {
+          "comOrder": {
+            "serverCount": 30,
+            "status": "green"
+          }
+        },
+        {
+          "comInventory": {
+            "serverCount": 9,
+            "status": "green"
+          }
+        },
+        {
+          "batchSession": {
+            "count": 1275,
+            "status": "green"
+          }
+        }
+      ]
+    }
+  },
+  {
+    "DB": {
+      "overallStatus": "red",
+      "components": [
+        {
+          "sterlingDB": {
+            "status": "red",
+            "components": [
+              {
+                "longRunningSessions": {
+                  "status": "green",
+                  "sessionCount": 0
+                }
+              },
+              {
+                "blockingSessions": {
+                  "sessions": [
+                    {
+                      "BLOCKER_CLIENT_INFO": "API",
+                      "BLOCKER_STATUS": "INACTIVE",
+                      "Record": "select * from THD01.YFS_ORDER_HEADER where rowid = 'AAAlNxABKAADR8dAAD';",
+                      "MACHINE": "cclidis0.homedepot.com",
+                      "BLK_SESS": "4",
+                      "BLOCKER": "THD01",
+                      "BLOCKER_MODULE": "APPSERVER",
+                      "_time": "2016-07-05T11:25:00.569-04:00",
+                      "DURATION": "000:02:17",
+                      "BLOCKED_OBJECT": "THD01.YFS_ORDER_HEADER"
+                    }
+                  ],
+                  "status": "red",
+                  "sessionCount": 1
+                }
+              }
+            ]
+          }
+        },
+        {
+          "comDB": {
+            "status": "green",
+            "components": [
+              {
+                "longRunningSessions": {
+                  "status": "green",
+                  "sessionCount": 0
+                }
+              }
+            ]
+          }
+        }
+      ]
+    }
+  },
+  {
+    "sterling": {
+      "status": "",
+      "components": [
+        {
+          "connectionCount": [
+            {
+              "serverCount": 12,
+              "status": "green",
+              "servers": [
+                "cclidis0.homedepot.com",
+                "cclidis1.homedepot.com",
+                "cclidis2.homedepot.com",
+                "cclidis3.homedepot.com",
+                "cclidis4.homedepot.com",
+                "cclidis5.homedepot.com",
+                "cclidis6.homedepot.com",
+                "cclidis7.homedepot.com",
+                "cclidis8.homedepot.com",
+                "cclidisa.homedepot.com",
+                "cclidisb.homedepot.com",
+                "cclidisc.homedepot.com"
+              ]
+            },
+            {
+              "serverCount": 0,
+              "status": "amber",
+              "servers": []
+            },
+            {
+              "serverCount": 0,
+              "status": "red",
+              "servers": []
+            }
+          ]
+        },
+        {
+          "probefailure": [
+            {
+              "serverCount": 12,
+              "status": "green",
+              "servers": [
+                "cclidis0.homedepot.com",
+                "cclidis1.homedepot.com",
+                "cclidis2.homedepot.com",
+                "cclidis3.homedepot.com",
+                "cclidis4.homedepot.com",
+                "cclidis5.homedepot.com",
+                "cclidis6.homedepot.com",
+                "cclidis7.homedepot.com",
+                "cclidis8.homedepot.com",
+                "cclidisA.homedepot.com",
+                "cclidisB.homedepot.com",
+                "cclidisC.homedepot.com"
+              ]
+            },
+            {
+              "serverCount": 0,
+              "status": "red",
+              "servers": []
+            }
+          ]
+        }
+      ]
+    }
+  }
+]

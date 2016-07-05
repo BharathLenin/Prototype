@@ -303,7 +303,7 @@ legend: { position: 'none' },
         if ($scope.mockDB) {
             $scope.loading = true;
 
-            $http.get('mock/services.json').success(function(data) {
+            $http.get('mock/data.json').success(function(data) {
                 console.log(data);
                  $scope.loading = false;
                 $scope.initializeSterlingMainDash();
