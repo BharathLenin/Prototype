@@ -38,10 +38,27 @@
         {
           "transmitQueue": {
             "amberlist": [],
-            "messageQueueCount": 2,
+            "messageQueueCount": 3,
             "greenlist": [],
-            "status": "green",
-            "redlist": []
+            "status": "red",
+            "currTxQDepth": 88292,
+            "redlist": [
+              {
+                "status": "red",
+                "currentDepth": "43781",
+                "broker": "QM0.PR.US.CPLIIS7D"
+              },
+              {
+                "status": "red",
+                "currentDepth": "21180",
+                "broker": "QM0.PR.US.CPLIIS7D"
+              },
+              {
+                "status": "red",
+                "currentDepth": "23331",
+                "broker": "QM0.PR.US.CPLIIS7C"
+              }
+            ]
           }
         }
       ]
