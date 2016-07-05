@@ -418,6 +418,7 @@ legend: { position: 'none' },
             var dbInfo = restApiData[3];
 
             if (messagingInfo.messagingQueue) {
+
                 if (messagingInfo.messagingQueue.overallStatus == RED) {
                     $scope.mqDownStatus = 1;
                 } else if (messagingInfo.messagingQueue.overallStatus == AMBER) {
@@ -492,6 +493,7 @@ legend: { position: 'none' },
                 } else if (storesInfo.stores.overallStatus == AMBER) {
                     $scope.storeWarnStatus = 1;
                 } else {
+
                     $scope.storeUpStatus = 1;
                 }
 
@@ -600,8 +602,10 @@ legend: { position: 'none' },
                 }
 
                 /* Sterling DB */
-                var sterlingDbCount = dbInfo.DB.components[1].sterlingDatabase.serverCount;
-                var sterlingDbColor = dbInfo.DB.components[1].sterlingDatabase.status;
+                //var sterlingDbCount = dbInfo.DB.components[0].sterlingDB.serverCount;
+                //var sterlingDbColor = dbInfo.DB.components[0].sterlingDB.status;
+               var sterlingDbCount=9;
+               var sterlingDbColor='green';
                 var sterlingDbGreen = 0,
                     sterlingDbAmber = 0,
                     sterlingDbRed = 0;
@@ -615,8 +619,10 @@ legend: { position: 'none' },
                 $scope.sterlingDbDonutsPts = [{ "Green": sterlingDbGreen, "Amber": sterlingDbAmber, "Red": sterlingDbRed }];
 
                 /* ODS DB */
-                var odsDbCount = dbInfo.DB.components[0].odsDatabase.serverCount;
-                var odsDbColor = dbInfo.DB.components[0].odsDatabase.status;
+               // var odsDbCount = dbInfo.DB.components[0].odsDatabase.serverCount;
+                //var odsDbColor = dbInfo.DB.components[0].odsDatabase.status;
+                 var odsDbCount = 9;
+                var odsDbColor = 'green';
                 var odsDbGreen = 0,
                     odsDbAmber = 0,
                     odsDbRed = 0;
@@ -631,8 +637,11 @@ legend: { position: 'none' },
 
 
                 /* GG REPLICATION */
-                var ggReplicaCount = dbInfo.DB.components[2].ggReplication.replicaTime;
-                var ggReplicaColor = dbInfo.DB.components[2].ggReplication.status;
+               // var ggReplicaCount = dbInfo.DB.components[2].ggReplication.replicaTime;
+               // var ggReplicaColor = dbInfo.DB.components[2].ggReplication.status;
+
+                  var ggReplicaCount = 4;
+                var ggReplicaColor ='green';
                 var ggReplica_GuageColor = GREEN_COLOR;
                 if (ggReplicaCount == 0) {
                     ggReplicaCount = 1;
