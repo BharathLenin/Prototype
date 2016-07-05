@@ -157,6 +157,7 @@ var datetime =  currentdate.getHours() + ":"  + currentdate.getMinutes() ;
         //countDowner()
 
         $scope.initializeChartForMainDashboard = function() {
+            
 
             //Sterling - MainDashboard
             var storeData = google.visualization.arrayToDataTable([
@@ -201,6 +202,7 @@ legend: { position: 'none' },
                 // width: 600,
                 // height: 300,
                 pieSliceText: 'value',
+                //localStrCount
                 height:350
             };
 
@@ -530,21 +532,27 @@ legend: { position: 'none' },
                 $scope.transmitGaugeColumn = [{ "id": "Transmit Queue", "type": "gauge", "color": transmitQueue_GuageColor }];
                 $scope.transmitGaugePts = [{ "Transmit Queue": transmitQueueCount }];
             }
-
+             /* Local Store calculation */
+                var localStrCount = storesInfo.stores.components[1].localStores.storeCount;
 
             /* STORES */
             if (storesInfo.stores) {
                 if (storesInfo.stores.overallStatus == RED) {
-                    $scope.storeDownStatus = 1;
+                   // $scope.storeDownStatus = 1;
+                    $scope.storeDownStatus = localStrCount;
                 } else if (storesInfo.stores.overallStatus == AMBER) {
-                    $scope.storeWarnStatus = 1;
+                   //$scope.storeWarnStatus = 1;
+                   
+                     $scope.storeWarnStatus=localStrCount;
                 } else {
 
-                    $scope.storeUpStatus = 1;
+                   // $scope.storeUpStatus = 1;
+                     $scope.storeUpStatus = localStrCount;
                 }
 
-                /* Local Store calculation */
-                var localStrCount = storesInfo.stores.components[1].localStores.storeCount;
+               
+
+
                 var localStrColor = storesInfo.stores.components[1].localStores.status;
                 var localStoreGreen, localStoreAmber, localStoreRed = 0;
                 if (localStrCount == 0) {
@@ -584,7 +592,7 @@ legend: { position: 'none' },
                 }
 
                 //$scope.unSyncDeltaDonutsPts = [{ "Green": unSyncDeltaGreen, "Amber": unSyncDeltaAmber, "Red": unSyncDeltaRed }];
-               // alert(unSyncDeltaGreen);
+               
                 $scope.unSyncDeltaDonutsPts = [{ "E": unSyncDeltaCountPerState.E, 
                 "F": unSyncDeltaCountPerState.F, "P": unSyncDeltaCountPerState.P,
                 "A": unSyncDeltaCountPerState.A,"L": unSyncDeltaCountPerState.L,
