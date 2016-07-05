@@ -473,6 +473,7 @@ legend: { position: 'none' },
                     $scope.mqWarnStatus = 1;
                 } else {
                     $scope.mqUpStatus = 1;
+                    
                 }
 
 
