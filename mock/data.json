@@ -108,7 +108,7 @@
         {
           "ggReplication": {
             "replicaTime": 0,
-            "status": "green"
+            "status": "red"
           }
         },
         {

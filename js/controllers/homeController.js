@@ -78,6 +78,14 @@ angular.module('myApp.controllers', [])
             }
         ];
 
+        $scope.donutColumnsLocal = [{ "id": "Local", "type": "donut", "color": RED_COLOR },
+            {
+                "id": "Online",
+                "type": "donut",
+                "color": GREEN_COLOR
+            }
+        ];
+
         $scope.pieColumns = [
         { "id": "Red", "type": "pie", "color": RED_COLOR },
             { "id": "Amber", "type": "pie", "color": CARROT_COLOR }, 
@@ -579,7 +587,7 @@ legend: { position: 'none' },
                 }
 
                 localStoreGreen = localStrCountFinal;
-                $scope.localStoreDonutsPts = [{ "Green": localStoreGreen,  "Red": localStoreAmber }];
+                $scope.localStoreDonutsPts = [{ "Online": localStoreGreen,  "Local": localStoreAmber }];
 
                 /* Unsynced delta's*/
                 var unSyncDeltaCount = storesInfo.stores.components[0].unSyncDeltas.messageQueueCount;
@@ -675,9 +683,10 @@ legend: { position: 'none' },
 
                 /* Sterling DB */
                 //var sterlingDbCount = dbInfo.DB.components[0].sterlingDB.serverCount;
-                //var sterlingDbColor = dbInfo.DB.components[0].sterlingDB.status;
-               var sterlingDbCount=9;
-               var sterlingDbColor='green';
+                var sterlingDbColor = dbInfo.DB.components[1].sterlingDB.status;
+               
+               var sterlingDbCount=1;
+              
                 var sterlingDbGreen = 0,
                     sterlingDbAmber = 0,
                     sterlingDbRed = 0;
@@ -692,9 +701,12 @@ legend: { position: 'none' },
 
                 /* ODS DB */
                // var odsDbCount = dbInfo.DB.components[0].odsDatabase.serverCount;
-                //var odsDbColor = dbInfo.DB.components[0].odsDatabase.status;
-                 var odsDbCount = 9;
-                var odsDbColor = 'green';
+                var odsDbColor = dbInfo.DB.components[2].comDB.status;
+
+
+
+                 var odsDbCount = 1;
+               
                 var odsDbGreen = 0,
                     odsDbAmber = 0,
                     odsDbRed = 0;
@@ -709,10 +721,10 @@ legend: { position: 'none' },
 
 
                 /* GG REPLICATION */
-               // var ggReplicaCount = dbInfo.DB.components[2].ggReplication.replicaTime;
+               // var ggReplicaCount = dbInfo.DB.components[0].ggReplication.replicaTime;
                // var ggReplicaColor = dbInfo.DB.components[2].ggReplication.status;
 
-                  var ggReplicaCount = 4;
+                  var ggReplicaCount = dbInfo.DB.components[2].comDB.replicaTime;
                 var ggReplicaColor ='green';
                 var ggReplica_GuageColor = GREEN_COLOR;
                 if (ggReplicaCount == 0) {
