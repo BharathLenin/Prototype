@@ -101,30 +101,138 @@
       ]
     }
   },
+  
+
   {
     "DB": {
-      "overallStatus": "green",
+      "overallStatus": "red",
       "components": [
         {
           "ggReplication": {
             "replicaTime": 0,
-            "status": "red"
+            "status": "green"
           }
         },
         {
           "sterlingDB": {
-            "status": "green",
+            "status": "red",
             "components": [
               {
                 "longRunningSessions": {
-                  "status": "green",
-                  "sessionCount": 0
+                  "sessions": [
+                    {
+                      "SID": "7078",
+                      "INST_ID": "4",
+                      "SQL_TEXT": "SELECT  /*YANTRA*/    YFS_WO_HOLD_TYPE_LOG.* FROM YFS_WO_HOLD_TYPE_LOG YFS_WO_HOLD_TYPE_LOG     WHERE YFS_WO_HOLD_TYPE_LOG.WO_HOLD_TYPE_KEY=  :1  ",
+                      "MACHINE": "cclidis3.homedepot.com",
+                      "SERIAL#": "23483",
+                      "SQL_ID": "cy9fg1p42cca3",
+                      "MODULE": "APPSERVER&cclidis3.homedepot.com",
+                      "USERNAME": "THD01",
+                      "LOGON_TIME": "2016-07-05 15:34:28.0",
+                      "OSUSER": "sterling",
+                      "STATUS": "ACTIVE",
+                      "DURATION": "1"
+                    },
+                    {
+                      "SID": "8218",
+                      "INST_ID": "4",
+                      "SQL_TEXT": "SELECT  /* YANTRA */  :\"SYS_B_00\" AS ENTITY, INVENTORY_SUPPLY_KEY AS INVENTORY_SUPPLY_KEY, QUANTITY, INVENTORY_ITEM_KEY, INVENTORY_TAG_KEY, TAG_NUMBER, OWNER_KEY, SHIPNODE_KEY, SUPPLY_TYPE, SEGMENT, SEGMENT_TYPE, ETA, SHIP_BY_DATE, SUPPLY_REFERENCE_TYPE, SUPPLY_REFERENCE, SUPPLY_LINE_REFERENCE, AVAILABILITY_TYPE FROM YFS_INVENTORY_SUPPLY WHERE  (  INVENTORY_ITEM_KEY IN ( :\"SYS_B_01\" ,  :\"SYS_B_02\" ,  :\"SYS_B_03\" ,  :\"SYS_B_04\" ,  :\"SYS_B_05\" )  )  AND  (  ETA = TO_TIMESTAMP (:\"SYS_B_06\", :\"SYS_B_07\")  OR  ETA >= TO_TIMESTAMP (:\"SYS_B_08\", :\"SYS_B_09\")  )  AND  ETA <= TO_TIMESTAMP (:\"SYS_B_10\", :\"SYS_B_11\")  AND  (  (  SHIPNODE_KEY IN ( :\"SYS_B_12\" ,  :\"SYS_B_13\" ,  :\"SYS_B_14\" ,  :\"SYS_B_15\" ,  :\"SYS_B_16\" ,  :\"SYS_B_17\" ,  :\"SYS_B_18\" )  )  )  AND  (  (SEGMENT_TYPE = :\"SYS_B_19\" AND  (  SEGMENT IN ( :\"SYS_B_20\" )  )  )  )  UNION SELECT  /* YANTRA */  :\"SYS_B_21\" AS ENTITY, :\"SYS_B_22\" AS INVENTORY_SUPPLY_KEY, SUM(QUANTITY) QUANTITY, INVENTORY_ITEM_KEY, INVENTORY_TAG_KEY, TAG_NUMBER, O",
+                      "MACHINE": "cclidis7.homedepot.com",
+                      "SERIAL#": "1385",
+                      "SQL_ID": "86saxbut7nktc",
+                      "MODULE": "APPSERVER&cclidis7.homedepot.com",
+                      "USERNAME": "THD01",
+                      "LOGON_TIME": "2016-07-02 19:28:42.0",
+                      "OSUSER": "sterling",
+                      "STATUS": "ACTIVE",
+                      "DURATION": "1"
+                    },
+                    {
+                      "SID": "2290",
+                      "INST_ID": "4",
+                      "SQL_TEXT": "SELECT  /*YANTRA*/    YFS_WO_HOLD_TYPE_LOG.* FROM YFS_WO_HOLD_TYPE_LOG YFS_WO_HOLD_TYPE_LOG     WHERE YFS_WO_HOLD_TYPE_LOG.WO_HOLD_TYPE_KEY=  :1  ",
+                      "MACHINE": "cclidis3.homedepot.com",
+                      "SERIAL#": "5037",
+                      "SQL_ID": "cy9fg1p42cca3",
+                      "MODULE": "APPSERVER&cclidis3.homedepot.com",
+                      "USERNAME": "THD01",
+                      "LOGON_TIME": "2016-07-02 19:19:27.0",
+                      "OSUSER": "sterling",
+                      "STATUS": "ACTIVE",
+                      "DURATION": "1"
+                    }
+                  ],
+                  "status": "red",
+                  "sessionCount": 3
                 }
               },
               {
                 "blockingSessions": {
-                  "status": "green",
-                  "sessionCount": 0
+                  "sessions": [
+                    {
+                      "BLOCKER_CLIENT_INFO": "SRV",
+                      "BLOCKER_STATUS": "INACTIVE",
+                      "Record": "select * from THD01.YFS_INVENTORY_ITEM where rowid = 'AAAK7fAAAAAFNn+AAO';",
+                      "MACHINE": "cclidish.homedepot.com",
+                      "BLK_SESS": "4",
+                      "BLOCKER": "THD01",
+                      "BLOCKER_MODULE": "INT",
+                      "_time": "2016-07-05T16:35:00.471-04:00",
+                      "DURATION": "000:02:29",
+                      "BLOCKED_OBJECT": "THD01.YFS_INVENTORY_ITEM"
+                    },
+                    {
+                      "BLOCKER_CLIENT_INFO": "SRV",
+                      "BLOCKER_STATUS": "INACTIVE",
+                      "Record": "select * from THD01.YFS_INVENTORY_ITEM where rowid = 'AAAK7fAAQAAO2eIAAJ';",
+                      "MACHINE": "cclidis5.homedepot.com",
+                      "BLK_SESS": "4",
+                      "BLOCKER": "THD01",
+                      "BLOCKER_MODULE": "INT",
+                      "_time": "2016-07-05T16:27:00.486-04:00",
+                      "DURATION": "000:02:45",
+                      "BLOCKED_OBJECT": "THD01.YFS_INVENTORY_ITEM"
+                    },
+                    {
+                      "BLOCKER_CLIENT_INFO": "SRV",
+                      "BLOCKER_STATUS": "INACTIVE",
+                      "Record": "select * from THD01.YFS_INVENTORY_ITEM where rowid = 'AAAK7fAAQAAO2eIAAJ';",
+                      "MACHINE": "cclidis5.homedepot.com",
+                      "BLK_SESS": "4",
+                      "BLOCKER": "THD01",
+                      "BLOCKER_MODULE": "INT",
+                      "_time": "2016-07-05T16:29:00.468-04:00",
+                      "DURATION": "000:04:45",
+                      "BLOCKED_OBJECT": "THD01.YFS_INVENTORY_ITEM"
+                    },
+                    {
+                      "BLOCKER_CLIENT_INFO": "SRV",
+                      "BLOCKER_STATUS": "INACTIVE",
+                      "Record": "select * from THD01.YFS_INVENTORY_ITEM where rowid = 'AAAK7fAAAAAFNn+AAO';",
+                      "MACHINE": "cclidish.homedepot.com",
+                      "BLK_SESS": "4",
+                      "BLOCKER": "THD01",
+                      "BLOCKER_MODULE": "INT",
+                      "_time": "2016-07-05T16:39:00.450-04:00",
+                      "DURATION": "000:06:29",
+                      "BLOCKED_OBJECT": "THD01.YFS_INVENTORY_ITEM"
+                    },
+                    {
+                      "BLOCKER_CLIENT_INFO": "SRV",
+                      "BLOCKER_STATUS": "INACTIVE",
+                      "Record": "select * from THD01.YFS_INVENTORY_ITEM where rowid = 'AAAK7fAAAAAFNn+AAO';",
+                      "MACHINE": "cclidish.homedepot.com",
+                      "BLK_SESS": "4",
+                      "BLOCKER": "THD01",
+                      "BLOCKER_MODULE": "INT",
+                      "_time": "2016-07-05T16:37:00.484-04:00",
+                      "DURATION": "000:04:29",
+                      "BLOCKED_OBJECT": "THD01.YFS_INVENTORY_ITEM"
+                    }
+                  ],
+                  "status": "red",
+                  "sessionCount": 5
                 }
               }
             ]
@@ -132,12 +240,140 @@
         },
         {
           "comDB": {
-            "status": "green",
+            "status": "red",
             "components": [
               {
                 "longRunningSessions": {
-                  "status": "green",
-                  "sessionCount": 0
+                  "sessions": [
+                    {
+                      "SID": "8183",
+                      "INST_ID": "5",
+                      "SQL_TEXT": "UPDATE /*+ RESTRICT_ALL_REF_CONS */ \"CODSSC01\".\"YFS_INVENTORY_SUPPLY\" SET \"INVENTORY_ITEM_KEY\" = :a1,\"INVENTORY_TAG_KEY\" = :a2,\"TAG_NUMBER\" = :a3,\"OWNER_KEY\" = :a4,\"SHIPNODE_KEY\" = :a5,\"SUPPLY_TYPE\" = :a6,\"SEGMENT\" = :a7,\"SEGMENT_TYPE\" = :a8,\"QUANTITY\" = :a9,\"ETA\" = :a10,\"SHIP_BY_DATE\" = :a11,\"SUPPLY_REFERENCE_TYPE\" = :a12,\"SUPPLY_REFERENCE\" = :a13,\"SUPPLY_LINE_REFERENCE\" = :a14,\"AVAILABILITY_TYPE\" = :a15,\"CREATETS\" = :a16,\"MODIFYTS\" = :a17,\"CREATEUSERID\" = :a18,\"MODIFYUSERID\" = :a19,\"CREATEPROGID\" = :a20,\"MODIFYPROGID\" = :a21,\"LOCKID\" = :a22 WHERE \"INVENTORY_SUPPLY_KEY\" = :b0",
+                      "MACHINE": "lp0f53.homedepot.com",
+                      "SERIAL#": "14411",
+                      "SQL_ID": "cppr70mqkf7p5",
+                      "MODULE": "OGG-CODS_R11-OPEN_DATA_SOURCE",
+                      "USERNAME": "PRRAGG01",
+                      "LOGON_TIME": "2016-06-07 15:18:00.0",
+                      "OSUSER": "oragrid",
+                      "STATUS": "ACTIVE",
+                      "DURATION": "1"
+                    },
+                    {
+                      "SID": "8183",
+                      "INST_ID": "5",
+                      "SQL_TEXT": "UPDATE /*+ RESTRICT_ALL_REF_CONS */ \"CODSSC01\".\"YFS_INVENTORY_SUPPLY\" SET \"INVENTORY_ITEM_KEY\" = :a1,\"INVENTORY_TAG_KEY\" = :a2,\"TAG_NUMBER\" = :a3,\"OWNER_KEY\" = :a4,\"SHIPNODE_KEY\" = :a5,\"SUPPLY_TYPE\" = :a6,\"SEGMENT\" = :a7,\"SEGMENT_TYPE\" = :a8,\"QUANTITY\" = :a9,\"ETA\" = :a10,\"SHIP_BY_DATE\" = :a11,\"SUPPLY_REFERENCE_TYPE\" = :a12,\"SUPPLY_REFERENCE\" = :a13,\"SUPPLY_LINE_REFERENCE\" = :a14,\"AVAILABILITY_TYPE\" = :a15,\"CREATETS\" = :a16,\"MODIFYTS\" = :a17,\"CREATEUSERID\" = :a18,\"MODIFYUSERID\" = :a19,\"CREATEPROGID\" = :a20,\"MODIFYPROGID\" = :a21,\"LOCKID\" = :a22 WHERE \"INVENTORY_SUPPLY_KEY\" = :b0",
+                      "MACHINE": "lp0f53.homedepot.com",
+                      "SERIAL#": "14411",
+                      "SQL_ID": "cppr70mqkf7p5",
+                      "MODULE": "OGG-CODS_R11-OPEN_DATA_SOURCE",
+                      "USERNAME": "PRRAGG01",
+                      "LOGON_TIME": "2016-06-07 15:18:00.0",
+                      "OSUSER": "oragrid",
+                      "STATUS": "ACTIVE",
+                      "DURATION": "1"
+                    },
+                    {
+                      "SID": "8183",
+                      "INST_ID": "5",
+                      "SQL_TEXT": "UPDATE /*+ RESTRICT_ALL_REF_CONS */ \"CODSSC01\".\"YFS_INVENTORY_SUPPLY\" SET \"INVENTORY_ITEM_KEY\" = :a1,\"INVENTORY_TAG_KEY\" = :a2,\"TAG_NUMBER\" = :a3,\"OWNER_KEY\" = :a4,\"SHIPNODE_KEY\" = :a5,\"SUPPLY_TYPE\" = :a6,\"SEGMENT\" = :a7,\"SEGMENT_TYPE\" = :a8,\"QUANTITY\" = :a9,\"ETA\" = :a10,\"SHIP_BY_DATE\" = :a11,\"SUPPLY_REFERENCE_TYPE\" = :a12,\"SUPPLY_REFERENCE\" = :a13,\"SUPPLY_LINE_REFERENCE\" = :a14,\"AVAILABILITY_TYPE\" = :a15,\"CREATETS\" = :a16,\"MODIFYTS\" = :a17,\"CREATEUSERID\" = :a18,\"MODIFYUSERID\" = :a19,\"CREATEPROGID\" = :a20,\"MODIFYPROGID\" = :a21,\"LOCKID\" = :a22 WHERE \"INVENTORY_SUPPLY_KEY\" = :b0",
+                      "MACHINE": "lp0f53.homedepot.com",
+                      "SERIAL#": "14411",
+                      "SQL_ID": "cppr70mqkf7p5",
+                      "MODULE": "OGG-CODS_R11-OPEN_DATA_SOURCE",
+                      "USERNAME": "PRRAGG01",
+                      "LOGON_TIME": "2016-06-07 15:18:00.0",
+                      "OSUSER": "oragrid",
+                      "STATUS": "ACTIVE",
+                      "DURATION": "1"
+                    },
+                    {
+                      "SID": "8183",
+                      "INST_ID": "5",
+                      "SQL_TEXT": "UPDATE /*+ RESTRICT_ALL_REF_CONS */ \"CODSSC01\".\"YFS_INVENTORY_SUPPLY\" SET \"INVENTORY_ITEM_KEY\" = :a1,\"INVENTORY_TAG_KEY\" = :a2,\"TAG_NUMBER\" = :a3,\"OWNER_KEY\" = :a4,\"SHIPNODE_KEY\" = :a5,\"SUPPLY_TYPE\" = :a6,\"SEGMENT\" = :a7,\"SEGMENT_TYPE\" = :a8,\"QUANTITY\" = :a9,\"ETA\" = :a10,\"SHIP_BY_DATE\" = :a11,\"SUPPLY_REFERENCE_TYPE\" = :a12,\"SUPPLY_REFERENCE\" = :a13,\"SUPPLY_LINE_REFERENCE\" = :a14,\"AVAILABILITY_TYPE\" = :a15,\"CREATETS\" = :a16,\"MODIFYTS\" = :a17,\"CREATEUSERID\" = :a18,\"MODIFYUSERID\" = :a19,\"CREATEPROGID\" = :a20,\"MODIFYPROGID\" = :a21,\"LOCKID\" = :a22 WHERE \"INVENTORY_SUPPLY_KEY\" = :b0",
+                      "MACHINE": "lp0f53.homedepot.com",
+                      "SERIAL#": "14411",
+                      "SQL_ID": "cppr70mqkf7p5",
+                      "MODULE": "OGG-CODS_R11-OPEN_DATA_SOURCE",
+                      "USERNAME": "PRRAGG01",
+                      "LOGON_TIME": "2016-06-07 15:18:00.0",
+                      "OSUSER": "oragrid",
+                      "STATUS": "ACTIVE",
+                      "DURATION": "1"
+                    },
+                    {
+                      "SID": "8183",
+                      "INST_ID": "5",
+                      "SQL_TEXT": "UPDATE /*+ RESTRICT_ALL_REF_CONS */ \"CODSSC01\".\"YFS_INVENTORY_SUPPLY\" SET \"INVENTORY_ITEM_KEY\" = :a1,\"INVENTORY_TAG_KEY\" = :a2,\"TAG_NUMBER\" = :a3,\"OWNER_KEY\" = :a4,\"SHIPNODE_KEY\" = :a5,\"SUPPLY_TYPE\" = :a6,\"SEGMENT\" = :a7,\"SEGMENT_TYPE\" = :a8,\"QUANTITY\" = :a9,\"ETA\" = :a10,\"SHIP_BY_DATE\" = :a11,\"SUPPLY_REFERENCE_TYPE\" = :a12,\"SUPPLY_REFERENCE\" = :a13,\"SUPPLY_LINE_REFERENCE\" = :a14,\"AVAILABILITY_TYPE\" = :a15,\"CREATETS\" = :a16,\"MODIFYTS\" = :a17,\"CREATEUSERID\" = :a18,\"MODIFYUSERID\" = :a19,\"CREATEPROGID\" = :a20,\"MODIFYPROGID\" = :a21,\"LOCKID\" = :a22 WHERE \"INVENTORY_SUPPLY_KEY\" = :b0",
+                      "MACHINE": "lp0f53.homedepot.com",
+                      "SERIAL#": "14411",
+                      "SQL_ID": "cppr70mqkf7p5",
+                      "MODULE": "OGG-CODS_R11-OPEN_DATA_SOURCE",
+                      "USERNAME": "PRRAGG01",
+                      "LOGON_TIME": "2016-06-07 15:18:00.0",
+                      "OSUSER": "oragrid",
+                      "STATUS": "ACTIVE",
+                      "DURATION": "1"
+                    },
+                    {
+                      "SID": "8183",
+                      "INST_ID": "5",
+                      "SQL_TEXT": "UPDATE /*+ RESTRICT_ALL_REF_CONS */ \"CODSSC01\".\"YFS_INVENTORY_SUPPLY\" SET \"INVENTORY_ITEM_KEY\" = :a1,\"INVENTORY_TAG_KEY\" = :a2,\"TAG_NUMBER\" = :a3,\"OWNER_KEY\" = :a4,\"SHIPNODE_KEY\" = :a5,\"SUPPLY_TYPE\" = :a6,\"SEGMENT\" = :a7,\"SEGMENT_TYPE\" = :a8,\"QUANTITY\" = :a9,\"ETA\" = :a10,\"SHIP_BY_DATE\" = :a11,\"SUPPLY_REFERENCE_TYPE\" = :a12,\"SUPPLY_REFERENCE\" = :a13,\"SUPPLY_LINE_REFERENCE\" = :a14,\"AVAILABILITY_TYPE\" = :a15,\"CREATETS\" = :a16,\"MODIFYTS\" = :a17,\"CREATEUSERID\" = :a18,\"MODIFYUSERID\" = :a19,\"CREATEPROGID\" = :a20,\"MODIFYPROGID\" = :a21,\"LOCKID\" = :a22 WHERE \"INVENTORY_SUPPLY_KEY\" = :b0",
+                      "MACHINE": "lp0f53.homedepot.com",
+                      "SERIAL#": "14411",
+                      "SQL_ID": "cppr70mqkf7p5",
+                      "MODULE": "OGG-CODS_R11-OPEN_DATA_SOURCE",
+                      "USERNAME": "PRRAGG01",
+                      "LOGON_TIME": "2016-06-07 15:18:00.0",
+                      "OSUSER": "oragrid",
+                      "STATUS": "ACTIVE",
+                      "DURATION": "1"
+                    },
+                    {
+                      "SID": "8183",
+                      "INST_ID": "5",
+                      "SQL_TEXT": "UPDATE /*+ RESTRICT_ALL_REF_CONS */ \"CODSSC01\".\"YFS_INVENTORY_SUPPLY\" SET \"INVENTORY_ITEM_KEY\" = :a1,\"INVENTORY_TAG_KEY\" = :a2,\"TAG_NUMBER\" = :a3,\"OWNER_KEY\" = :a4,\"SHIPNODE_KEY\" = :a5,\"SUPPLY_TYPE\" = :a6,\"SEGMENT\" = :a7,\"SEGMENT_TYPE\" = :a8,\"QUANTITY\" = :a9,\"ETA\" = :a10,\"SHIP_BY_DATE\" = :a11,\"SUPPLY_REFERENCE_TYPE\" = :a12,\"SUPPLY_REFERENCE\" = :a13,\"SUPPLY_LINE_REFERENCE\" = :a14,\"AVAILABILITY_TYPE\" = :a15,\"CREATETS\" = :a16,\"MODIFYTS\" = :a17,\"CREATEUSERID\" = :a18,\"MODIFYUSERID\" = :a19,\"CREATEPROGID\" = :a20,\"MODIFYPROGID\" = :a21,\"LOCKID\" = :a22 WHERE \"INVENTORY_SUPPLY_KEY\" = :b0",
+                      "MACHINE": "lp0f53.homedepot.com",
+                      "SERIAL#": "14411",
+                      "SQL_ID": "cppr70mqkf7p5",
+                      "MODULE": "OGG-CODS_R11-OPEN_DATA_SOURCE",
+                      "USERNAME": "PRRAGG01",
+                      "LOGON_TIME": "2016-06-07 15:18:00.0",
+                      "OSUSER": "oragrid",
+                      "STATUS": "ACTIVE",
+                      "DURATION": "1"
+                    },
+                    {
+                      "SID": "8183",
+                      "INST_ID": "5",
+                      "SQL_TEXT": "UPDATE /*+ RESTRICT_ALL_REF_CONS */ \"CODSSC01\".\"YFS_INVENTORY_SUPPLY\" SET \"INVENTORY_ITEM_KEY\" = :a1,\"INVENTORY_TAG_KEY\" = :a2,\"TAG_NUMBER\" = :a3,\"OWNER_KEY\" = :a4,\"SHIPNODE_KEY\" = :a5,\"SUPPLY_TYPE\" = :a6,\"SEGMENT\" = :a7,\"SEGMENT_TYPE\" = :a8,\"QUANTITY\" = :a9,\"ETA\" = :a10,\"SHIP_BY_DATE\" = :a11,\"SUPPLY_REFERENCE_TYPE\" = :a12,\"SUPPLY_REFERENCE\" = :a13,\"SUPPLY_LINE_REFERENCE\" = :a14,\"AVAILABILITY_TYPE\" = :a15,\"CREATETS\" = :a16,\"MODIFYTS\" = :a17,\"CREATEUSERID\" = :a18,\"MODIFYUSERID\" = :a19,\"CREATEPROGID\" = :a20,\"MODIFYPROGID\" = :a21,\"LOCKID\" = :a22 WHERE \"INVENTORY_SUPPLY_KEY\" = :b0",
+                      "MACHINE": "lp0f53.homedepot.com",
+                      "SERIAL#": "14411",
+                      "SQL_ID": "cppr70mqkf7p5",
+                      "MODULE": "OGG-CODS_R11-OPEN_DATA_SOURCE",
+                      "USERNAME": "PRRAGG01",
+                      "LOGON_TIME": "2016-06-07 15:18:00.0",
+                      "OSUSER": "oragrid",
+                      "STATUS": "ACTIVE",
+                      "DURATION": "1"
+                    },
+                    {
+                      "SID": "8183",
+                      "INST_ID": "5",
+                      "SQL_TEXT": "UPDATE /*+ RESTRICT_ALL_REF_CONS */ \"CODSSC01\".\"YFS_INVENTORY_SUPPLY\" SET \"INVENTORY_ITEM_KEY\" = :a1,\"INVENTORY_TAG_KEY\" = :a2,\"TAG_NUMBER\" = :a3,\"OWNER_KEY\" = :a4,\"SHIPNODE_KEY\" = :a5,\"SUPPLY_TYPE\" = :a6,\"SEGMENT\" = :a7,\"SEGMENT_TYPE\" = :a8,\"QUANTITY\" = :a9,\"ETA\" = :a10,\"SHIP_BY_DATE\" = :a11,\"SUPPLY_REFERENCE_TYPE\" = :a12,\"SUPPLY_REFERENCE\" = :a13,\"SUPPLY_LINE_REFERENCE\" = :a14,\"AVAILABILITY_TYPE\" = :a15,\"CREATETS\" = :a16,\"MODIFYTS\" = :a17,\"CREATEUSERID\" = :a18,\"MODIFYUSERID\" = :a19,\"CREATEPROGID\" = :a20,\"MODIFYPROGID\" = :a21,\"LOCKID\" = :a22 WHERE \"INVENTORY_SUPPLY_KEY\" = :b0",
+                      "MACHINE": "lp0f53.homedepot.com",
+                      "SERIAL#": "14411",
+                      "SQL_ID": "cppr70mqkf7p5",
+                      "MODULE": "OGG-CODS_R11-OPEN_DATA_SOURCE",
+                      "USERNAME": "PRRAGG01",
+                      "LOGON_TIME": "2016-06-07 15:18:00.0",
+                      "OSUSER": "oragrid",
+                      "STATUS": "ACTIVE",
+                      "DURATION": "1"
+                    }
+                  ],
+                  "status": "red",
+                  "sessionCount": 9
                 }
               }
             ]
@@ -146,6 +382,10 @@
       ]
     }
   },
+
+
+
+  
   {
     "sterling": {
       "status": "",

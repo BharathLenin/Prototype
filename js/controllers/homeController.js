@@ -684,6 +684,8 @@ legend: { position: 'none' },
                 /* Sterling DB */
                 //var sterlingDbCount = dbInfo.DB.components[0].sterlingDB.serverCount;
                 var sterlingDbColor = dbInfo.DB.components[1].sterlingDB.status;
+
+               
                
                var sterlingDbCount=1;
               
@@ -692,10 +694,19 @@ legend: { position: 'none' },
                     sterlingDbRed = 0;
                 if (sterlingDbColor == GREEN) {
                     sterlingDbGreen = sterlingDbCount;
+
                 } else if (comOrderColor == AMBER) {
                     sterlingDbAmber = sterlingDbCount;
                 } else {
                     sterlingDbRed = sterlingDbCount;
+                    $("#dbSGreen").hide();
+                    $("#dbSRed").show();
+
+                   $scope.longSessions = dbInfo.DB.components[1].sterlingDB.components[0].longRunningSessions.sessions;
+                   $scope.blockSessions = dbInfo.DB.components[1].sterlingDB.components[1].blockingSessions.sessions;
+                   
+
+
                 }
                 $scope.sterlingDbDonutsPts = [{ "Green": sterlingDbGreen, "Amber": sterlingDbAmber, "Red": sterlingDbRed }];
 
