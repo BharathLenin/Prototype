@@ -536,7 +536,7 @@ legend: { position: 'none' },
              /* Local Store calculation */
                 var localStrCount = storesInfo.stores.components[1].localStores.storeCount;
                 var localStrCountFinal=1980-localStrCount;
-               
+
 
             /* STORES */
             if (storesInfo.stores) {
@@ -577,7 +577,9 @@ legend: { position: 'none' },
                 } else {
                     localStoreRed = localStrCount;
                 }
-                $scope.localStoreDonutsPts = [{ "Green": localStoreGreen, "Amber": localStoreAmber, "Red": localStoreRed }];
+
+                localStoreGreen = localStrCountFinal;
+                $scope.localStoreDonutsPts = [{ "Green": localStoreGreen,  "Red": localStoreAmber }];
 
                 /* Unsynced delta's*/
                 var unSyncDeltaCount = storesInfo.stores.components[0].unSyncDeltas.messageQueueCount;
