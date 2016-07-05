@@ -727,6 +727,9 @@ legend: { position: 'none' },
                     odsDbAmber = odsDbCount;
                 } else {
                     odsDbRed = odsDbCount;
+                    $("#dbCGreen").hide();
+                    $("#dbCRed").show();
+                    $scope.longSessionsCOM = dbInfo.DB.components[2].comDB.components[0].longRunningSessions.sessions;
                 }
                 $scope.odsDbDonutsPts = [{ "Green": odsDbGreen, "Amber": odsDbAmber, "Red": odsDbRed }];
 

@@ -342,6 +342,47 @@
 
 
 
+<div class="displaynone" id="dbCRed" >
+        <div class="col-xs-12" >
+        <h4>ODS DB</h4>
+        <b>Long Running Sessions</b>
+        <table   class="table table-striped table-bordered">
+<tr>
+<th>SID</th>
+<th>INST_ID</th>
+<th>MACHINE</th>
+
+<th>SQL_ID</th>
+<th>MODULE</th>
+<th>USERNAME</th>
+<th>LOGON_TIME</th>
+<th>OSUSER</th>
+<th>STATUS</th>
+<th>DURATION</th>
+</tr>
+<tr ng-repeat="x in longSessionsCOM">
+<td>{{ x.SID }}</td>
+<td>{{ x.INST_ID }}</td>
+<td>{{ x.MACHINE }}</td>
+
+<td>{{ x.SQL_ID }}</td>
+<td>{{ x.MODULE }}</td>
+<td>{{ x.USERNAME }}</td>
+<td>{{ x.LOGON_TIME }}</td>
+<td>{{ x.OSUSER }}</td>
+<td>{{ x.STATUS }}</td>
+<td>{{ x.DURATION }}</td>
+</tr>
+</table>
+        </div>
+
+
+
+</div>
+
+
+
+
                     <div class="col-xs-6 centerText" id="dbSGreen">
                         <h4>Sterling DB</h4>
                         <div >
@@ -356,7 +397,7 @@
 
 
                     </div>
-                    <div class="col-xs-6 centerText">
+                    <div class="col-xs-6 centerText" id="dbCGreen">
                         <h4>ODS DB</h4>
                         <div>
                             <c3chart bindto-id="odsDB-chart" chart-data="odsDbDonutsPts" chart-columns="pieColumns" sort-data="null">
@@ -365,7 +406,7 @@
                             </c3chart>
                         </div>
                     </div>
-                    <div class="ggReplicationChart col-xs-12">
+                    <div class="ggReplicationChart col-xs-6">
                         <h4 class="centerText">GG Replication</h4>
                         <c3chart bindto-id="ggReplication-gauge-chart" chart-data="ggReplicaGaugePts" chart-columns="ggReplicaGaugeColumn">
                             <chart-gauge min="0" max="180" units=" mins" width="40" label-format-function="formatDonut" />
