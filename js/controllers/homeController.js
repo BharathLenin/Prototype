@@ -30,6 +30,11 @@ angular.module('myApp.controllers', [])
         const GREEN_COLOR = '#58d68d';
         const CARROT_COLOR = '#e67e22';
         const BLACK_COLOR = '#000';
+        const SUN_COLOR='#F1C40F';
+        const V_COLOR='#8E44AD';
+        const RIVER_COLOR='#3498DB';
+        const SEA_COLOR='#16A085';
+        const SILVER_COLOR='#BDC3C7';
 
         $scope.showItem = 'Main';
         $scope.tabItem = 'Main';
@@ -73,12 +78,53 @@ angular.module('myApp.controllers', [])
             }
         ];
 
-        $scope.pieColumns = [{ "id": "Red", "type": "pie", "color": RED_COLOR },
-            { "id": "Amber", "type": "pie", "color": CARROT_COLOR }, {
+        $scope.pieColumns = [
+        { "id": "Red", "type": "pie", "color": RED_COLOR },
+            { "id": "Amber", "type": "pie", "color": CARROT_COLOR }, 
+            {
                 "id": "Green",
                 "type": "pie",
                 "color": GREEN_COLOR
             }
+        ];
+
+          $scope.unpieColumns = [
+        { "id": "E", "type": "pie", "color": RED_COLOR },
+            { "id": "F", "type": "pie", "color": CARROT_COLOR }, 
+            {
+                "id": "N",
+                "type": "pie",
+                "color": GREEN_COLOR
+            },
+            {
+                "id": "P",
+                "type": "pie",
+                "color": SUN_COLOR
+            },
+            {
+                "id": "A",
+                "type": "pie",
+                "color": SEA_COLOR
+            },
+             {
+                "id": "L",
+                "type": "pie",
+                "color": RIVER_COLOR
+            },
+             {
+                "id": "M",
+                "type": "pie",
+                "color": V_COLOR
+            },
+
+             {
+                "id": "X",
+                "type": "pie",
+                "color": SILVER_COLOR
+            }
+
+
+
         ];
 
         $scope.formatDonut = function(value, ratio, id) {
@@ -523,6 +569,11 @@ legend: { position: 'none' },
                 /* Unsynced delta's*/
                 var unSyncDeltaCount = storesInfo.stores.components[0].unSyncDeltas.messageQueueCount;
                 var unSyncDeltaColor = storesInfo.stores.components[0].unSyncDeltas.status;
+
+                var unSyncDeltaCountPerState = storesInfo.stores.components[0].unSyncDeltas.deltaCountPerState;
+
+
+
                 var unSyncDeltaGreen, unSyncDeltaAmber, unSyncDeltaRed = 0;
                 if (unSyncDeltaColor == GREEN) {
                     unSyncDeltaGreen = unSyncDeltaCount;
@@ -531,7 +582,13 @@ legend: { position: 'none' },
                 } else {
                     unSyncDeltaRed = unSyncDeltaCount;
                 }
-                $scope.unSyncDeltaDonutsPts = [{ "Green": unSyncDeltaGreen, "Amber": unSyncDeltaAmber, "Red": unSyncDeltaRed }];
+
+                //$scope.unSyncDeltaDonutsPts = [{ "Green": unSyncDeltaGreen, "Amber": unSyncDeltaAmber, "Red": unSyncDeltaRed }];
+               // alert(unSyncDeltaGreen);
+                $scope.unSyncDeltaDonutsPts = [{ "E": unSyncDeltaCountPerState.E, 
+                "F": unSyncDeltaCountPerState.F, "P": unSyncDeltaCountPerState.P,
+                "A": unSyncDeltaCountPerState.A,"L": unSyncDeltaCountPerState.L,
+                "M": unSyncDeltaCountPerState.M,"N" : unSyncDeltaCountPerState.N, "X" : unSyncDeltaCountPerState.X }];
             }
 
             /* COM */
