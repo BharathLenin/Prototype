@@ -473,7 +473,7 @@ legend: { position: 'none' },
                     $scope.mqWarnStatus = 1;
                 } else {
                     $scope.mqUpStatus = 1;
-                    
+
                 }
 
 
@@ -535,26 +535,30 @@ legend: { position: 'none' },
             }
              /* Local Store calculation */
                 var localStrCount = storesInfo.stores.components[1].localStores.storeCount;
+                var localStrCountFinal=1980-localStrCount;
+               
 
             /* STORES */
             if (storesInfo.stores) {
                 if (storesInfo.stores.overallStatus == RED) {
                    // $scope.storeDownStatus = 1;
-                    $scope.storeDownStatus = localStrCount;
+                    $scope.storeDownStatus = localStrCountFinal;
                 } else if (storesInfo.stores.overallStatus == AMBER) {
                    //$scope.storeWarnStatus = 1;
                    
-                     $scope.storeWarnStatus=localStrCount;
+                     $scope.storeWarnStatus=localStrCountFinal;
                 } else {
 
                    // $scope.storeUpStatus = 1;
-                     $scope.storeUpStatus = localStrCount;
+                     $scope.storeUpStatus = localStrCountFinal;
                 }
 
                
 
 
                 var localStrColor = storesInfo.stores.components[1].localStores.status;
+             
+
                 var localStoreGreen, localStoreAmber, localStoreRed = 0;
                 if (localStrCount == 0) {
                     $scope.formatLocalStore = function(value, ratio, id) {
