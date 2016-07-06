@@ -626,21 +626,18 @@ legend: { position: 'none' },
                     comOrderRed = 0;
                 if (comOrderColor == GREEN) {
                     comOrderGreen = comOrderCount;
-                } else if (comOrderColor == AMBER) {
-                    comOrderAmber = comOrderCount;
                 } else {
                     comOrderRed = comOrderCount;
                 }
                 $scope.comOrderDonutsPts = [{ "Up": comOrderGreen, "Down": comOrderRed }];
-                $scope.comOrderDonutColumns = [{"id": "Up","type": "pie","color": GREEN_COLOR},
-                    { "id": "Down", "type": "pie", "color": RED_COLOR }
-                ];                
+                $scope.comOrderDonutColumns = [{"id": "Up","type": "donut","color": GREEN_COLOR},
+                    { "id": "Down", "type": "donut", "color": RED_COLOR }
+                ];   
 
                 /* COM INVENTORY JVM */
                 var comInventoryCount = comInfo.COM.components[1].comInventory.serverCount;
                 var comInventoryColor = comInfo.COM.components[1].comInventory.status;
                 var comInventoryGreen = 0,
-                    comInventoryAmber = 0,
                     comInventoryRed = 0;
                 if (comInventoryColor == GREEN) {
                     comInventoryGreen = comInventoryCount;
@@ -649,7 +646,10 @@ legend: { position: 'none' },
                 } else {
                     comInventoryRed = comInventoryCount;
                 }
-                $scope.comInventoryDonutsPts = [{ "Green": comInventoryGreen, "Amber": comInventoryAmber, "Red": comInventoryRed }];
+                $scope.comInventoryDonutsPts = [{ "Up": comInventoryGreen, "Down": comInventoryRed }];
+                $scope.comInventoryDonutColumns = [{"id": "Up","type": "donut","color": GREEN_COLOR},
+                    { "id": "Down", "type": "donut", "color": RED_COLOR }
+                ];  
 
                 /* BATCH SESSION */
                 var batchSessionCount = comInfo.COM.components[2].batchSession.count;

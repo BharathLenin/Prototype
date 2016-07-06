@@ -196,8 +196,12 @@ h6.countQueue {
     font-size: 18px;
 }
 
-h6.transmitQueue {
+h6.guageQueue {
     position: relative;
     font-size: 18px;
     text-align: center;
+}
+
+.todo-done h4.todo-name {
+    font-size: 22px;
 }
