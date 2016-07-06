@@ -266,7 +266,7 @@
                     <div class="displaynone" id="dbSRed">
                         <div class="col-xs-12">
                             <h4 class="centerText">Sterling DB</h4>
-                            <b class="smallB">Long Running Sessions</b>
+                            <b class="smallB">Long Running Sessions ( &gt; 3 mins )</b>
                             <table class="table table-striped table-bordered">
                                 <tr>
                                     <th>SID</th>
@@ -278,7 +278,7 @@
                                     <th>LOGON_TIME</th>
                                     <th>OSUSER</th>
                                     <th>STATUS</th>
-                                    <th>DURATION</th>
+                                    <th>DURATION (sec)</th>
                                 </tr>
                                 <tr ng-repeat="x in longSessions">
                                     <td>{{ x.SID }}</td>
@@ -295,7 +295,7 @@
                             </table>
                         </div>
                         <div class="col-xs-12">
-                            <b class="smallB">Blocking Logs Sessions</b>
+                            <b class="smallB">Blocking Locks Sessions ( &gt; 2 mins)</b>
                             <table class="table table-striped table-bordered">
                                 <tr>
                                     <th>BLOCKER_CLIENT_INFO</th>
@@ -304,7 +304,7 @@
                                     <th>BLK_SESS</th>
                                     <th>BLOCKER</th>
                                     <th>BLOCKER_MODULE</th>
-                                    <th>DURATION</th>
+                                    <th>DURATION (min)</th>
                                     <th>BLOCKED_OBJECT</th>
                                 </tr>
                                 <tr ng-repeat="y in blockSessions">
@@ -323,7 +323,7 @@
                     <div class="displaynone" id="dbCRed">
                         <div class="col-xs-12">
                             <h4 class="centerText">ODS DB</h4>
-                            <b class="smallB">Long Running Sessions</b>
+                            <b class="smallB">Long Running Sessions ( &gt; 3 mins )</b>
                             <table class="table table-striped table-bordered">
                                 <tr>
                                     <th>SID</th>
@@ -335,7 +335,7 @@
                                     <th>LOGON_TIME</th>
                                     <th>OSUSER</th>
                                     <th>STATUS</th>
-                                    <th>DURATION</th>
+                                    <th>DURATION (sec)</th>
                                 </tr>
                                 <tr ng-repeat="x in longSessionsCOM">
                                     <td>{{ x.SID }}</td>
@@ -372,9 +372,13 @@
                     </div>
                     <div class="ggReplicationChart col-xs-6" id="ggReplication">
                         <h4 class="centerText">GG Replication</h4>
+                        <h6 class="countQueue ng-binding centerText" style="margin-top:8px">[ Lag time ]</h6>
                         <c3chart bindto-id="ggReplication-gauge-chart" chart-data="ggReplicaGaugePts" chart-columns="ggReplicaGaugeColumn">
                             <chart-gauge min="0" max="180" units=" mins" width="40" label-format-function="formatDonut" />
                         </c3chart>
+
+                       
+                        <h6 class="threshold">Green -  30 mins, Amber - 30-90 mins, Red -  90 mins</h6>
                     </div>
                 </div>
                 <div class="row storesContents" ng-show="showItem == 'Stores'">

@@ -1,0 +1,202 @@
+[
+  {
+    "messagingQueue": {
+      "overallStatus": "green",
+      "components": [
+        {
+          "comDepthQueue": {
+            "amberlist": [],
+            "messageQueueCount": 96,
+            "greenlist": [],
+            "status": "green",
+            "redlist": []
+          }
+        },
+        {
+          "sterlingDepthQueue": {
+            "amberlist": [],
+            "messageQueueCount": 198,
+            "greenlist": [],
+            "status": "green",
+            "redlist": [
+              {
+                "queueDepth": "4147",
+                "status": "red",
+                "queueName": "DI.DL.STERLING.SHORTAGE.INT",
+                "queueDepthMax": "10000"
+              }
+            ]
+          }
+        },
+        {
+          "transmitQueue": {
+            "amberlist": [],
+            "messageQueueCount": 2,
+            "greenlist": [],
+            "status": "green",
+            "redlist": []
+          }
+        }
+      ]
+    }
+  },
+  {
+    "stores": {
+      "overallStatus": "amber",
+      "components": [
+        {
+          "unSyncDeltas": {
+            "deltaCountPerState": {
+              "E": "2805",
+              "F": "277",
+              "P": "21",
+              "A": "61",
+              "L": "64",
+              "M": "173",
+              "Grand_Total": "12728",
+              "N": "9326",
+              "X": "1"
+            },
+            "status": "amber"
+          }
+        },
+        {
+          "localStores": {
+            "status": "green",
+            "storeCount": 0
+          }
+        }
+      ]
+    }
+  },
+  {
+    "COM": {
+      "overallStatus": "green",
+      "components": [
+        {
+          "comOrder": {
+            "serverCount": 30,
+            "status": "green"
+          }
+        },
+        {
+          "comInventory": {
+            "serverCount": 9,
+            "status": "green"
+          }
+        },
+        {
+          "batchSession": {
+            "count": 1275,
+            "status": "green"
+          }
+        }
+      ]
+    }
+  },
+  {
+    "DB": {
+      "overallStatus": "green",
+      "components": [
+        {
+          "sterlingDB": {
+            "status": "green",
+            "components": [
+              {
+                "longRunningSessions": {
+                  "status": "green",
+                  "sessionCount": 0
+                }
+              },
+              {
+                "blockingSessions": {
+                  "status": "green",
+                  "sessionCount": 0
+                }
+              }
+            ]
+          }
+        },
+        {
+          "comDB": {
+            "status": "green",
+            "components": [
+              {
+                "longRunningSessions": {
+                  "status": "green",
+                  "sessionCount": 0
+                }
+              }
+            ]
+          }
+        }
+      ]
+    }
+  },
+  {
+    "sterling": {
+      "status": "",
+      "components": [
+        {
+          "connectionCount": [
+            {
+              "serverCount": 12,
+              "status": "green",
+              "servers": [
+                "cclidis0.homedepot.com",
+                "cclidis1.homedepot.com",
+                "cclidis2.homedepot.com",
+                "cclidis3.homedepot.com",
+                "cclidis4.homedepot.com",
+                "cclidis5.homedepot.com",
+                "cclidis6.homedepot.com",
+                "cclidis7.homedepot.com",
+                "cclidis8.homedepot.com",
+                "cclidisa.homedepot.com",
+                "cclidisb.homedepot.com",
+                "cclidisc.homedepot.com"
+              ]
+            },
+            {
+              "serverCount": 0,
+              "status": "amber",
+              "servers": []
+            },
+            {
+              "serverCount": 0,
+              "status": "red",
+              "servers": []
+            }
+          ]
+        },
+        {
+          "probefailure": [
+            {
+              "serverCount": 12,
+              "status": "green",
+              "servers": [
+                "cclidis0.homedepot.com",
+                "cclidis1.homedepot.com",
+                "cclidis2.homedepot.com",
+                "cclidis3.homedepot.com",
+                "cclidis4.homedepot.com",
+                "cclidis5.homedepot.com",
+                "cclidis6.homedepot.com",
+                "cclidis7.homedepot.com",
+                "cclidis8.homedepot.com",
+                "cclidisA.homedepot.com",
+                "cclidisB.homedepot.com",
+                "cclidisC.homedepot.com"
+              ]
+            },
+            {
+              "serverCount": 0,
+              "status": "red",
+              "servers": []
+            }
+          ]
+        }
+      ]
+    }
+  }
+]

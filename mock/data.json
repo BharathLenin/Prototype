@@ -132,7 +132,7 @@
         },
         {
           "sterlingDB": {
-            "status": "red",
+            "status": "green",
             "components": [
               {
                 "longRunningSessions": {
