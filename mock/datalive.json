@@ -20,7 +20,7 @@
             "status": "green",
             "redlist": [
               {
-                "queueDepth": "4147",
+                "queueDepth": "4553",
                 "status": "red",
                 "queueName": "DI.DL.STERLING.SHORTAGE.INT",
                 "queueDepthMax": "10000"
@@ -34,6 +34,7 @@
             "messageQueueCount": 2,
             "greenlist": [],
             "status": "green",
+            "currTxQDepth": 0,
             "redlist": []
           }
         }
@@ -47,14 +48,14 @@
         {
           "unSyncDeltas": {
             "deltaCountPerState": {
-              "E": "2805",
-              "F": "277",
+              "E": "2804",
+              "F": "276",
               "P": "21",
-              "A": "61",
+              "A": "84",
               "L": "64",
-              "M": "173",
-              "Grand_Total": "12728",
-              "N": "9326",
+              "M": "154",
+              "Grand_Total": "12734",
+              "N": "9330",
               "X": "1"
             },
             "status": "amber"
@@ -98,6 +99,12 @@
     "DB": {
       "overallStatus": "green",
       "components": [
+        {
+          "ggReplication": {
+            "replicaTime": 0,
+            "status": "green"
+          }
+        },
         {
           "sterlingDB": {
             "status": "green",
@@ -195,6 +202,342 @@
               "servers": []
             }
           ]
+        },
+        {
+          "agentStatus": {
+            "cclidis0.homedepot.com": {
+              "upStatusAgentCount": 0,
+              "status": "green",
+              "downStatusAgent": [],
+              "UP_-_not_listed_in_agentlist_properties_count": 33,
+              "downStatusAgentCount": 0,
+              "UP_-_not_listed_in_agentlist_properties_Agents": [
+                "HDRTVCreateIntegServer",
+                "HDDelWLAgent",
+                "HDOptimisticReservationServer",
+                "HDPOReprocessServer",
+                "HDECCAdhocUpdateServer",
+                "HDInventorySyncServer",
+                "HDAutoReprocessErrorAgent",
+                "HDPOMonitorAgent",
+                "HDThresholdReservationServer",
+                "HDVendorInvFeedServer",
+                "HDProcessReceiptServer",
+                "HDPOTransmitAgent",
+                "HDFIOverrideServer",
+                "HDDelProcessAgent",
+                "HDPostOfflineOrder",
+                "HDLogInMemStatistics",
+                "HDDelDateRemAgent",
+                "HDMasterDataLoadServer",
+                "HDProcessOrderUpdatesServer",
+                "HDReservationUpdateServer",
+                "HDProcessSTHOrderUpdatesServer",
+                "HDProcessOrderForPickConfirm",
+                "HDWorkOrderAsyncUpdateServer",
+                "HDScheduleOnSuccessServer",
+                "HDProcessInMemCircuitInfo",
+                "HDCapResvnPurgeAgentServer",
+                "cclidis0.homedepot.com",
+                "HDScheduleAgent",
+                "HDOverlayServer",
+                "HDProcessOrderConversionServer",
+                "HDWOProcessServer",
+                "HDAdjustInventoryServer",
+                "HDDraftOrderDeleteServer"
+              ]
+            },
+            "cclidis4.homedepot.com": {
+              "upStatusAgentCount": 24,
+              "status": "red",
+              "downStatusAgent": [
+                "HDPOReprocessAgent",
+                "HDPOMonitorAgent",
+                "HDFIUpdateServer"
+              ],
+              "UP_-_not_listed_in_agentlist_properties_count": 2,
+              "downStatusAgentCount": 3,
+              "UP_-_not_listed_in_agentlist_properties_Agents": [
+                "cclidis4.homedepot.com",
+                "HDAdjustInventoryServer"
+              ]
+            },
+            "cclidisa.homedepot.com": {
+              "upStatusAgentCount": 19,
+              "status": "red",
+              "downStatusAgent": [
+                "HDProcessBackOrderServer",
+                "HDConsolidateInvAgent",
+                "HDDropShipServer"
+              ],
+              "UP_-_not_listed_in_agentlist_properties_count": 3,
+              "downStatusAgentCount": 3,
+              "UP_-_not_listed_in_agentlist_properties_Agents": [
+                "HDCustomROMonitorAgent",
+                "HDProcessMiscEOCUpdates",
+                "cclidisa.homedepot.com"
+              ]
+            },
+            "cclidisc.homedepot.com": {
+              "upStatusAgentCount": 19,
+              "status": "red",
+              "downStatusAgent": [
+                "HDProcessBackOrderServer",
+                "HDDropShipServer",
+                "HDConsolidateInvAgent"
+              ],
+              "UP_-_not_listed_in_agentlist_properties_count": 3,
+              "downStatusAgentCount": 3,
+              "UP_-_not_listed_in_agentlist_properties_Agents": [
+                "HDCustomROMonitorAgent",
+                "cclidisc.homedepot.com",
+                "HDProcessMiscEOCUpdates"
+              ]
+            },
+            "cclidisb.homedepot.com": {
+              "upStatusAgentCount": 19,
+              "status": "red",
+              "downStatusAgent": [
+                "HDProcessBackOrderServer",
+                "HDDropShipServer",
+                "HDConsolidateInvAgent"
+              ],
+              "UP_-_not_listed_in_agentlist_properties_count": 3,
+              "downStatusAgentCount": 3,
+              "UP_-_not_listed_in_agentlist_properties_Agents": [
+                "cclidisb.homedepot.com",
+                "HDProcessMiscEOCUpdates",
+                "HDCustomROMonitorAgent"
+              ]
+            },
+            "cclidisj.homedepot.com": {
+              "upStatusAgentCount": 24,
+              "status": "red",
+              "downStatusAgent": [
+                "HDPOMonitorAgent",
+                "HDPOReprocessAgent",
+                "HDFIUpdateServer"
+              ],
+              "UP_-_not_listed_in_agentlist_properties_count": 2,
+              "downStatusAgentCount": 3,
+              "UP_-_not_listed_in_agentlist_properties_Agents": [
+                "HealthMonitor",
+                "HDAdjustInventoryServer"
+              ]
+            },
+            "cclidisd.homedepot.com": {
+              "upStatusAgentCount": 19,
+              "status": "red",
+              "downStatusAgent": [
+                "HDConsolidateInvAgent",
+                "HDProcessBackOrderServer",
+                "HDDropShipServer"
+              ],
+              "UP_-_not_listed_in_agentlist_properties_count": 2,
+              "downStatusAgentCount": 3,
+              "UP_-_not_listed_in_agentlist_properties_Agents": [
+                "HDCustomROMonitorAgent",
+                "HDProcessMiscEOCUpdates"
+              ]
+            },
+            "cclidish.homedepot.com": {
+              "upStatusAgentCount": 24,
+              "status": "red",
+              "downStatusAgent": [
+                "HDPOReprocessAgent",
+                "HDFIUpdateServer",
+                "HDPOMonitorAgent"
+              ],
+              "UP_-_not_listed_in_agentlist_properties_count": 1,
+              "downStatusAgentCount": 3,
+              "UP_-_not_listed_in_agentlist_properties_Agents": [
+                "HDAdjustInventoryServer"
+              ]
+            },
+            "cclidis6.homedepot.com": {
+              "upStatusAgentCount": 23,
+              "status": "red",
+              "downStatusAgent": [
+                "HDConsolidateInvAgent",
+                "HDProcessBackOrderServer"
+              ],
+              "UP_-_not_listed_in_agentlist_properties_count": 3,
+              "downStatusAgentCount": 2,
+              "UP_-_not_listed_in_agentlist_properties_Agents": [
+                "cclidis6.homedepot.com",
+                "HDCustomROMonitorAgent",
+                "HDProcessMiscEOCUpdates"
+              ]
+            },
+            "cclidise.homedepot.com": {
+              "upStatusAgentCount": 19,
+              "status": "red",
+              "downStatusAgent": [
+                "HDConsolidateInvAgent",
+                "HDProcessBackOrderServer",
+                "HDDropShipServer"
+              ],
+              "UP_-_not_listed_in_agentlist_properties_count": 4,
+              "downStatusAgentCount": 3,
+              "UP_-_not_listed_in_agentlist_properties_Agents": [
+                "HDPostOfflineOrder",
+                "HDProcessOrderUpdatesServer",
+                "HDProcessMiscEOCUpdates",
+                "HDCustomROMonitorAgent"
+              ]
+            },
+            "cclidisg.homedepot.com": {
+              "upStatusAgentCount": 24,
+              "status": "red",
+              "downStatusAgent": [
+                "HDFIUpdateServer",
+                "HDPOMonitorAgent",
+                "HDPOReprocessAgent"
+              ],
+              "UP_-_not_listed_in_agentlist_properties_count": 1,
+              "downStatusAgentCount": 3,
+              "UP_-_not_listed_in_agentlist_properties_Agents": [
+                "HDAdjustInventoryServer"
+              ]
+            },
+            "cclidis1.homedepot.com": {
+              "upStatusAgentCount": 24,
+              "status": "red",
+              "downStatusAgent": [
+                "HDFIUpdateServer",
+                "HDPOReprocessAgent",
+                "HDProcessOrderUpdatesServer"
+              ],
+              "UP_-_not_listed_in_agentlist_properties_count": 2,
+              "downStatusAgentCount": 3,
+              "UP_-_not_listed_in_agentlist_properties_Agents": [
+                "HDAdjustInventoryServer",
+                "cclidis1.homedepot.com"
+              ]
+            },
+            "cclidisi.homedepot.com": {
+              "upStatusAgentCount": 24,
+              "status": "red",
+              "downStatusAgent": [
+                "HDPOMonitorAgent",
+                "HDPOReprocessAgent",
+                "HDFIUpdateServer"
+              ],
+              "UP_-_not_listed_in_agentlist_properties_count": 1,
+              "downStatusAgentCount": 3,
+              "UP_-_not_listed_in_agentlist_properties_Agents": [
+                "HDAdjustInventoryServer"
+              ]
+            },
+            "cclidis5.homedepot.com": {
+              "upStatusAgentCount": 24,
+              "status": "red",
+              "downStatusAgent": [
+                "HDPOMonitorAgent",
+                "HDFIUpdateServer",
+                "HDPOReprocessAgent"
+              ],
+              "UP_-_not_listed_in_agentlist_properties_count": 2,
+              "downStatusAgentCount": 3,
+              "UP_-_not_listed_in_agentlist_properties_Agents": [
+                "cclidis5.homedepot.com",
+                "HDAdjustInventoryServer"
+              ]
+            },
+            "cclidis3.homedepot.com": {
+              "upStatusAgentCount": 24,
+              "status": "red",
+              "downStatusAgent": [
+                "HDFIUpdateServer",
+                "HDPOReprocessAgent",
+                "HDPOMonitorAgent"
+              ],
+              "UP_-_not_listed_in_agentlist_properties_count": 2,
+              "downStatusAgentCount": 3,
+              "UP_-_not_listed_in_agentlist_properties_Agents": [
+                "HDAdjustInventoryServer",
+                "cclidis3.homedepot.com"
+              ]
+            },
+            "cclidis8.homedepot.com": {
+              "upStatusAgentCount": 19,
+              "status": "red",
+              "downStatusAgent": [
+                "HDDropShipServer",
+                "HDProcessBackOrderServer",
+                "HDConsolidateInvAgent"
+              ],
+              "UP_-_not_listed_in_agentlist_properties_count": 3,
+              "downStatusAgentCount": 3,
+              "UP_-_not_listed_in_agentlist_properties_Agents": [
+                "HDProcessMiscEOCUpdates",
+                "HDCustomROMonitorAgent",
+                "cclidis8.homedepot.com"
+              ]
+            },
+            "cclidisf.homedepot.com": {
+              "upStatusAgentCount": 19,
+              "status": "red",
+              "downStatusAgent": [
+                "HDDropShipServer",
+                "HDConsolidateInvAgent",
+                "HDProcessBackOrderServer"
+              ],
+              "UP_-_not_listed_in_agentlist_properties_count": 2,
+              "downStatusAgentCount": 3,
+              "UP_-_not_listed_in_agentlist_properties_Agents": [
+                "HDCustomROMonitorAgent",
+                "HDProcessMiscEOCUpdates"
+              ]
+            },
+            "cclidis7.homedepot.com": {
+              "upStatusAgentCount": 22,
+              "status": "red",
+              "downStatusAgent": [
+                "HDDropShipServer",
+                "HDProcessBackOrderServer",
+                "HDConsolidateInvAgent"
+              ],
+              "UP_-_not_listed_in_agentlist_properties_count": 3,
+              "downStatusAgentCount": 3,
+              "UP_-_not_listed_in_agentlist_properties_Agents": [
+                "HDCustomROMonitorAgent",
+                "HDProcessMiscEOCUpdates",
+                "cclidis7.homedepot.com"
+              ]
+            },
+            "cclidis2.homedepot.com": {
+              "upStatusAgentCount": 23,
+              "status": "red",
+              "downStatusAgent": [
+                "HDProcessOrderUpdatesServer",
+                "HDFIUpdateServer",
+                "HDPOMonitorAgent",
+                "HDPOReprocessAgent"
+              ],
+              "UP_-_not_listed_in_agentlist_properties_count": 2,
+              "downStatusAgentCount": 4,
+              "UP_-_not_listed_in_agentlist_properties_Agents": [
+                "HDAdjustInventoryServer",
+                "cclidis2.homedepot.com"
+              ]
+            },
+            "cclidis9.homedepot.com": {
+              "upStatusAgentCount": 19,
+              "status": "red",
+              "downStatusAgent": [
+                "HDProcessBackOrderServer",
+                "HDConsolidateInvAgent",
+                "HDDropShipServer"
+              ],
+              "UP_-_not_listed_in_agentlist_properties_count": 2,
+              "downStatusAgentCount": 3,
+              "UP_-_not_listed_in_agentlist_properties_Agents": [
+                "HDCustomROMonitorAgent",
+                "HDProcessMiscEOCUpdates"
+              ]
+            }
+          }
         }
       ]
     }

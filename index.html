@@ -19,8 +19,7 @@
 <link href="css/c3.min.css" rel="stylesheet" type="text/css" />
 <!-- Loading Flat UI -->
 <link href="css/flat-ui.css" rel="stylesheet">
-<link rel="stylesheet" href="css/pure-min.css">
-<link rel="stylesheet" href="css/grids-responsive-min.css">
+
 
 <body>
     <div id="container" ng-controller="homeController">
@@ -95,7 +94,7 @@
                         </li>
                         <li ng-click="openComponent('Messaging')" ng-class="(tabItem == 'Messaging') ? 'todo-done':''">
                             <div class="todo-icon">
-                                <i class="fa fa-2x fa-hdd-o" aria-hidden="true"></i>
+                                <i class="fa fa-2x fa-list-alt" aria-hidden="true"></i>
                             </div>
                             <div class="todo-content">
                                 <h4 class="todo-name">
@@ -180,7 +179,8 @@
                         <div class="tile" ng-click="openComponent('db')">
                             <h4 class="demo-panel-title white">Database</h4>
                             <div id="donutchartForDBMainDash" style="width: 100%; height: 250px;">
-                                <loading></loading>
+                           
+                               <loading></loading>
                             </div>
                         </div>
                     </div>
@@ -263,7 +263,37 @@
                     </div>
                 </div>
                 <div class="row dbContents" ng-show="showItem == 'db'">
-                    <div class="displaynone" id="dbSRed">
+                    
+                    <div class="col-xs-4 centerText" id="dbSGreen">
+                        <h4 >Sterling DB</h4>
+                        <div>
+                            <c3chart bindto-id="sterlingDB-chart" chart-data="sterlingDbDonutsPts" chart-columns="pieColumns" sort-data="null">
+                                <chart-legend show-legend="true" />
+                                <chart-pie expand="true" width="60" show-label="true" title="delta" />
+                            </c3chart>
+                        </div>
+                    </div>
+                    <div class="col-xs-4 centerText" id="dbCGreen">
+                        <h4>ODS DB</h4>
+                        <div>
+                            <c3chart bindto-id="odsDB-chart" chart-data="odsDbDonutsPts" chart-columns="pieColumns" sort-data="null">
+                                <chart-legend show-legend="true" />
+                                <chart-pie expand="true" width="60" show-label="true" title="delta" />
+                            </c3chart>
+                        </div>
+                    </div>
+                    <div class="ggReplicationChart col-xs-4" id="ggReplication">
+                        <h4 class="centerText">GG Replication</h4>
+                        <h6 class="countQueue ng-binding centerText" style="margin-top:8px">[ Lag time ]</h6>
+                        <c3chart bindto-id="ggReplication-gauge-chart" chart-data="ggReplicaGaugePts" chart-columns="ggReplicaGaugeColumn">
+                            <chart-gauge min="0" max="180" units=" mins" width="40" label-format-function="formatDonut" />
+                        </c3chart>
+
+                       
+                        <h6 class="threshold">Green -  30 mins, Amber - 30-90 mins, Red -  90 mins</h6>
+                    </div>
+ <div class="col-xs-12">&nbsp;</div>
+    <div class="displaynone" id="dbSRed" style="margin-top:20px">
                         <div class="col-xs-12">
                             <h4 class="centerText">Sterling DB</h4>
                             <b class="smallB">Long Running Sessions ( &gt; 3 mins )</b>
@@ -320,7 +350,7 @@
                             </table>
                         </div>
                     </div>
-                    <div class="displaynone" id="dbCRed">
+                    <div class="displaynone" id="dbCRed" style="margin-top:20px">
                         <div class="col-xs-12">
                             <h4 class="centerText">ODS DB</h4>
                             <b class="smallB">Long Running Sessions ( &gt; 3 mins )</b>
@@ -352,34 +382,7 @@
                             </table>
                         </div>
                     </div>
-                    <div class="col-xs-6 centerText" id="dbSGreen">
-                        <h4 >Sterling DB</h4>
-                        <div>
-                            <c3chart bindto-id="sterlingDB-chart" chart-data="sterlingDbDonutsPts" chart-columns="pieColumns" sort-data="null">
-                                <chart-legend show-legend="true" />
-                                <chart-pie expand="true" width="60" show-label="true" title="delta" />
-                            </c3chart>
-                        </div>
-                    </div>
-                    <div class="col-xs-6 centerText" id="dbCGreen">
-                        <h4>ODS DB</h4>
-                        <div>
-                            <c3chart bindto-id="odsDB-chart" chart-data="odsDbDonutsPts" chart-columns="pieColumns" sort-data="null">
-                                <chart-legend show-legend="true" />
-                                <chart-pie expand="true" width="60" show-label="true" title="delta" />
-                            </c3chart>
-                        </div>
-                    </div>
-                    <div class="ggReplicationChart col-xs-6" id="ggReplication">
-                        <h4 class="centerText">GG Replication</h4>
-                        <h6 class="countQueue ng-binding centerText" style="margin-top:8px">[ Lag time ]</h6>
-                        <c3chart bindto-id="ggReplication-gauge-chart" chart-data="ggReplicaGaugePts" chart-columns="ggReplicaGaugeColumn">
-                            <chart-gauge min="0" max="180" units=" mins" width="40" label-format-function="formatDonut" />
-                        </c3chart>
 
-                       
-                        <h6 class="threshold">Green -  30 mins, Amber - 30-90 mins, Red -  90 mins</h6>
-                    </div>
                 </div>
                 <div class="row storesContents" ng-show="showItem == 'Stores'">
                     <div class="col-xs-6 centerText">

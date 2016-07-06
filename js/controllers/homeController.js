@@ -286,8 +286,19 @@ angular.module('myApp.controllers', [])
                 legend: { position: 'none' },
             };
 
-            var dbChart = new google.visualization.PieChart(document.getElementById('donutchartForDBMainDash'));
-            dbChart.draw(dbData, dbOptions);
+
+                
+
+
+          //  var dbChart = new google.visualization.PieChart(document.getElementById('donutchartForDBMainDash'));
+          $("#donutchartForDBMainDash").html('<i class="fa fa-10x fa-database" aria-hidden="true" id="dbChart"></i>');
+            //dbChart.draw(dbData, dbOptions);
+                if($scope.dbUpStatus)
+                $("#dbChart").addClass("GREEN_COLOR");
+                else if($scope.dbWarnStatus)
+                $("#dbChart").addClass("CARROT_COLOR");
+                else if($scope.dbDownStatus)
+                $("#dbChart").addClass("RED_COLOR");
             //DB
 
             //MQ
@@ -329,8 +340,19 @@ angular.module('myApp.controllers', [])
                 legend: { position: 'none' },
             };
 
-            var mqChart = new google.visualization.PieChart(document.getElementById('donutchartForMQMainDash'));
-            mqChart.draw(mqData, mqOptions);
+            //var mqChart = new google.visualization.PieChart(document.getElementById('donutchartForMQMainDash'));
+            //mqChart.draw(mqData, mqOptions);
+
+            $("#donutchartForMQMainDash").html('<i class="fa fa-10x fa-list-alt" aria-hidden="true" id="mqChart"></i>');
+            //dbChart.draw(dbData, dbOptions);
+                if($scope.mqUpStatus)
+                $("#mqChart").addClass("GREEN_COLOR");
+                else if($scope.mqWarnStatus)
+                $("#mqChart").addClass("CARROT_COLOR");
+                else if($scope.mqDownStatus)
+                $("#mqChart").addClass("RED_COLOR");
+
+
             //MQ
         };
 
@@ -729,7 +751,7 @@ angular.module('myApp.controllers', [])
                     sterlingDbAmber = sterlingDbCount;
                 } else {
                     sterlingDbRed = sterlingDbCount;
-                    $("#dbSGreen").hide();
+                    //$("#dbSGreen").hide();
                     $("#dbSRed").show();
                     design = 1;
 
@@ -752,7 +774,7 @@ angular.module('myApp.controllers', [])
                     odsDbAmber = odsDbCount;
                 } else {
                     odsDbRed = odsDbCount;
-                    $("#dbCGreen").hide();
+                    //$("#dbCGreen").hide();
                     $("#dbCRed").show();
                     design2=1;
                     $scope.longSessionsCOM = dbInfo.DB.components[2].comDB.components[0].longRunningSessions.sessions;

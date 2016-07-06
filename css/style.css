@@ -55,6 +55,17 @@ table td, table th{font-size: 13px !important}
     margin-bottom: 10px
 }*/
 
+.GREEN_COLOR
+{
+color:#58d68d;
+}
+.CARROT_COLOR{
+color:#e67e22;
+}
+.RED_COLOR{
+color:#e74c3c;
+}
+.fa-10x{font-size: 180px !important; margin-top: 30px}
 .todo li.todo-done:after,
 .todo li:after {
     display: none
