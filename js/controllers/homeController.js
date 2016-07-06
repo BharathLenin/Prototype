@@ -493,15 +493,13 @@ angular.module('myApp.controllers', [])
                 var probeFailureCountRed = probeFailureCount[1].serverCount;
 
                 $scope.probeFailureCountDonutsPts = [{
-                    "Green": probeFailureCountGreen,
-                    "Red": probeFailureCountRed
+                    "Count < 0": probeFailureCountGreen,
+                    "Count > 0": probeFailureCountRed
                 }];
 
-                $scope.probeFailureCountDonutColumns = [{ "id": "Green", "type": "donut", "color": GREEN_COLOR },
-                    { "id": "Red", "type": "donut", "color": RED_COLOR }
+                $scope.probeFailureCountDonutColumns = [{ "id": "Count < 0", "type": "donut", "color": GREEN_COLOR },
+                    { "id": "Count > 0", "type": "donut", "color": RED_COLOR }
                 ];
-
-
             }
 
 

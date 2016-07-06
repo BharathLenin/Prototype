@@ -217,9 +217,9 @@
                             <h4>Space availability</h4>
                             <div class="">
                                 <c3chart bindto-id="spaceAvailabiityCount-chart">
-                                    <chart-column column-id="Red" column-values="70" column-type="pie" column-color="#e74c3c" />
-                                    <chart-column column-id="Amber" column-values="35" column-type="pie" column-color="#e67e22" />
-                                    <chart-column column-id="Green" column-values="60" column-type="pie" column-color="#2ecc71" />
+                                    <chart-column column-id="Availability > 80" column-values="70" column-type="pie" column-color="#e74c3c" />
+                                    <chart-column column-id="60 < Availability < 80" column-values="35" column-type="pie" column-color="#e67e22" />
+                                    <chart-column column-id="Availability < 60" column-values="60" column-type="pie" column-color="#2ecc71" />
                                     <chart-pie expand="true" />
                                 </c3chart>
                             </div>
@@ -256,7 +256,7 @@
                     <div class="batchSessionChart">
                         <h4 class="centerText">Batch Session</h4>
                         <c3chart bindto-id="batchSession-gauge-chart" chart-data="batchSessionGaugePts" chart-columns="batchSessionGaugeColumn">
-                            <chart-gauge min="0" max="12000" units=" count" width="40" label-format-function="formatDonut" />
+                            <chart-gauge min="0" max="12000" units=" sessions" width="40" label-format-function="formatDonut" />
                         </c3chart>
                         <h6 class="guageQueue">Pending supply loader batch sessions</h6>
                         <h6 class="threshold">Green - Session < 5000, Amber - 5000 < Session < 10000, Red - Session > 10000</h6>
