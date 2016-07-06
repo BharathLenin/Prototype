@@ -477,16 +477,15 @@ angular.module('myApp.controllers', [])
                 var connectionCountRed = connectionCount[2].serverCount;
 
                 $scope.connectionCountDonutsPts = [{
-                    "Green": connectionCountGreen,
-                    "Amber": connectionCountAmber,
-                    "Red": connectionCountRed
+                    "Count < 80": connectionCountGreen,
+                    "Count btw 80 & 120": connectionCountAmber,
+                    "Count > 120": connectionCountRed
                 }];
 
-                $scope.connectionCountDonutColumns = [{ "id": "Green", "type": "donut", "color": GREEN_COLOR },
-                    { "id": "Amber", "type": "donut", "color": CARROT_COLOR },
-                    { "id": "Red", "type": "donut", "color": RED_COLOR }
+                $scope.connectionCountDonutColumns = [{ "id": "Count < 80", "type": "donut", "color": GREEN_COLOR },
+                    { "id": "Count btw 80 & 120", "type": "donut", "color": CARROT_COLOR },
+                    { "id": "Count > 120", "type": "donut", "color": RED_COLOR }
                 ];
-
 
                 /* Probe Failure*/
                 var probeFailureCount = sterlingInfo.sterling.components[1].probefailure;
