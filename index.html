@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="en" ng-app="myApp">
-<!-- Loading scripts -->
+<!-- Loading scratcipts -->
 <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
 <script src="js/lib/d3.min.js" charset="utf-8"></script>
 <script src="js/lib/c3.min.js"></script>
@@ -198,22 +198,18 @@
                         <div class="col-xs-4" style="text-align:center !important">
                             <h4 class="">Connection Counts</h4>
                             <div class="">
-                                <c3chart bindto-id="connectionCount-chart">
-                                    <chart-column column-id="Red" column-values="70" column-type="donut" column-color="#e74c3c" />
-                                    <chart-column column-id="Amber" column-values="35" column-type="donut" column-color="#e67e22" />
-                                    <chart-column column-id="Green" column-values="60" column-type="donut" column-color="#2ecc71" />
-                                    <chart-donut title="" width="60" />
+                                <c3chart bindto-id="connectionCount-chart" chart-data="connectionCountDonutsPts" chart-columns="connectionCountDonutColumns" sort-data="null">
+                                    <chart-legend show-legend="true" />
+                                    <chart-donut expand="true" width="60" show-label="true" title="" label-format-function="formatDonut" />
                                 </c3chart>
                             </div>
                         </div>
                         <div class="col-xs-4 centerText">
                             <h4 class="">Probe Failure</h4>
                             <div class="">
-                                <c3chart bindto-id="probeFailure-chart">
-                                    <chart-column column-id="Red" column-values="70" column-type="pie" column-color="#e74c3c" />
-                                    <chart-column column-id="Amber" column-values="35" column-type="pie" column-color="#e67e22" />
-                                    <chart-column column-id="Green" column-values="60" column-type="pie" column-color="#2ecc71" />
-                                    <chart-pie expand="true" />
+                                <c3chart bindto-id="probeFailure-chart" chart-data="probeFailureCountDonutsPts" chart-columns="probeFailureCountDonutColumns" sort-data="null">
+                                    <chart-legend show-legend="true" />
+                                    <chart-donut expand="true" width="60" show-label="true" title="" label-format-function="formatDonut" />
                                 </c3chart>
                             </div>
                         </div>
@@ -263,6 +259,7 @@
                             <chart-gauge min="0" max="12000" units=" count" width="40" label-format-function="formatDonut" />
                         </c3chart>
                         <h6 class="guageQueue">Pending supply loader batch sessions</h6>
+                        <h6 class="threshold">Green - Session < 5000, Amber - 5000 < Session < 10000, Red - Session > 10000</h6>
                     </div>
                 </div>
                 <div class="row dbContents" ng-show="showItem == 'db'">
@@ -428,6 +425,7 @@
                             <chart-gauge min="0" max="100000" units=" messages" width="40" label-format-function="formatDonut" />
                         </c3chart>
                         <h6 class="guageQueue">Current transit Q depth {{transmitQueueDepth}} in {{transmitQueueCount}} queues</h6>
+                        <h6 class="threshold">Green - Queue < 2500, Amber - 2500 < Queue < 8000, Red - Queue > 8000</h6>                        
                     </div>
                 </div>
             </div>

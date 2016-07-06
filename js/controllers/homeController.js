@@ -1,24 +1,21 @@
 angular.module('myApp.controllers', [])
-.directive('loading', function () {
-      return {
-        restrict: 'E',
-        replace:true,
-        template: '<div class="loading"><img src="https://lh3.googleusercontent.com/-w-BTWObAuOk/V3aCcE7qqYI/AAAAAAAAOEM/w_0xxNvv0BASTvi8aL86hWkvoEpnPxIMACCo/s162/ripple%2B%25282%2529.gif" width="162px" height="162px" /></div>',
-        link: function (scope, element, attr) {
-              scope.$watch('loading', function (val) {
-             
-                  if(val)
-                  {
-                      $(element).fadeIn('slow');
-                  }
-                  else
-                  {
-                      $(element).fadeOut('slow');
-                  }
-              });
+    .directive('loading', function() {
+        return {
+            restrict: 'E',
+            replace: true,
+            template: '<div class="loading"><img src="https://lh3.googleusercontent.com/-w-BTWObAuOk/V3aCcE7qqYI/AAAAAAAAOEM/w_0xxNvv0BASTvi8aL86hWkvoEpnPxIMACCo/s162/ripple%2B%25282%2529.gif" width="162px" height="162px" /></div>',
+            link: function(scope, element, attr) {
+                scope.$watch('loading', function(val) {
+
+                    if (val) {
+                        $(element).fadeIn('slow');
+                    } else {
+                        $(element).fadeOut('slow');
+                    }
+                });
+            }
         }
-      }
-  })
+    })
     .controller('homeController', function($scope, $rootScope, $http, $q, $timeout) {
 
         //Constants
@@ -30,11 +27,11 @@ angular.module('myApp.controllers', [])
         const GREEN_COLOR = '#58d68d';
         const CARROT_COLOR = '#e67e22';
         const BLACK_COLOR = '#000';
-        const SUN_COLOR='#F1C40F';
-        const V_COLOR='#8E44AD';
-        const RIVER_COLOR='#3498DB';
-        const SEA_COLOR='#16A085';
-        const SILVER_COLOR='#BDC3C7';
+        const SUN_COLOR = '#F1C40F';
+        const V_COLOR = '#8E44AD';
+        const RIVER_COLOR = '#3498DB';
+        const SEA_COLOR = '#16A085';
+        const SILVER_COLOR = '#BDC3C7';
 
         $scope.showItem = 'Main';
         $scope.tabItem = 'Main';
@@ -78,61 +75,50 @@ angular.module('myApp.controllers', [])
             }
         ];
 
-        $scope.donutColumnsLocal = [{ "id": "Local", "type": "donut", "color": RED_COLOR },
-            {
-                "id": "Online",
-                "type": "donut",
-                "color": GREEN_COLOR
-            }
-        ];
+        $scope.donutColumnsLocal = [{ "id": "Local", "type": "donut", "color": RED_COLOR }, {
+            "id": "Online",
+            "type": "donut",
+            "color": GREEN_COLOR
+        }];
 
         $scope.pieColumns = [
-        { "id": "Red", "type": "pie", "color": RED_COLOR },
-            { "id": "Amber", "type": "pie", "color": CARROT_COLOR }, 
-            {
+            { "id": "Red", "type": "pie", "color": RED_COLOR },
+            { "id": "Amber", "type": "pie", "color": CARROT_COLOR }, {
                 "id": "Green",
                 "type": "pie",
                 "color": GREEN_COLOR
             }
         ];
 
-          $scope.unpieColumns = [
-        { "id": "E", "type": "pie", "color": RED_COLOR },
-            { "id": "F", "type": "pie", "color": CARROT_COLOR }, 
-            {
+        $scope.unpieColumns = [
+            { "id": "E", "type": "pie", "color": RED_COLOR },
+            { "id": "F", "type": "pie", "color": CARROT_COLOR }, {
                 "id": "N",
                 "type": "pie",
                 "color": GREEN_COLOR
-            },
-            {
+            }, {
                 "id": "P",
                 "type": "pie",
                 "color": SUN_COLOR
-            },
-            {
+            }, {
                 "id": "A",
                 "type": "pie",
                 "color": SEA_COLOR
-            },
-             {
+            }, {
                 "id": "L",
                 "type": "pie",
                 "color": RIVER_COLOR
-            },
-             {
+            }, {
                 "id": "M",
                 "type": "pie",
                 "color": V_COLOR
             },
 
-             {
+            {
                 "id": "X",
                 "type": "pie",
                 "color": SILVER_COLOR
             }
-
-
-
         ];
 
         $scope.formatDonut = function(value, ratio, id) {
@@ -145,7 +131,7 @@ angular.module('myApp.controllers', [])
         countDowner = function() {
 
 
-// $scope.countDown_text=datetime
+            // $scope.countDown_text=datetime
             /*
             if (countDown < 0) {
                 $("#warning").fadeOut(2000);
@@ -158,14 +144,14 @@ angular.module('myApp.controllers', [])
             }
             */
         };
-         var currentdate = new Date(); 
-var datetime =  currentdate.getHours() + ":"  + currentdate.getMinutes() ;
+        var currentdate = new Date();
+        var datetime = currentdate.getHours() + ":" + currentdate.getMinutes();
 
-        $('.countDown_text').html(datetime) ;
+        $('.countDown_text').html(datetime);
         //countDowner()
 
         $scope.initializeChartForMainDashboard = function() {
-            
+
 
             //Sterling - MainDashboard
             var storeData = google.visualization.arrayToDataTable([
@@ -180,7 +166,7 @@ var datetime =  currentdate.getHours() + ":"  + currentdate.getMinutes() ;
                 pieHole: 0.5,
                 pieSliceTextStyle: {
                     color: "#ffffff",
-                    fontSize:18
+                    fontSize: 18
                 },
                 'backgroundColor': 'transparent',
 
@@ -196,22 +182,22 @@ var datetime =  currentdate.getHours() + ":"  + currentdate.getMinutes() ;
                     }
                 },
 
-        chartArea: { 
-            left: 5, 
-            top: 5, 
-            width: '130%', 
-            height: '65%'
-        },
+                chartArea: {
+                    left: 5,
+                    top: 5,
+                    width: '130%',
+                    height: '65%'
+                },
                 fill: 'transparent',
-legend: { position: 'none' },
-                
+                legend: { position: 'none' },
+
 
                 is3D: false,
                 // width: 600,
                 // height: 300,
                 pieSliceText: 'value',
                 //localStrCount
-                height:350
+                height: 350
             };
 
 
@@ -232,7 +218,7 @@ legend: { position: 'none' },
                 pieHole: 0.5,
                 pieSliceTextStyle: {
                     color: "#ffffff",
-                    fontSize:18
+                    fontSize: 18
                 },
                 'backgroundColor': 'transparent',
 
@@ -247,15 +233,15 @@ legend: { position: 'none' },
                         color: RED_COLOR
                     }
                 },
-                 chartArea: { 
-            left: 5, 
-            top: 5, 
-            width: '130%', 
-            height: '65%'
-        },
+                chartArea: {
+                    left: 5,
+                    top: 5,
+                    width: '130%',
+                    height: '65%'
+                },
                 fill: 'transparent',
-                height:350,
-               legend: { position: 'none' },
+                height: 350,
+                legend: { position: 'none' },
             };
 
             var comChart = new google.visualization.PieChart(document.getElementById('donutchartForComMainDash'));
@@ -274,7 +260,7 @@ legend: { position: 'none' },
                 pieHole: 0.5,
                 pieSliceTextStyle: {
                     color: "#ffffff",
-                    fontSize:18
+                    fontSize: 18
                 },
                 'backgroundColor': 'transparent',
 
@@ -290,14 +276,14 @@ legend: { position: 'none' },
                     }
                 },
                 // fill: 'transparent',
-                 chartArea: { 
-            left: 5, 
-            top: 5, 
-            width: '130%', 
-            height: '65%'
-        },
-                height:350,
-               legend: { position: 'none' },
+                chartArea: {
+                    left: 5,
+                    top: 5,
+                    width: '130%',
+                    height: '65%'
+                },
+                height: 350,
+                legend: { position: 'none' },
             };
 
             var dbChart = new google.visualization.PieChart(document.getElementById('donutchartForDBMainDash'));
@@ -317,7 +303,7 @@ legend: { position: 'none' },
                 pieHole: 0.5,
                 pieSliceTextStyle: {
                     color: "#ffffff",
-                    fontSize:18
+                    fontSize: 18
                 },
                 'backgroundColor': 'transparent',
 
@@ -332,20 +318,20 @@ legend: { position: 'none' },
                         color: RED_COLOR
                     }
                 },
-                 chartArea: { 
-            left: 5, 
-            top: 5, 
-            width: '130%', 
-            height: '65%'
-        },
+                chartArea: {
+                    left: 5,
+                    top: 5,
+                    width: '130%',
+                    height: '65%'
+                },
                 fill: 'transparent',
-                height:350,
-               legend: { position: 'none' },
+                height: 350,
+                legend: { position: 'none' },
             };
 
             var mqChart = new google.visualization.PieChart(document.getElementById('donutchartForMQMainDash'));
             mqChart.draw(mqData, mqOptions);
-            //MQ            
+            //MQ
         };
 
 
@@ -361,7 +347,7 @@ legend: { position: 'none' },
 
             $http.get('mock/data.json').success(function(data) {
                 console.log(data);
-                 $scope.loading = false;
+                $scope.loading = false;
                 $scope.initializeSterlingMainDash();
                 initValues();
 
@@ -436,14 +422,13 @@ legend: { position: 'none' },
             $scope.loading = true;
             $http.get("http://localhost:12030/dashboard-rest/rest/data/getData?callback=121212", { timeout: 240000 })
                 .then(function successCallback(response) {
-                     $scope.loading = false;
+                    $scope.loading = false;
                     deferred.resolve(response);
                 }, function errorCallback(response) {
                     deferred.reject(response);
                 });
             return deferred.promise;
         }
-
 
 
         function formatDetails(restApiData) {
@@ -455,6 +440,8 @@ legend: { position: 'none' },
                 var storesInfo = restApiData[1];
                 var comInfo = restApiData[2];
                 var dbInfo = restApiData[3];
+                var sterlingInfo = restApiData[4];
+
             } else {
                 if (!restApiData.data) {
                     return null;
@@ -463,16 +450,64 @@ legend: { position: 'none' },
                 var storesInfo = restApiData.data[1];
                 var comInfo = restApiData.data[2];
                 var dbInfo = restApiData.data[3];
+                var sterlingInfo = restApiData.data[4];
             }
 
-            if (!restApiData) {
-                return null;
-            }
-            var messagingInfo = restApiData[0];
-            var storesInfo = restApiData[1];
-            var comInfo = restApiData[2];
-            var dbInfo = restApiData[3];
 
+            if (sterlingInfo.sterling) {
+
+                /*if (sterlingInfo.sterling.components[0].connectionCount.status == RED) {
+                    $scope.mqDownStatus = 1;
+                } else if (sterlingInfo.sterling.components[0].connectionCount.status == AMBER) {
+                    $scope.mqWarnStatus = 1;
+                } else {
+                    $scope.mqUpStatus = 1;
+                }*/
+
+                /*$scope.sterlingConnectionCountHealthStatus = 'Warning';
+                $scope.sterlingProbeHealthStatus = 'Warning';
+                $scope.sterlingSpaceHealthStatus = 'Healthy';
+                $scope.sterlingAgentHealthStatus = 'Critical';*/
+
+                /* Sterling Queue Depth */
+
+                var connectionCount = sterlingInfo.sterling.components[0].connectionCount;
+                var connectionCountGreen = connectionCount[0].serverCount;
+                var connectionCountAmber = connectionCount[1].serverCount;
+                var connectionCountRed = connectionCount[2].serverCount;
+
+                $scope.connectionCountDonutsPts = [{
+                    "Green": connectionCountGreen,
+                    "Amber": connectionCountAmber,
+                    "Red": connectionCountRed
+                }];
+
+                $scope.connectionCountDonutColumns = [{ "id": "Green", "type": "donut", "color": GREEN_COLOR },
+                    { "id": "Amber", "type": "donut", "color": CARROT_COLOR },
+                    { "id": "Red", "type": "donut", "color": RED_COLOR }
+                ];
+
+
+                /* Probe Failure*/
+                var probeFailureCount = sterlingInfo.sterling.components[1].probefailure;
+                var probeFailureCountGreen = probeFailureCount[0].serverCount;
+                var probeFailureCountRed = probeFailureCount[1].serverCount;
+
+                $scope.probeFailureCountDonutsPts = [{
+                    "Green": probeFailureCountGreen,
+                    "Red": probeFailureCountRed
+                }];
+
+                $scope.probeFailureCountDonutColumns = [{ "id": "Green", "type": "donut", "color": GREEN_COLOR },
+                    { "id": "Red", "type": "donut", "color": RED_COLOR }
+                ];
+
+
+            }
+
+
+
+            /* MQ component*/
             if (messagingInfo.messagingQueue) {
 
                 if (messagingInfo.messagingQueue.overallStatus == RED) {
@@ -481,9 +516,7 @@ legend: { position: 'none' },
                     $scope.mqWarnStatus = 1;
                 } else {
                     $scope.mqUpStatus = 1;
-
                 }
-
 
                 /* Sterling Queue Depth */
                 $scope.sterlingQueueCount = messagingInfo.messagingQueue.components[1].sterlingDepthQueue.messageQueueCount;
@@ -491,11 +524,13 @@ legend: { position: 'none' },
                 var sterlingQueueRedCount = messagingInfo.messagingQueue.components[1].sterlingDepthQueue.redlist.length;
                 var sterlingQueueGreenCount = $scope.sterlingQueueCount - (sterlingQueueAmberCount + sterlingQueueRedCount);
 
-                $scope.sterlingQueueDonutsPts = [{ "Depth < 10%": sterlingQueueGreenCount, 
-                "Depth btw 10% & 25%": sterlingQueueAmberCount, 
-                "Depth > 25%": sterlingQueueRedCount }];
+                $scope.sterlingQueueDonutsPts = [{
+                    "Depth < 10%": sterlingQueueGreenCount,
+                    "Depth btw 10% & 25%": sterlingQueueAmberCount,
+                    "Depth > 25%": sterlingQueueRedCount
+                }];
 
-                $scope.sterlingPieColumns = [{"id": "Depth < 10%","type": "pie","color": GREEN_COLOR},
+                $scope.sterlingPieColumns = [{ "id": "Depth < 10%", "type": "pie", "color": GREEN_COLOR },
                     { "id": "Depth btw 10% & 25%", "type": "pie", "color": CARROT_COLOR },
                     { "id": "Depth > 25%", "type": "pie", "color": RED_COLOR }
                 ];
@@ -505,11 +540,11 @@ legend: { position: 'none' },
                 $scope.comQueueCount = messagingInfo.messagingQueue.components[0].comDepthQueue.messageQueueCount;
                 var comQueueAmberCount = messagingInfo.messagingQueue.components[0].comDepthQueue.amberlist.length;
                 var comQueueRedCount = messagingInfo.messagingQueue.components[0].comDepthQueue.redlist.length;
-                var comQueueGreenCount =  $scope.comQueueCount - (comQueueAmberCount + comQueueRedCount);                
+                var comQueueGreenCount = $scope.comQueueCount - (comQueueAmberCount + comQueueRedCount);
 
                 $scope.comQueueDonutsPts = [{ "Depth < 10%": comQueueGreenCount, "Depth btw 10% & 25%": comQueueAmberCount, "Depth > 25%": comQueueRedCount }];
 
-                $scope.comQueuePieColumns = [{"id": "Depth < 10%","type": "pie","color": GREEN_COLOR},
+                $scope.comQueuePieColumns = [{ "id": "Depth < 10%", "type": "pie", "color": GREEN_COLOR },
                     { "id": "Depth btw 10% & 25%", "type": "pie", "color": CARROT_COLOR },
                     { "id": "Depth > 25%", "type": "pie", "color": RED_COLOR }
                 ];
@@ -534,31 +569,27 @@ legend: { position: 'none' },
                 $scope.transmitGaugeColumn = [{ "id": "Transmit Queue", "type": "gauge", "color": transmitQueue_GuageColor }];
                 $scope.transmitGaugePts = [{ "Transmit Queue": $scope.transmitQueueDepth }];
             }
-             /* Local Store calculation */
-                var localStrCount = storesInfo.stores.components[1].localStores.storeCount;
-                var localStrCountFinal=1980-localStrCount;
+            /* Local Store calculation */
+            var localStrCount = storesInfo.stores.components[1].localStores.storeCount;
+            var localStrCountFinal = 1980 - localStrCount;
 
 
             /* STORES */
             if (storesInfo.stores) {
                 if (storesInfo.stores.overallStatus == RED) {
-                   // $scope.storeDownStatus = 1;
+                    // $scope.storeDownStatus = 1;
                     $scope.storeDownStatus = localStrCountFinal;
                 } else if (storesInfo.stores.overallStatus == AMBER) {
-                   //$scope.storeWarnStatus = 1;
-                   
-                     $scope.storeWarnStatus=localStrCountFinal;
+                    //$scope.storeWarnStatus = 1;
+
+                    $scope.storeWarnStatus = localStrCountFinal;
                 } else {
 
-                   // $scope.storeUpStatus = 1;
-                     $scope.storeUpStatus = localStrCountFinal;
+                    // $scope.storeUpStatus = 1;
+                    $scope.storeUpStatus = localStrCountFinal;
                 }
 
-               
-
-
                 var localStrColor = storesInfo.stores.components[1].localStores.status;
-             
 
                 var localStoreGreen, localStoreAmber, localStoreRed = 0;
                 if (localStrCount == 0) {
@@ -580,14 +611,13 @@ legend: { position: 'none' },
                 }
 
                 localStoreGreen = localStrCountFinal;
-                $scope.localStoreDonutsPts = [{ "Online": localStoreGreen,  "Local": localStoreAmber }];
+                $scope.localStoreDonutsPts = [{ "Online": localStoreGreen, "Local": localStoreAmber }];
 
                 /* Unsynced delta's*/
                 var unSyncDeltaCount = storesInfo.stores.components[0].unSyncDeltas.messageQueueCount;
                 var unSyncDeltaColor = storesInfo.stores.components[0].unSyncDeltas.status;
 
                 var unSyncDeltaCountPerState = storesInfo.stores.components[0].unSyncDeltas.deltaCountPerState;
-
 
 
                 var unSyncDeltaGreen, unSyncDeltaAmber, unSyncDeltaRed = 0;
@@ -600,11 +630,17 @@ legend: { position: 'none' },
                 }
 
                 //$scope.unSyncDeltaDonutsPts = [{ "Green": unSyncDeltaGreen, "Amber": unSyncDeltaAmber, "Red": unSyncDeltaRed }];
-               
-                $scope.unSyncDeltaDonutsPts = [{ "E": unSyncDeltaCountPerState.E, 
-                "F": unSyncDeltaCountPerState.F, "P": unSyncDeltaCountPerState.P,
-                "A": unSyncDeltaCountPerState.A,"L": unSyncDeltaCountPerState.L,
-                "M": unSyncDeltaCountPerState.M,"N" : unSyncDeltaCountPerState.N, "X" : unSyncDeltaCountPerState.X }];
+
+                $scope.unSyncDeltaDonutsPts = [{
+                    "E": unSyncDeltaCountPerState.E,
+                    "F": unSyncDeltaCountPerState.F,
+                    "P": unSyncDeltaCountPerState.P,
+                    "A": unSyncDeltaCountPerState.A,
+                    "L": unSyncDeltaCountPerState.L,
+                    "M": unSyncDeltaCountPerState.M,
+                    "N": unSyncDeltaCountPerState.N,
+                    "X": unSyncDeltaCountPerState.X
+                }];
             }
 
             /* COM */
@@ -630,9 +666,9 @@ legend: { position: 'none' },
                     comOrderRed = comOrderCount;
                 }
                 $scope.comOrderDonutsPts = [{ "Up": comOrderGreen, "Down": comOrderRed }];
-                $scope.comOrderDonutColumns = [{"id": "Up","type": "donut","color": GREEN_COLOR},
+                $scope.comOrderDonutColumns = [{ "id": "Up", "type": "donut", "color": GREEN_COLOR },
                     { "id": "Down", "type": "donut", "color": RED_COLOR }
-                ];   
+                ];
 
                 /* COM INVENTORY JVM */
                 var comInventoryCount = comInfo.COM.components[1].comInventory.serverCount;
@@ -647,9 +683,9 @@ legend: { position: 'none' },
                     comInventoryRed = comInventoryCount;
                 }
                 $scope.comInventoryDonutsPts = [{ "Up": comInventoryGreen, "Down": comInventoryRed }];
-                $scope.comInventoryDonutColumns = [{"id": "Up","type": "donut","color": GREEN_COLOR},
+                $scope.comInventoryDonutColumns = [{ "id": "Up", "type": "donut", "color": GREEN_COLOR },
                     { "id": "Down", "type": "donut", "color": RED_COLOR }
-                ];  
+                ];
 
                 /* BATCH SESSION */
                 var batchSessionCount = comInfo.COM.components[2].batchSession.count;
@@ -668,6 +704,7 @@ legend: { position: 'none' },
                 $scope.batchSessionGaugePts = [{ "Batch Session": batchSessionCount }];
             }
 
+            /* DB */
             if (dbInfo.DB) {
                 if (dbInfo.DB.overallStatus == RED) {
                     $scope.dbDownStatus = 1;
@@ -680,11 +717,8 @@ legend: { position: 'none' },
                 /* Sterling DB */
                 //var sterlingDbCount = dbInfo.DB.components[0].sterlingDB.serverCount;
                 var sterlingDbColor = dbInfo.DB.components[1].sterlingDB.status;
+                var sterlingDbCount = 1;
 
-               
-               
-               var sterlingDbCount=1;
-              
                 var sterlingDbGreen = 0,
                     sterlingDbAmber = 0,
                     sterlingDbRed = 0;
@@ -698,22 +732,16 @@ legend: { position: 'none' },
                     $("#dbSGreen").hide();
                     $("#dbSRed").show();
 
-                   $scope.longSessions = dbInfo.DB.components[1].sterlingDB.components[0].longRunningSessions.sessions;
-                   $scope.blockSessions = dbInfo.DB.components[1].sterlingDB.components[1].blockingSessions.sessions;
-                   
-
-
+                    $scope.longSessions = dbInfo.DB.components[1].sterlingDB.components[0].longRunningSessions.sessions;
+                    $scope.blockSessions = dbInfo.DB.components[1].sterlingDB.components[1].blockingSessions.sessions;
                 }
                 $scope.sterlingDbDonutsPts = [{ "Green": sterlingDbGreen, "Amber": sterlingDbAmber, "Red": sterlingDbRed }];
 
                 /* ODS DB */
-               // var odsDbCount = dbInfo.DB.components[0].odsDatabase.serverCount;
+                // var odsDbCount = dbInfo.DB.components[0].odsDatabase.serverCount;
                 var odsDbColor = dbInfo.DB.components[2].comDB.status;
+                var odsDbCount = 1;
 
-
-
-                 var odsDbCount = 1;
-               
                 var odsDbGreen = 0,
                     odsDbAmber = 0,
                     odsDbRed = 0;
@@ -731,11 +759,11 @@ legend: { position: 'none' },
 
 
                 /* GG REPLICATION */
-               // var ggReplicaCount = dbInfo.DB.components[0].ggReplication.replicaTime;
-               // var ggReplicaColor = dbInfo.DB.components[2].ggReplication.status;
+                // var ggReplicaCount = dbInfo.DB.components[0].ggReplication.replicaTime;
+                // var ggReplicaColor = dbInfo.DB.components[2].ggReplication.status;
 
-                  var ggReplicaCount = dbInfo.DB.components[2].comDB.replicaTime;
-                var ggReplicaColor ='green';
+                var ggReplicaCount = dbInfo.DB.components[2].comDB.replicaTime;
+                var ggReplicaColor = 'green';
                 var ggReplica_GuageColor = GREEN_COLOR;
                 if (ggReplicaCount == 0) {
                     ggReplicaCount = 1;

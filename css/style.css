@@ -205,3 +205,10 @@ h6.guageQueue {
 .todo-done h4.todo-name {
     font-size: 22px;
 }
+
+
+h6.threshold{
+    position: relative;
+    font-size: 14px;
+    text-align: center;    
+}
