@@ -251,14 +251,14 @@
                 </h4>
                     <div class="pure-g">
                         <div class="l-box-lrg pure-u-1 pure-u-md-1-2 chartcontainer">
-                            <c3chart bindto-id="comOrder-chart" chart-data="comOrderDonutsPts" chart-columns="donutColumns" sort-data="null">
+                            <c3chart bindto-id="comOrder-chart" chart-data="comOrderDonutsPts" chart-columns="comOrderDonutColumns" sort-data="null">
                                 <chart-legend show-legend="true" />
                                 <chart-donut expand="true" width="60" show-label="true" title="Servers" label-format-function="formatDonut" />
                             </c3chart>
                         </div>
                         <div class="l-box-lrg pure-u-1 pure-u-md-1-2 chartcontainer">
                             <c3chart bindto-id="comInventory-chart" chart-data="comInventoryDonutsPts" chart-columns="donutColumns" sort-data="null">
-                                <chart-legend show-legend="false" />
+                                <chart-legend show-legend="true" />
                                 <chart-donut expand="true" width="60" show-label="true" title="Servers" label-format-function="formatDonut" />
                             </c3chart>
                         </div>
@@ -437,27 +437,31 @@
                 <div class="row messagingContents" ng-show="showItem == 'Messaging'">
                     <div class="col-xs-6 centerText">
                         <h4>COM Queue Depth</h4>
+                        <h6 class="countQueue">[ {{comQueueCount}} queues ]</h6>
                         <div>
-                            <c3chart bindto-id="comQueue-chart" chart-data="comQueueDonutsPts" chart-columns="pieColumns" sort-data="null">
+                            <c3chart bindto-id="comQueue-chart" chart-data="comQueueDonutsPts" chart-columns="comQueuePieColumns" sort-data="null">
                                 <chart-legend show-legend="true" />
-                                <chart-pie expand="true" width="60" show-label="true" title="delta" />
+                                <chart-pie expand="true" width="60" show-label="true" title="delta" label-format-function="formatDonut"/>
                             </c3chart>
                         </div>
                     </div>
                     <div class="col-xs-6 centerText">
                         <h4>Sterling Queue Depth</h4>
+                        <h6 class="countQueue">[ {{sterlingQueueCount}} queues ]</h6>
                         <div>
-                            <c3chart bindto-id="sterlingQueue-chart" chart-data="sterlingQueueDonutsPts" chart-columns="pieColumns" sort-data="null">
+                            <c3chart bindto-id="sterlingQueue-chart" chart-data="sterlingQueueDonutsPts" chart-columns="sterlingPieColumns" sort-data="null">
                                 <chart-legend show-legend="true" />
-                                <chart-pie expand="true" width="60" show-label="true" title="delta" />
+                                <chart-pie expand="true" width="60" show-label="true" title="delta" label-format-function="formatDonut" />
                             </c3chart>
                         </div>
                     </div>
-                    <div class="transmitQueueChart">
-                        <h4 class="centerText">Transmit Queues</h4>
+                    <br>
+                    <div class="col-xs-12 transmitQueueChart">
+                        <h4 class="centerText">Transmit Queue</h4>
                         <c3chart bindto-id="transmitQueue-gauge-chart" chart-data="transmitGaugePts" chart-columns="transmitGaugeColumn">
-                            <chart-gauge min="0" max="10000" units=" count" width="40" label-format-function="formatDonut" />
+                            <chart-gauge min="0" max="100000" units=" messages" width="40" label-format-function="formatDonut" />
                         </c3chart>
+                        <h6 class="transmitQueue">Current transit Q depth {{transmitQueueDepth}} in {{transmitQueueCount}} queues</h6>
                     </div>
                 </div>
             </div>

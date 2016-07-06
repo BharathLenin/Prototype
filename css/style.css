@@ -188,3 +188,16 @@ table td, table th{font-size: 13px !important}
 .floatLeft {
     margin-left: 13%;
 }
+
+
+h6.countQueue {
+    position: relative;
+    margin-top: -2%;
+    font-size: 18px;
+}
+
+h6.transmitQueue {
+    position: relative;
+    font-size: 18px;
+    text-align: center;
+}

@@ -486,48 +486,41 @@ legend: { position: 'none' },
 
 
                 /* Sterling Queue Depth */
-                var sterlingQueueCount = messagingInfo.messagingQueue.components[1].sterlingDepthQueue.messageQueueCount;
-                var sterlingQueuePercent = messagingInfo.messagingQueue.components[1].sterlingDepthQueue.messageQueuePercent;
-                var sterlingQueueColor = messagingInfo.messagingQueue.components[1].sterlingDepthQueue.status;
+                $scope.sterlingQueueCount = messagingInfo.messagingQueue.components[1].sterlingDepthQueue.messageQueueCount;
+                var sterlingQueueAmberCount = messagingInfo.messagingQueue.components[1].sterlingDepthQueue.amberlist.length;
+                var sterlingQueueRedCount = messagingInfo.messagingQueue.components[1].sterlingDepthQueue.redlist.length;
+                var sterlingQueueGreenCount = $scope.sterlingQueueCount - (sterlingQueueAmberCount + sterlingQueueRedCount);
 
-                if (sterlingQueuePercent == 0) {
-                    sterlingQueuePercent = 1; //100
-                }
+                $scope.sterlingQueueDonutsPts = [{ "Depth < 10%": sterlingQueueGreenCount, 
+                "Depth btw 10% & 25%": sterlingQueueAmberCount, 
+                "Depth > 25%": sterlingQueueRedCount }];
 
-                var sterlingQueueGreen = 0,
-                    sterlingQueueAmber = 0,
-                    sterlingQueueRed = 0;
-                if (sterlingQueueColor == GREEN) {
-                    sterlingQueueGreen = sterlingQueuePercent;
-                } else if (sterlingQueueColor == AMBER) {
-                    sterlingQueueAmber = sterlingQueuePercent;
-                } else {
-                    sterlingQueueRed = sterlingQueuePercent;
-                }
-                $scope.sterlingQueueDonutsPts = [{ "Green": sterlingQueueGreen, "Amber": sterlingQueueAmber, "Red": sterlingQueueRed }];
+                $scope.sterlingPieColumns = [{"id": "Depth < 10%","type": "pie","color": GREEN_COLOR},
+                    { "id": "Depth btw 10% & 25%", "type": "pie", "color": CARROT_COLOR },
+                    { "id": "Depth > 25%", "type": "pie", "color": RED_COLOR }
+                ];
+
 
                 /* COM Queue Depth */
-                var comQueueCount = messagingInfo.messagingQueue.components[0].comDepthQueue.messageQueueCount;
-                var comQueuePercent = messagingInfo.messagingQueue.components[0].comDepthQueue.messageQueuePercent;
-                var comQueueColor = messagingInfo.messagingQueue.components[0].comDepthQueue.status;
+                $scope.comQueueCount = messagingInfo.messagingQueue.components[0].comDepthQueue.messageQueueCount;
+                var comQueueAmberCount = messagingInfo.messagingQueue.components[0].comDepthQueue.amberlist.length;
+                var comQueueRedCount = messagingInfo.messagingQueue.components[0].comDepthQueue.redlist.length;
+                var comQueueGreenCount =  $scope.comQueueCount - (comQueueAmberCount + comQueueRedCount);                
 
-                var comQueueGreen = 0,
-                    comQueueAmber = 0,
-                    comQueueRed = 0;
-                if (comQueueColor == GREEN) {
-                    comQueueGreen = comQueuePercent;
-                } else if (comQueueColor == AMBER) {
-                    comQueueAmber = comQueuePercent;
-                } else {
-                    comQueueRed = comQueuePercent;
-                }
-                $scope.comQueueDonutsPts = [{ "Green": comQueueGreen, "Amber": comQueueAmber, "Red": comQueueRed }];
+                $scope.comQueueDonutsPts = [{ "Depth < 10%": comQueueGreenCount, "Depth btw 10% & 25%": comQueueAmberCount, "Depth > 25%": comQueueRedCount }];
+
+                $scope.comQueuePieColumns = [{"id": "Depth < 10%","type": "pie","color": GREEN_COLOR},
+                    { "id": "Depth btw 10% & 25%", "type": "pie", "color": CARROT_COLOR },
+                    { "id": "Depth > 25%", "type": "pie", "color": RED_COLOR }
+                ];
+
 
 
                 /* Transmit Queue */
-                var transmitQueueCount = messagingInfo.messagingQueue.components[2].transmitQueue.messageQueueCount;
+                $scope.transmitQueueCount = messagingInfo.messagingQueue.components[2].transmitQueue.messageQueueCount;
                 var transmitQueuePercent = messagingInfo.messagingQueue.components[2].transmitQueue.messageQueuePercent;
                 var transmitQueueColor = messagingInfo.messagingQueue.components[2].transmitQueue.status;
+                $scope.transmitQueueDepth = messagingInfo.messagingQueue.components[2].transmitQueue.currTxQDepth;
                 var transmitQueue_GuageColor = GREEN_COLOR;
 
                 if (transmitQueueColor == GREEN) {
@@ -539,7 +532,7 @@ legend: { position: 'none' },
                 }
 
                 $scope.transmitGaugeColumn = [{ "id": "Transmit Queue", "type": "gauge", "color": transmitQueue_GuageColor }];
-                $scope.transmitGaugePts = [{ "Transmit Queue": transmitQueueCount }];
+                $scope.transmitGaugePts = [{ "Transmit Queue": $scope.transmitQueueDepth }];
             }
              /* Local Store calculation */
                 var localStrCount = storesInfo.stores.components[1].localStores.storeCount;
@@ -638,7 +631,10 @@ legend: { position: 'none' },
                 } else {
                     comOrderRed = comOrderCount;
                 }
-                $scope.comOrderDonutsPts = [{ "Green": comOrderGreen, "Amber": comOrderAmber, "Red": comOrderRed }];
+                $scope.comOrderDonutsPts = [{ "Up": comOrderGreen, "Down": comOrderRed }];
+                $scope.comOrderDonutColumns = [{"id": "Up","type": "pie","color": GREEN_COLOR},
+                    { "id": "Down", "type": "pie", "color": RED_COLOR }
+                ];                
 
                 /* COM INVENTORY JVM */
                 var comInventoryCount = comInfo.COM.components[1].comInventory.serverCount;
