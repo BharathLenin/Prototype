@@ -719,6 +719,9 @@ angular.module('myApp.controllers', [])
                 var sterlingDbColor = dbInfo.DB.components[1].sterlingDB.status;
                 var sterlingDbCount = 1;
 
+                var design, design2=0;
+
+
                 var sterlingDbGreen = 0,
                     sterlingDbAmber = 0,
                     sterlingDbRed = 0;
@@ -731,6 +734,7 @@ angular.module('myApp.controllers', [])
                     sterlingDbRed = sterlingDbCount;
                     $("#dbSGreen").hide();
                     $("#dbSRed").show();
+                    design = 1;
 
                     $scope.longSessions = dbInfo.DB.components[1].sterlingDB.components[0].longRunningSessions.sessions;
                     $scope.blockSessions = dbInfo.DB.components[1].sterlingDB.components[1].blockingSessions.sessions;
@@ -753,9 +757,16 @@ angular.module('myApp.controllers', [])
                     odsDbRed = odsDbCount;
                     $("#dbCGreen").hide();
                     $("#dbCRed").show();
+                    design2=1;
                     $scope.longSessionsCOM = dbInfo.DB.components[2].comDB.components[0].longRunningSessions.sessions;
                 }
                 $scope.odsDbDonutsPts = [{ "Green": odsDbGreen, "Amber": odsDbAmber, "Red": odsDbRed }];
+
+
+                if(design2 && design)
+                {
+                    $("#ggReplication").removeClass("col-xs-6").addClass("col-xs-12");
+                }
 
 
                 /* GG REPLICATION */

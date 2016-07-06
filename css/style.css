@@ -8,6 +8,7 @@ h2{font-size: 42px !important}
 #container {
     padding: 10px
 }
+.smallB{font-size: 14px; display: block;margin-bottom: 10px}
 .topHeader{
     margin-bottom: 20px;
         background-color: #eff0f2;
