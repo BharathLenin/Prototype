@@ -362,7 +362,7 @@ angular.module('myApp.controllers', [])
             angular.element(document.querySelectorAll(".chartcontainer")).css('display', 'block');
         });
 
-        $scope.mockDB = 0;
+        $scope.mockDB = 1;
 
         if ($scope.mockDB) {
             $scope.loading = true;
@@ -761,7 +761,15 @@ angular.module('myApp.controllers', [])
                     $scope.longSessions = dbInfo.DB.components[1].sterlingDB.components[0].longRunningSessions.sessions;
                     $scope.blockSessions = dbInfo.DB.components[1].sterlingDB.components[1].blockingSessions.sessions;
                 }
-                $scope.sterlingDbDonutsPts = [{ "Green": sterlingDbGreen, "Amber": sterlingDbAmber, "Red": sterlingDbRed }];
+
+                $scope.sterlingDbDonutsPts = [{
+                    "No Blocking locks, Long running queries": sterlingDbGreen,
+                    "Blocking locks, Long running queries": sterlingDbRed
+                }];
+
+                $scope.sterlingDbColumns = [{ "id": "No Blocking locks, Long running queries", "type": "pie", "color": GREEN_COLOR },
+                    { "id": "Blocking locks, Long running queries", "type": "pie", "color": RED_COLOR }
+                ];
 
                 /* ODS DB */
                 // var odsDbCount = dbInfo.DB.components[0].odsDatabase.serverCount;
@@ -782,7 +790,16 @@ angular.module('myApp.controllers', [])
                     design2=1;
                     $scope.longSessionsCOM = dbInfo.DB.components[2].comDB.components[0].longRunningSessions.sessions;
                 }
-                $scope.odsDbDonutsPts = [{ "Green": odsDbGreen, "Amber": odsDbAmber, "Red": odsDbRed }];
+                // $scope.odsDbDonutsPts = [{ "Green": odsDbGreen, "Amber": odsDbAmber, "Red": odsDbRed }];
+
+                $scope.odsDbDonutsPts = [{
+                    "No Blocking locks, Long running queries": odsDbGreen,
+                    "Blocking locks, Long running queries": odsDbRed
+                }];
+
+                $scope.odsDbColumns = [{ "id": "No Blocking locks, Long running queries", "type": "pie", "color": GREEN_COLOR },
+                    { "id": "Blocking locks, Long running queries", "type": "pie", "color": RED_COLOR }
+                ];
 
 
                 if(design2 && design)
