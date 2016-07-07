@@ -210,7 +210,7 @@ mid='PM';
                 is3D: false,
                 // width: 600,
                 // height: 300,
-                pieSliceText: 'value',
+               pieSliceText: 'label',
                 //localStrCount
                 height: 350
             };
@@ -257,6 +257,7 @@ mid='PM';
                 fill: 'transparent',
                 height: 350,
                 legend: { position: 'none' },
+                pieSliceText: 'label'
             };
 
             var comChart = new google.visualization.PieChart(document.getElementById('donutchartForComMainDash'));
