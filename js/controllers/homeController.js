@@ -500,12 +500,12 @@ angular.module('myApp.controllers', [])
 
                 $scope.connectionCountDonutsPts = [{
                     "Count < 80": connectionCountGreen,
-                    "Count btw 80 & 120": connectionCountAmber,
+                    "80 < Count < 120": connectionCountAmber,
                     "Count > 120": connectionCountRed
                 }];
 
                 $scope.connectionCountDonutColumns = [{ "id": "Count < 80", "type": "donut", "color": GREEN_COLOR },
-                    { "id": "Count btw 80 & 120", "type": "donut", "color": CARROT_COLOR },
+                    { "id": "80 < Count < 120", "type": "donut", "color": CARROT_COLOR },
                     { "id": "Count > 120", "type": "donut", "color": RED_COLOR }
                 ];
 
@@ -545,12 +545,12 @@ angular.module('myApp.controllers', [])
 
                 $scope.sterlingQueueDonutsPts = [{
                     "Depth < 10%": sterlingQueueGreenCount,
-                    "Depth btw 10% & 25%": sterlingQueueAmberCount,
+                    "10% < Depth < 25%": sterlingQueueAmberCount,
                     "Depth > 25%": sterlingQueueRedCount
                 }];
 
                 $scope.sterlingPieColumns = [{ "id": "Depth < 10%", "type": "pie", "color": GREEN_COLOR },
-                    { "id": "Depth btw 10% & 25%", "type": "pie", "color": CARROT_COLOR },
+                    { "id": "10% < Depth < 25%", "type": "pie", "color": CARROT_COLOR },
                     { "id": "Depth > 25%", "type": "pie", "color": RED_COLOR }
                 ];
 
@@ -561,10 +561,10 @@ angular.module('myApp.controllers', [])
                 var comQueueRedCount = messagingInfo.messagingQueue.components[0].comDepthQueue.redlist.length;
                 var comQueueGreenCount = $scope.comQueueCount - (comQueueAmberCount + comQueueRedCount);
 
-                $scope.comQueueDonutsPts = [{ "Depth < 10%": comQueueGreenCount, "Depth btw 10% & 25%": comQueueAmberCount, "Depth > 25%": comQueueRedCount }];
+                $scope.comQueueDonutsPts = [{ "Depth < 10%": comQueueGreenCount, "10% < Depth < 25%": comQueueAmberCount, "Depth > 25%": comQueueRedCount }];
 
                 $scope.comQueuePieColumns = [{ "id": "Depth < 10%", "type": "pie", "color": GREEN_COLOR },
-                    { "id": "Depth btw 10% & 25%", "type": "pie", "color": CARROT_COLOR },
+                    { "id": "10% < Depth < 25%", "type": "pie", "color": CARROT_COLOR },
                     { "id": "Depth > 25%", "type": "pie", "color": RED_COLOR }
                 ];
 
