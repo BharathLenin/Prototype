@@ -407,7 +407,8 @@ angular.module('myApp.controllers', [])
             $scope.showItem = item;
             $scope.tabItem = item;
             setTimeout(function() {
-                if (document.createEvent) { // W3C
+                 $(window).trigger('resize');
+                /*if (document.createEvent) { // W3C
                     var ev = document.createEvent('Event');
                     ev.initEvent('resize', true, true);
                     window.dispatchEvent(ev);
@@ -415,8 +416,9 @@ angular.module('myApp.controllers', [])
                     element = document.documentElement;
                     var event = document.createEventObject();
                     element.fireEvent("onresize", event);
-                }
-            }, 50);
+                }*/
+            }, 10);
+            
         };
 
         $scope.choseHealthColor = function(tabStatus) {
