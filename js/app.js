@@ -10,6 +10,6 @@ google.setOnLoadCallback(function() {
 
 angular.module('myApp', [
 	'gridshore.c3js.chart',
-	'chart.js',
+	//'chart.js',
     'myApp.controllers'
 ])

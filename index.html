@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en" ng-app="myApp">
 <!-- Loading scratcipts -->
-<script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+
 <script src="js/lib/d3.min.js" charset="utf-8"></script>
 <script src="js/lib/c3.min.js"></script>
 <script src="js/lib/angular.min.js"></script>
@@ -15,7 +15,8 @@
 <link href="css/bootstrap.min.css" rel="stylesheet">
 <!-- Load app stlye sheet -->
 <link rel="stylesheet" type="text/css" href="css/style.css">
-<link rel="stylesheet" href="bower_components/font-awesome-animation/dist/font-awesome-animation.min.css">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+
 <link href="css/c3.min.css" rel="stylesheet" type="text/css" />
 <!-- Loading Flat UI -->
 <link href="css/flat-ui.css" rel="stylesheet">
@@ -194,37 +195,38 @@
                     </div>
                 </div>
                 <div class="row sterlingContents" ng-show="showItem == 'Sterling'">
-                    <div>
-                        <div class="col-xs-4" style="text-align:center !important">
+                   
+                        <div class="col-xs-4 centerText" >
                             <h4 class="">Connection Counts</h4>
-                            <div class="">
+                            
                                 <c3chart bindto-id="connectionCount-chart" chart-data="connectionCountDonutsPts" chart-columns="connectionCountDonutColumns" sort-data="null">
                                     <chart-legend show-legend="true" />
-                                    <chart-donut expand="true" width="60" show-label="true" title="" label-format-function="formatDonut" />
+                                    <chart-donut expand="true" show-label="true" title="" label-format-function="formatDonut" />
                                 </c3chart>
-                            </div>
+                            
                         </div>
-                        <div class="col-xs-4 centerText">
+                              <div class="col-xs-4 centerText">
                             <h4 class="">Probe Failure</h4>
-                            <div class="">
+                            
                                 <c3chart bindto-id="probeFailure-chart" chart-data="probeFailureCountDonutsPts" chart-columns="probeFailureCountDonutColumns" sort-data="null">
                                     <chart-legend show-legend="true" />
                                     <chart-donut expand="true" width="60" show-label="true" title="" label-format-function="formatDonut" />
                                 </c3chart>
-                            </div>
+                            
                         </div>
                         <div class="col-xs-4 centerText">
                             <h4>Space availability</h4>
-                            <div class="">
+                            
                                 <c3chart bindto-id="spaceAvailabiityCount-chart">
                                     <chart-column column-id="Availability > 80" column-values="70" column-type="pie" column-color="#e74c3c" />
                                     <chart-column column-id="60 < Availability < 80" column-values="35" column-type="pie" column-color="#e67e22" />
                                     <chart-column column-id="Availability < 60" column-values="60" column-type="pie" column-color="#2ecc71" />
                                     <chart-pie expand="true" />
                                 </c3chart>
-                            </div>
+                            
                         </div>
-                    </div>
+                  
+                   
                     <div class="col-xs-12" style="margin-top:15px">
                         <h4 class="demo-panel-title">Agents</h4>
                         <c3chart bindto-id="stacked-bar-plot1-chart" style="width: 100%; height: 250px;">
@@ -443,7 +445,7 @@
             <small>More saving. More doing.&#174;</small>
         </div>
     </div>
-    <script src="https://use.fontawesome.com/a75f07affe.js"></script>
+
     <script src="js/app.js"></script>
     <script src="js/controllers/homeController.js"></script>
 </body>
