@@ -145,9 +145,24 @@ angular.module('myApp.controllers', [])
             */
         };
         var currentdate = new Date();
-        var datetime = currentdate.getHours() + ":" + currentdate.getMinutes();
 
-        $('.countDown_text').html(datetime);
+        var hours=currentdate.getHours();
+var mid='AM';
+if(hours==0){ //At 00 hours we need to show 12 am
+hours=12;
+}
+else if(hours>12)
+{
+hours=hours%12;
+mid='PM';
+}
+
+        var datetime = currentdate.getHours() + ":" + currentdate.getMinutes() +" "+ mid;
+
+
+
+
+       // $('.countDown_text').html(datetime);
         //countDowner()
 
         $scope.initializeChartForMainDashboard = function() {

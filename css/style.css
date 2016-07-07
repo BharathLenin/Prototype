@@ -71,7 +71,9 @@ color:#e74c3c;
     display: none
 }
 .centerText{text-align: center !important;}
-#refresh{margin-top: 30px}
+#refresh{    margin-top: 30px;
+    font-size: 14px;
+    text-align: right;}
 .pallete-item {
     width: 90% !important;
 }
