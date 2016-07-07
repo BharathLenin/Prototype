@@ -362,7 +362,7 @@ angular.module('myApp.controllers', [])
             angular.element(document.querySelectorAll(".chartcontainer")).css('display', 'block');
         });
 
-        $scope.mockDB = 1;
+        $scope.mockDB = 0;
 
         if ($scope.mockDB) {
             $scope.loading = true;
@@ -442,7 +442,8 @@ angular.module('myApp.controllers', [])
         function fetch() {
             var deferred = $q.defer();
             $scope.loading = true;
-            $http.get("http://localhost:12030/dashboard-rest/rest/data/getData?callback=121212", { timeout: 240000 })
+            // $http.get("http://localhost:12030/dashboard-rest/rest/data/getData?callback=121212", { timeout: 240000 })
+            $http.get("http://c9100970e5ef9bf:8085/dashboard-rest/rest/data/getData", { timeout: 240000 })
                 .then(function successCallback(response) {
                     $scope.loading = false;
                     deferred.resolve(response);
