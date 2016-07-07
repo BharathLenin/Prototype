@@ -222,12 +222,15 @@
                    
                     <div class="col-xs-12" style="margin-top:15px">
                         <h4 class="demo-panel-title">Agents</h4>
-                        <c3chart bindto-id="stacked-bar-plot1-chart" style="width: 100%; height: 250px;">
+                        <div c3="chart"></div>
+<!--                         <c3chart bindto-id="stacked-bar-plot1-chart" style="width: 100%; height: 250px;">
                             <chart-column column-id="data 1" column-name="Agent Down" column-color="#e74c3c" column-values="30,2,10,4,10,5,12,12,4" column-type="bar" />
-                            <chart-column column-id="data 2" column-name="Agent Up" column-color="#2ecc71" column-values="50,20,10,40,15,25,122,122,12" column-type="bar" />
+                            <chart-column column-id="data 2" column-name="Agent Up" column-color="#2ecc71" column-values="50,20,10,40,15,25,22,12,12" column-type="bar" />
                             <chart-group group-values="data 1,data 2" />
                         </c3chart>
-                    </div>
+ -->                    </div>
+
+
                 </div>
                 <div class="row comContents" ng-show="showItem == 'Com'">
                     <div class="col-xs-6 centerText">
@@ -443,6 +446,9 @@
 <script src="js/lib/c3.min.js"></script>
 <script src="js/lib/angular.min.js"></script>
 <script src="js/lib/jquery-1.9.1.min.js"></script>
+
+<script src="js/lib/angular-c3.js"></script>
+
 <script src="js/lib/c3-angular.min.js"></script>
 <script src="node_modules/chart.js/dist/Chart.min.js"></script>
 <script src="node_modules/angular-chart.js/dist/angular-chart.min.js"></script>

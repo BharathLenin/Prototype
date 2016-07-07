@@ -9,6 +9,7 @@ google.setOnLoadCallback(function() {
 });
 
 angular.module('myApp', [
+	'c3',
 	'gridshore.c3js.chart',
 	//'chart.js',
     'myApp.controllers'

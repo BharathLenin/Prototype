@@ -18,6 +18,37 @@ angular.module('myApp.controllers', [])
     })
     .controller('homeController', function($scope, $rootScope, $http, $q, $timeout) {
 
+
+  $scope.chart = {
+    data: {
+        x : 'x',
+        columns: [
+            // ['x', 'cclidis0', 'www.somesitename2.com', 'www.somesitename3.com', 'www.somesitename4.com', 'www.somesitename5.com', 'www.somesitename6.com', 'www.somesitename7.com', 'www.somesitename8.com', 'www.somesitename9.com', 'www.somesitename10.com', 'www.somesitename11.com', 'www.somesitename12.com'],
+            ['x','cclidis0', 'cclidis1', 'cclidis2', 'cclidis3', 'cclidis4', 'cclidis5', 'cclidis6', 'cclidis7', 'cclidis8', 'cclidisa', 'cclidisb', 'cclidisc'],
+            ['Agent Up', 90, 100, 140, 200, 100, 400, 90, 100, 140, 200, 100, 400],
+            ['Agent Down', 910, 1010, 1140, 200, 100, 400, 90, 100, 140, 200, 100, 400],
+        ],
+        type: 'bar',
+        colors: {
+            'Agent Up': '#58d68d',
+            'Agent Down': '#e74c3c'
+        },
+         groups: [
+            ['Agent Up', 'Agent Down']
+        ]
+    },
+    axis: {
+        x: {
+            type: 'category',
+            tick: {
+                rotate: 75,
+                multiline: false
+            },
+            height: 130
+        }
+    }    
+  };
+
         //Constants
         const RED = "red";
         const AMBER = "amber";
