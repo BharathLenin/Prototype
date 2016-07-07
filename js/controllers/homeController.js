@@ -54,9 +54,9 @@ angular.module('myApp.controllers', [])
         $scope.dbWarnStatus = 0;
 
         $scope.initializeSterlingMainDash = function() {
-            $scope.sterlingConnectionCountHealthStatus = 'Warning'; //green
-            $scope.sterlingProbeHealthStatus = 'Warning'; //Amber
-            $scope.sterlingSpaceHealthStatus = 'Healthy'; //Red
+            $scope.sterlingConnectionCountHealthStatus = 'Healthy'; //green
+            $scope.sterlingProbeHealthStatus = 'Healthy'; //Amber
+            $scope.sterlingSpaceHealthStatus = 'Warning'; //Red
             $scope.sterlingAgentHealthStatus = 'Critical'; //Red
         }
 
