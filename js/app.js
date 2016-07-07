@@ -5,7 +5,7 @@ google.load('visualization', '1', {
 });
 
 google.setOnLoadCallback(function() {
-  angular.bootstrap(document.body, ['myApp']);
+  //angular.bootstrap(document.body, ['myApp']);
 });
 
 angular.module('myApp', [

@@ -408,7 +408,7 @@ angular.module('myApp.controllers', [])
             $scope.tabItem = item;
             setTimeout(function() {
                  $(window).trigger('resize');
-                /*if (document.createEvent) { // W3C
+                if (document.createEvent) { // W3C
                     var ev = document.createEvent('Event');
                     ev.initEvent('resize', true, true);
                     window.dispatchEvent(ev);
@@ -416,7 +416,7 @@ angular.module('myApp.controllers', [])
                     element = document.documentElement;
                     var event = document.createEventObject();
                     element.fireEvent("onresize", event);
-                }*/
+                }
             }, 10);
             
         };
